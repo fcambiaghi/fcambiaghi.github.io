@@ -275,12 +275,64 @@
 
         // Conexão e Inicialização do Firebase
         async function initializeState(forceReset = false) {
+            //if (!forceReset) {
+            //    try {
+            //        const dbRef = ref(db);
+            //        const snapshot = await get(child(dbRef, DB_NODE));
+            //        if (snapshot.exists()) {
+            //            state = snapshot.val();
+            //            renderApp();
+            //            showToast("Dados carregados da nuvem com sucesso!", "info");
+            //            return;
+            //        }
+            //    } catch (e) {
+            //        console.error("Erro ao ler do Firebase, criando novo estado...", e);
+            //    }
+            //}
             if (!forceReset) {
                 try {
                     const dbRef = ref(db);
                     const snapshot = await get(child(dbRef, DB_NODE));
                     if (snapshot.exists()) {
-                        state = snapshot.val();
+                        let loadedState = snapshot.val();
+
+                        // --- INÍCIO DA CORREÇÃO: NORMALIZADOR DO FIREBASE ---
+                        // O Firebase exclui chaves com valor 'null'. Precisamos recriá-las para a matemática do HTML não receber 'undefined' e gerar 'NaN'.
+
+                        // 1. Normaliza placares dos Grupos
+                        ['A', 'B', 'C', 'D', 'E', 'F', 'G', 'H', 'I', 'J', 'K', 'L'].forEach(g => {
+                            if (loadedState.groups[g]) {
+                                loadedState.groups[g].matches.forEach(m => {
+                                    if (m.scoreA === undefined) m.scoreA = null;
+                                    if (m.scoreB === undefined) m.scoreB = null;
+                                });
+                            }
+                        });
+
+                        // 2. Normaliza placares do Mata-Mata
+                        ['R32', 'R16', 'QF', 'SF'].forEach(stage => {
+                            if (loadedState.knockout[stage]) {
+                                loadedState.knockout[stage].forEach(m => {
+                                    if (m.scoreA === undefined) m.scoreA = null;
+                                    if (m.scoreB === undefined) m.scoreB = null;
+                                    if (m.penA === undefined) m.penA = null;
+                                    if (m.penB === undefined) m.penB = null;
+                                });
+                            }
+                        });
+
+                        // 3. Normaliza placares das Finais
+                        ['thirdPlace', 'final'].forEach(stage => {
+                            if (loadedState.knockout[stage]) {
+                                if (loadedState.knockout[stage].scoreA === undefined) loadedState.knockout[stage].scoreA = null;
+                                if (loadedState.knockout[stage].scoreB === undefined) loadedState.knockout[stage].scoreB = null;
+                                if (loadedState.knockout[stage].penA === undefined) loadedState.knockout[stage].penA = null;
+                                if (loadedState.knockout[stage].penB === undefined) loadedState.knockout[stage].penB = null;
+                            }
+                        });
+                        // --- FIM DA CORREÇÃO ---
+
+                        state = loadedState;
                         renderApp();
                         showToast("Dados carregados da nuvem com sucesso!", "info");
                         return;
