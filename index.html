@@ -43,7 +43,6 @@
     </script>
 
     <style>
-        /* Custom Scrollbar */
         ::-webkit-scrollbar {
             width: 6px;
             height: 6px;
@@ -62,23 +61,19 @@
                 background: #10b981;
             }
 
-        /* Chrome, Safari, Edge, Opera spin buttons removal */
         input::-webkit-outer-spin-button,
         input::-webkit-inner-spin-button {
             -webkit-appearance: none;
             margin: 0;
         }
 
-        /* Firefox */
         input[type=number] {
             -moz-appearance: textfield;
         }
 
-        /* Glassmorphism utility */
         .glass-card {
             background: rgba(30, 41, 59, 0.45);
             backdrop-filter: blur(12px);
-            -webkit-backdrop-filter: blur(12px);
             border: 1px solid rgba(255, 255, 255, 0.05);
         }
 
@@ -101,32 +96,23 @@
         <div class="max-w-7xl mx-auto px-4 py-6 sm:px-6 lg:px-8 relative z-10 flex flex-col md:flex-row items-center justify-between gap-4">
             <div class="flex items-center gap-3">
                 <div class="bg-gradient-to-br from-amber-400 to-amber-600 p-2.5 rounded-xl shadow-lg shadow-amber-500/20">
-                    <svg class="w-8 h-8 text-copaNavy-dark" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"
-                         xmlns="http://www.w3.org/2000/svg">
+                    <svg class="w-8 h-8 text-copaNavy-dark" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
                         <path stroke-linecap="round" stroke-linejoin="round" d="M12 15a3 3 0 100-6 3 3 0 000 6z"></path>
-                        <path stroke-linecap="round" stroke-linejoin="round"
-                              d="M19.5 8.25l-1.5 1.5M4.5 8.25l1.5 1.5M9.75 3h4.5M9 21h6M12 17v4m-6-9.75h12c0 2.25-1.5 4.5-4.5 4.5s-4.5-2.25-4.5-4.5z">
-                        </path>
+                        <path stroke-linecap="round" stroke-linejoin="round" d="M19.5 8.25l-1.5 1.5M4.5 8.25l1.5 1.5M9.75 3h4.5M9 21h6M12 17v4m-6-9.75h12c0 2.25-1.5 4.5-4.5 4.5s-4.5-2.25-4.5-4.5z"></path>
                     </svg>
                 </div>
                 <div>
                     <h1 class="text-2xl sm:text-3xl font-extrabold tracking-tight bg-gradient-to-r from-slate-100 via-emerald-400 to-amber-400 bg-clip-text text-transparent">
                         COPA 2026
                     </h1>
-                    <p class="text-xs text-slate-400 font-medium tracking-widest uppercase mt-0.5">
-                        Simulador de Futebol Integrado
-                    </p>
+                    <p class="text-xs text-slate-400 font-medium tracking-widest uppercase mt-0.5">Simulador de Futebol Integrado</p>
                 </div>
             </div>
 
             <div class="flex flex-wrap justify-center items-center gap-3">
-                <button onclick="resetChampionship()"
-                        class="inline-flex items-center gap-2 px-4 py-2 text-sm font-semibold rounded-xl border border-rose-500/30 bg-rose-500/10 text-rose-400 hover:bg-rose-500 hover:text-white transition-all duration-300 shadow-md hover:shadow-rose-500/20 active:scale-95">
-                    <svg class="w-4 h-4" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"
-                         xmlns="http://www.w3.org/2000/svg">
-                        <path stroke-linecap="round" stroke-linejoin="round"
-                              d="M16.023 9.348h4.992v-.001M2.985 19.644v-4.992m0 0h4.992m-4.993 0l3.181 3.183a8.25 8.25 0 0013.803-3.7M4.031 9.865a8.25 8.25 0 0113.803-3.7l3.181 3.182m0-4.991v4.99">
-                        </path>
+                <button onclick="window.resetChampionship()" class="inline-flex items-center gap-2 px-4 py-2 text-sm font-semibold rounded-xl border border-rose-500/30 bg-rose-500/10 text-rose-400 hover:bg-rose-500 hover:text-white transition-all duration-300 shadow-md hover:shadow-rose-500/20 active:scale-95">
+                    <svg class="w-4 h-4" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                        <path stroke-linecap="round" stroke-linejoin="round" d="M16.023 9.348h4.992v-.001M2.985 19.644v-4.992m0 0h4.992m-4.993 0l3.181 3.183a8.25 8.25 0 0013.803-3.7M4.031 9.865a8.25 8.25 0 0113.803-3.7l3.181 3.182m0-4.991v4.99"></path>
                     </svg>
                     Resetar Campeonato
                 </button>
@@ -137,20 +123,15 @@
     <nav class="bg-copaNavy-light/60 border-b border-slate-800/80 sticky top-0 z-40 backdrop-blur-md">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div class="flex justify-center md:justify-start space-x-6">
-                <button id="tab-grupos-btn" onclick="switchTab('grupos')"
-                        class="py-4 px-3 border-b-2 border-emerald-500 font-bold text-sm text-emerald-400 flex items-center gap-2 transition-all duration-300 hover:text-emerald-300">
+                <button id="tab-grupos-btn" onclick="window.switchTab('grupos')" class="py-4 px-3 border-b-2 border-emerald-500 font-bold text-sm text-emerald-400 flex items-center gap-2 transition-all duration-300 hover:text-emerald-300">
                     <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg">
-                        <path d="M5 3a2 2 0 00-2 2v2a2 2 0 002 2h2a2 2 0 002-2V5a2 2 0 00-2-2H5zM5 11a2 2 0 00-2 2v2a2 2 0 002 2h2a2 2 0 002-2v-2a2 2 0 00-2-2H5zM11 5a2 2 0 012-2h2a2 2 0 012 2v2a2 2 0 01-2 2h-2a2 2 0 01-2-2V5zM11 13a2 2 0 012-2h2a2 2 0 012 2v2a2 2 0 01-2 2h-2a2 2 0 01-2-2v-2z">
-                        </path>
+                        <path d="M5 3a2 2 0 00-2 2v2a2 2 0 002 2h2a2 2 0 002-2V5a2 2 0 00-2-2H5zM5 11a2 2 0 00-2 2v2a2 2 0 002 2h2a2 2 0 002-2v-2a2 2 0 00-2-2H5zM11 5a2 2 0 012-2h2a2 2 0 012 2v2a2 2 0 01-2 2h-2a2 2 0 01-2-2V5zM11 13a2 2 0 012-2h2a2 2 0 012 2v2a2 2 0 01-2 2h-2a2 2 0 01-2-2v-2z"></path>
                     </svg>
                     Fase de Grupos
                 </button>
-                <button id="tab-matamata-btn" onclick="switchTab('matamata')"
-                        class="py-4 px-3 border-b-2 border-transparent font-medium text-sm text-slate-400 flex items-center gap-2 transition-all duration-300 hover:text-slate-200">
+                <button id="tab-matamata-btn" onclick="window.switchTab('matamata')" class="py-4 px-3 border-b-2 border-transparent font-medium text-sm text-slate-400 flex items-center gap-2 transition-all duration-300 hover:text-slate-200">
                     <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg">
-                        <path fill-rule="evenodd"
-                              d="M12.586 4.586a2 2 0 112.828 2.828l-3 3a2 2 0 01-2.828 0 1 1 0 00-1.414 1.414 4 4 0 005.656 0l3-3a4 4 0 00-5.656-5.656l-1.5 1.5a1 1 0 101.414 1.414l1.5-1.5zm-5 5a2 2 0 012.828 0 1 1 0 101.414-1.414 4 4 0 00-5.656 0l-3 3a4 4 0 105.656 5.656l1.5-1.5a1 1 0 10-1.414-1.414l-1.5 1.5a2 2 0 11-2.828-2.828l3-3z"
-                              clip-rule="evenodd"></path>
+                        <path fill-rule="evenodd" d="M12.586 4.586a2 2 0 112.828 2.828l-3 3a2 2 0 01-2.828 0 1 1 0 00-1.414 1.414 4 4 0 005.656 0l3-3a4 4 0 00-5.656-5.656l-1.5 1.5a1 1 0 101.414 1.414l1.5-1.5zm-5 5a2 2 0 012.828 0 1 1 0 101.414-1.414 4 4 0 00-5.656 0l-3 3a4 4 0 105.656 5.656l1.5-1.5a1 1 0 10-1.414-1.414l-1.5 1.5a2 2 0 11-2.828-2.828l3-3z" clip-rule="evenodd"></path>
                     </svg>
                     Mata-Mata (Chaveamento)
                 </button>
@@ -163,28 +144,18 @@
         <div id="grupos-view" class="space-y-6">
 
             <div class="flex flex-col lg:flex-row gap-4 items-center justify-between bg-copaNavy-light/40 border border-slate-800 p-4 rounded-2xl">
-
-                <div class="w-full lg:w-auto flex items-center gap-2 overflow-x-auto pb-2 lg:pb-0 scroll-smooth pr-2 select-none"
-                     id="group-filter-container">
+                <div class="w-full lg:w-auto flex items-center gap-2 overflow-x-auto pb-2 lg:pb-0 scroll-smooth pr-2 select-none" id="group-filter-container">
                 </div>
-
                 <div class="flex flex-wrap gap-3 w-full lg:w-auto justify-end">
-                    <button onclick="simulateGroupStageMatches()"
-                            class="px-4 py-2 text-xs sm:text-sm font-bold bg-slate-800 border border-slate-700 text-emerald-400 hover:text-emerald-300 hover:border-emerald-500/50 rounded-xl transition-all duration-300 flex items-center gap-1.5 active:scale-95">
-                        <svg class="w-4 h-4" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"
-                             xmlns="http://www.w3.org/2000/svg">
-                            <path stroke-linecap="round" stroke-linejoin="round"
-                                  d="M19.5 12c0-1.232-.046-2.453-.138-3.662a4.006 4.006 0 00-3.7-3.7 48.656 48.656 0 00-7.324 0 4.006 4.006 0 00-3.7 3.7C4.68 9.58 4.633 10.784 4.633 12c0 1.232.047 2.453.138 3.662a4.006 4.006 0 003.7 3.7 48.656 48.656 0 007.324 0 4.006 4.006 0 003.7-3.7c.092-1.209.138-2.43.138-3.662z">
-                            </path>
+                    <button onclick="window.simulateGroupStageMatches()" class="px-4 py-2 text-xs sm:text-sm font-bold bg-slate-800 border border-slate-700 text-emerald-400 hover:text-emerald-300 hover:border-emerald-500/50 rounded-xl transition-all duration-300 flex items-center gap-1.5 active:scale-95">
+                        <svg class="w-4 h-4" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                            <path stroke-linecap="round" stroke-linejoin="round" d="M19.5 12c0-1.232-.046-2.453-.138-3.662a4.006 4.006 0 00-3.7-3.7 48.656 48.656 0 00-7.324 0 4.006 4.006 0 00-3.7 3.7C4.68 9.58 4.633 10.784 4.633 12c0 1.232.047 2.453.138 3.662a4.006 4.006 0 003.7 3.7 48.656 48.656 0 007.324 0 4.006 4.006 0 003.7-3.7c.092-1.209.138-2.43.138-3.662z"></path>
                             <path stroke-linecap="round" stroke-linejoin="round" d="M9 10.5l3 3 3-3"></path>
                         </svg>
                         Simular Grupos
                     </button>
-
-                    <button onclick="generateKnockoutFromGroups()"
-                            class="px-4 py-2 text-xs sm:text-sm font-bold bg-gradient-to-r from-emerald-500 to-teal-600 hover:from-emerald-400 hover:to-teal-500 text-copaNavy-dark rounded-xl transition-all duration-300 shadow-md shadow-emerald-500/10 flex items-center gap-1.5 active:scale-95">
-                        <svg class="w-4 h-4" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"
-                             xmlns="http://www.w3.org/2000/svg">
+                    <button onclick="window.generateKnockoutFromGroups()" class="px-4 py-2 text-xs sm:text-sm font-bold bg-gradient-to-r from-emerald-500 to-teal-600 hover:from-emerald-400 hover:to-teal-500 text-copaNavy-dark rounded-xl transition-all duration-300 shadow-md shadow-emerald-500/10 flex items-center gap-1.5 active:scale-95">
+                        <svg class="w-4 h-4" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
                             <path stroke-linecap="round" stroke-linejoin="round" d="M13 10V3L4 14h7v7l9-11h-7z"></path>
                         </svg>
                         Gerar Mata-Mata
@@ -192,1604 +163,544 @@
                 </div>
             </div>
 
-            <div id="groups-container" class="grid grid-cols-1 xl:grid-cols-2 gap-8">
-            </div>
-
+            <div id="groups-container" class="grid grid-cols-1 xl:grid-cols-2 gap-8"></div>
         </div>
 
         <div id="matamata-view" class="space-y-6 hidden">
-
             <div class="flex flex-col sm:flex-row gap-4 items-center justify-between bg-copaNavy-light/40 border border-slate-800 p-4 rounded-2xl">
                 <div class="text-left w-full sm:w-auto">
                     <h2 class="text-lg font-bold text-slate-100 flex items-center gap-2">
                         <span class="w-2.5 h-2.5 bg-amber-400 rounded-full animate-ping"></span>
                         Chaveamento de Mata-Mata
                     </h2>
-                    <p class="text-xs text-slate-400 mt-0.5">32 Seleções competindo em eliminação direta.</p>
+                    <p class="text-xs text-slate-400 mt-0.5">Nuvem Sincronizada: 32 Seleções competindo.</p>
                 </div>
-
                 <div class="flex flex-wrap gap-3 w-full sm:w-auto justify-end">
-                    <button onclick="simulateClassificadosAutomatically()"
-                            class="px-4 py-2 text-xs sm:text-sm font-bold bg-slate-800 border border-slate-700 text-amber-400 hover:text-amber-300 hover:border-amber-500/50 rounded-xl transition-all duration-300 flex items-center gap-1.5 active:scale-95">
-                        <svg class="w-4 h-4" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"
-                             xmlns="http://www.w3.org/2000/svg">
-                            <path stroke-linecap="round" stroke-linejoin="round"
-                                  d="M9.813 15.904L9 21l8.904-4.452a3 3 0 114.242-4.243L17.25 18v-4.5"></path>
+                    <button onclick="window.simulateClassificadosAutomatically()" class="px-4 py-2 text-xs sm:text-sm font-bold bg-slate-800 border border-slate-700 text-amber-400 hover:text-amber-300 hover:border-amber-500/50 rounded-xl transition-all duration-300 flex items-center gap-1.5 active:scale-95">
+                        <svg class="w-4 h-4" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                            <path stroke-linecap="round" stroke-linejoin="round" d="M9.813 15.904L9 21l8.904-4.452a3 3 0 114.242-4.243L17.25 18v-4.5"></path>
                         </svg>
                         Simular Classificados
                     </button>
-                    <button onclick="clearKnockout()"
-                            class="px-4 py-2 text-xs sm:text-sm font-bold bg-slate-800 border border-slate-700 text-rose-400 hover:text-rose-300 hover:border-rose-500/50 rounded-xl transition-all duration-300 flex items-center gap-1.5 active:scale-95">
+                    <button onclick="window.clearKnockout()" class="px-4 py-2 text-xs sm:text-sm font-bold bg-slate-800 border border-slate-700 text-rose-400 hover:text-rose-300 hover:border-rose-500/50 rounded-xl transition-all duration-300 flex items-center gap-1.5 active:scale-95">
                         Limpar Mata-Mata
                     </button>
                 </div>
             </div>
-
             <div class="block md:hidden border-b border-slate-800/80 bg-copaNavy-light/20 p-2 rounded-xl">
-                <div class="flex items-center justify-between gap-1 overflow-x-auto w-full" id="knockout-mobile-tabs">
-                </div>
+                <div class="flex items-center justify-between gap-1 overflow-x-auto w-full" id="knockout-mobile-tabs"></div>
             </div>
-
             <div class="w-full overflow-x-auto pb-6 pt-4 px-2 select-none">
-                <div id="bracket-tree-container"
-                     class="flex flex-col md:flex-row space-y-8 md:space-y-0 md:space-x-8 md:h-[1950px] min-w-max md:min-w-0">
-                </div>
+                <div id="bracket-tree-container" class="flex flex-col md:flex-row space-y-8 md:space-y-0 md:space-x-8 md:h-[1950px] min-w-max md:min-w-0"></div>
             </div>
-
         </div>
-
     </main>
 
-    <footer class="bg-copaNavy-dark border-t border-slate-800/60 py-6 text-center text-xs text-slate-500">
-        <p>Simulador Copa do Mundo FIFA 2026 • Desenvolvido com HTML5, CSS3, Tailwind CSS & JavaScript Vanilla</p>
-    </footer>
-
-    <div id="confirm-modal"
-         class="fixed inset-0 z-50 flex items-center justify-center p-4 bg-slate-950/80 backdrop-blur-sm hidden opacity-0 transition-opacity duration-300">
-        <div class="glass-card max-w-sm w-full rounded-2xl p-6 shadow-2xl border border-slate-700/60 flex flex-col gap-4 text-center transform scale-95 transition-transform duration-300"
-             id="confirm-modal-box">
-            <div class="mx-auto bg-amber-500/10 text-amber-500 p-3 rounded-full w-14 h-14 flex items-center justify-center border border-amber-500/20"
-                 id="confirm-modal-icon">
-                <svg class="w-7 h-7" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"
-                     xmlns="http://www.w3.org/2000/svg">
-                    <path stroke-linecap="round" stroke-linejoin="round"
-                          d="M12 9v3.75m-9.303 3.376c-.866 1.5.217 3.374 1.948 3.374h14.71c1.73 0 2.813-1.874 1.948-3.374L13.949 3.378c-.866-1.5-3.032-1.5-3.898 0L2.697 16.126zM12 15.75h.007v.008H12v-.008z">
-                    </path>
-                </svg>
-            </div>
+    <div id="confirm-modal" class="fixed inset-0 z-50 flex items-center justify-center p-4 bg-slate-950/80 backdrop-blur-sm hidden opacity-0 transition-opacity duration-300">
+        <div class="glass-card max-w-sm w-full rounded-2xl p-6 shadow-2xl border border-slate-700/60 flex flex-col gap-4 text-center transform scale-95 transition-transform duration-300" id="confirm-modal-box">
+            <div class="mx-auto bg-amber-500/10 text-amber-500 p-3 rounded-full w-14 h-14 flex items-center justify-center border border-amber-500/20" id="confirm-modal-icon"></div>
             <div>
                 <h3 class="text-lg font-bold text-slate-100" id="confirm-modal-title">Confirmar Ação?</h3>
-                <p class="text-xs text-slate-400 mt-2 leading-relaxed" id="confirm-modal-desc">
-                    Você tem certeza que deseja
-                    prosseguir?
-                </p>
+                <p class="text-xs text-slate-400 mt-2 leading-relaxed" id="confirm-modal-desc">Você tem certeza?</p>
             </div>
             <div class="flex gap-3 mt-2">
-                <button id="confirm-modal-cancel"
-                        class="flex-1 px-4 py-2 text-xs font-semibold rounded-xl bg-slate-800 border border-slate-700 hover:bg-slate-700 text-slate-300 hover:text-white transition-all active:scale-95">
-                    Cancelar
-                </button>
-                <button id="confirm-modal-confirm"
-                        class="flex-1 px-4 py-2 text-xs font-semibold rounded-xl transition-all active:scale-95">
-                    Confirmar
-                </button>
+                <button id="confirm-modal-cancel" class="flex-1 px-4 py-2 text-xs font-semibold rounded-xl bg-slate-800 border border-slate-700 hover:bg-slate-700 text-slate-300 hover:text-white transition-all active:scale-95">Cancelar</button>
+                <button id="confirm-modal-confirm" class="flex-1 px-4 py-2 text-xs font-semibold rounded-xl transition-all active:scale-95">Confirmar</button>
             </div>
         </div>
     </div>
 
     <div id="toast-container" class="fixed bottom-5 right-5 z-50 flex flex-col gap-2 max-w-sm w-full"></div>
 
-    <script>
+    <script type="module">
+        // 1. IMPORT FIREBASE MODULES FROM CDN
+        import { initializeApp } from "https://www.gstatic.com/firebasejs/10.12.2/firebase-app.js";
+        import { getDatabase, ref, get, child, set } from "https://www.gstatic.com/firebasejs/10.12.2/firebase-database.js";
+
+        // 2. CONFIGURAÇÃO DO SEU FIREBASE (COLE AS CHAVES DO SEU PROJETO AQUI)
+        const firebaseConfig = {
+            apiKey: "AIzaSyAJnnSPeUkG8mHq-B0OPxmg0Q7USIpdZWU",
+            authDomain: "tabelacopa2026-82688.firebaseapp.com",
+            projectId: "tabelacopa2026-82688",
+            storageBucket: "tabelacopa2026-82688.firebasestorage.app",
+            messagingSenderId: "626432121074",
+            appId: "1:626432121074:web:54457a3e16cf548082586b",
+            measurementId: "G-PSMXYK7EW2"
+        };
+
+        // Inicializa a conexão com a nuvem
+        const app = initializeApp(firebaseConfig);
+        const db = getDatabase(app);
+        const DB_NODE = "simulador/estado_atual";
+
         // State management and Data structures
         const INITIAL_GROUPS_DATA = {
-            A: [
-                { name: "México", flag: "🇲🇽", code: "MEX" },
-                { name: "África do Sul", flag: "🇿🇦", code: "RSA" },
-                { name: "Coreia do Sul", flag: "🇰🇷", code: "KOR" },
-                { name: "Tchéquia", flag: "🇨🇿", code: "CZE" }
-            ],
-            B: [
-                { name: "Canadá", flag: "🇨🇦", code: "CAN" },
-                { name: "Bósnia e Herzegovina", flag: "🇧🇦", code: "BIH" },
-                { name: "Catar", flag: "🇶🇦", code: "QAT" },
-                { name: "Suíça", flag: "🇨🇭", code: "SUI" }
-            ],
-            C: [
-                { name: "Brasil", flag: "🇧🇷", code: "BRA" },
-                { name: "Marrocos", flag: "🇲🇦", code: "MAR" },
-                { name: "Haiti", flag: "🇭🇹", code: "HAI" },
-                { name: "Escócia", flag: "🏴󠁧󠁢󠁳󠁣󠁴󠁿", code: "SCO" }
-            ],
-            D: [
-                { name: "Estados Unidos", flag: "🇺🇸", code: "USA" },
-                { name: "Paraguai", flag: "🇵🇾", code: "PAR" },
-                { name: "Austrália", flag: "🇦🇺", code: "AUS" },
-                { name: "Turquia", flag: "🇹🇷", code: "TUR" }
-            ],
-            E: [
-                { name: "Alemanha", flag: "🇩🇪", code: "GER" },
-                { name: "Curaçao", flag: "🇨🇼", code: "CUW" },
-                { name: "Costa do Marfim", flag: "🇨🇮", code: "CIV" },
-                { name: "Equador", flag: "🇪🇨", code: "ECU" }
-            ],
-            F: [
-                { name: "Holanda", flag: "🇳🇱", code: "NED" },
-                { name: "Japão", flag: "🇯🇵", code: "JPN" },
-                { name: "Suécia", flag: "🇸🇪", code: "SWE" },
-                { name: "Tunísia", flag: "🇹🇳", code: "TUN" }
-            ],
-            G: [
-                { name: "Bélgica", flag: "🇧🇪", code: "BEL" },
-                { name: "Egito", flag: "🇪🇬", code: "EGY" },
-                { name: "Irã", flag: "🇮🇷", code: "IRN" },
-                { name: "Nova Zelândia", flag: "🇳🇿", code: "NZL" }
-            ],
-            H: [
-                { name: "Espanha", flag: "🇪🇸", code: "ESP" },
-                { name: "Cabo Verde", flag: "🇨🇻", code: "CPV" },
-                { name: "Arábia Saudita", flag: "🇸🇦", code: "KSA" },
-                { name: "Uruguai", flag: "🇺🇾", code: "URU" }
-            ],
-            I: [
-                { name: "França", flag: "🇫🇷", code: "FRA" },
-                { name: "Senegal", flag: "🇸🇳", code: "SEN" },
-                { name: "Iraque", flag: "🇮🇶", code: "IRQ" },
-                { name: "Noruega", flag: "🇳🇴", code: "NOR" }
-            ],
-            J: [
-                { name: "Argentina", flag: "🇦🇷", code: "ARG" },
-                { name: "Argélia", flag: "🇩🇿", code: "ALG" },
-                { name: "Áustria", flag: "🇦🇹", code: "AUT" },
-                { name: "Jordânia", flag: "🇯🇴", code: "JOR" }
-            ],
-            K: [
-                { name: "Portugal", flag: "🇵🇹", code: "POR" },
-                { name: "RD Congo", flag: "🇨🇩", code: "COD" },
-                { name: "Uzbequistão", flag: "🇺🇿", code: "UZB" },
-                { name: "Colômbia", flag: "🇨🇴", code: "COL" }
-            ],
-            L: [
-                { name: "Inglaterra", flag: "🏴󠁧󠁢󠁥󠁮󠁧󠁿", code: "ENG" },
-                { name: "Croácia", flag: "🇭🇷", code: "CRO" },
-                { name: "Gana", flag: "🇬🇭", code: "GHA" },
-                { name: "Panamá", flag: "🇵🇦", code: "PAN" }
-            ]
+            A: [{ name: "México", flag: "🇲🇽", code: "MEX" }, { name: "África do Sul", flag: "🇿🇦", code: "RSA" }, { name: "Coreia do Sul", flag: "🇰🇷", code: "KOR" }, { name: "Tchéquia", flag: "🇨🇿", code: "CZE" }],
+            B: [{ name: "Canadá", flag: "🇨🇦", code: "CAN" }, { name: "Bósnia e Herzegovina", flag: "🇧🇦", code: "BIH" }, { name: "Catar", flag: "🇶🇦", code: "QAT" }, { name: "Suíça", flag: "🇨🇭", code: "SUI" }],
+            C: [{ name: "Brasil", flag: "🇧🇷", code: "BRA" }, { name: "Marrocos", flag: "🇲🇦", code: "MAR" }, { name: "Haiti", flag: "🇭🇹", code: "HAI" }, { name: "Escócia", flag: "🏴󠁧󠁢󠁳󠁣󠁴󠁿", code: "SCO" }],
+            D: [{ name: "Estados Unidos", flag: "🇺🇸", code: "USA" }, { name: "Paraguai", flag: "🇵🇾", code: "PAR" }, { name: "Austrália", flag: "🇦🇺", code: "AUS" }, { name: "Turquia", flag: "🇹🇷", code: "TUR" }],
+            E: [{ name: "Alemanha", flag: "🇩🇪", code: "GER" }, { name: "Curaçao", flag: "🇨🇼", code: "CUW" }, { name: "Costa do Marfim", flag: "🇨🇮", code: "CIV" }, { name: "Equador", flag: "🇪🇨", code: "ECU" }],
+            F: [{ name: "Holanda", flag: "🇳🇱", code: "NED" }, { name: "Japão", flag: "🇯🇵", code: "JPN" }, { name: "Suécia", flag: "🇸🇪", code: "SWE" }, { name: "Tunísia", flag: "🇹🇳", code: "TUN" }],
+            G: [{ name: "Bélgica", flag: "🇧🇪", code: "BEL" }, { name: "Egito", flag: "🇪🇬", code: "EGY" }, { name: "Irã", flag: "🇮🇷", code: "IRN" }, { name: "Nova Zelândia", flag: "🇳🇿", code: "NZL" }],
+            H: [{ name: "Espanha", flag: "🇪🇸", code: "ESP" }, { name: "Cabo Verde", flag: "🇨🇻", code: "CPV" }, { name: "Arábia Saudita", flag: "🇸🇦", code: "KSA" }, { name: "Uruguai", flag: "🇺🇾", code: "URU" }],
+            I: [{ name: "França", flag: "🇫🇷", code: "FRA" }, { name: "Senegal", flag: "🇸🇳", code: "SEN" }, { name: "Iraque", flag: "🇮🇶", code: "IRQ" }, { name: "Noruega", flag: "🇳🇴", code: "NOR" }],
+            J: [{ name: "Argentina", flag: "🇦🇷", code: "ARG" }, { name: "Argélia", flag: "🇩🇿", code: "ALG" }, { name: "Áustria", flag: "🇦🇹", code: "AUT" }, { name: "Jordânia", flag: "🇯🇴", code: "JOR" }],
+            K: [{ name: "Portugal", flag: "🇵🇹", code: "POR" }, { name: "RD Congo", flag: "🇨🇩", code: "COD" }, { name: "Uzbequistão", flag: "🇺🇿", code: "UZB" }, { name: "Colômbia", flag: "🇨🇴", code: "COL" }],
+            L: [{ name: "Inglaterra", flag: "🏴󠁧󠁢󠁥󠁮󠁧󠁿", code: "ENG" }, { name: "Croácia", flag: "🇭🇷", code: "CRO" }, { name: "Gana", flag: "🇬🇭", code: "GHA" }, { name: "Panamá", flag: "🇵🇦", code: "PAN" }]
         };
 
         const KNOCKOUT_PLACEHOLDERS = {
             R32: [
-                { teamA: "1º Grupo E", teamB: "3º ABCDF (T1)" },     // J73 - SF1
-                { teamA: "1º Grupo I", teamB: "3º CDFGH (T2)" },     // J74 - SF2
-                { teamA: "2º Grupo A", teamB: "2º Grupo B" },        // J75 - SF3
-                { teamA: "1º Grupo F", teamB: "2º Grupo C" },        // J76 - SF4
-                { teamA: "2º Grupo K", teamB: "2º Grupo L" },        // J77 - SF5
-                { teamA: "1º Grupo H", teamB: "2º Grupo J" },        // J78 - SF6
-                { teamA: "1º Grupo D", teamB: "3º BEFIJ (T3)" },     // J79 - SF7
-                { teamA: "1º Grupo G", teamB: "3º AEHIJ (T4)" },     // J80 - SF8
-                { teamA: "1º Grupo C", teamB: "2º Grupo F" },        // J81 - SF9
-                { teamA: "2º Grupo E", teamB: "2º Grupo I" },        // J82 - SF10
-                { teamA: "1º Grupo A", teamB: "3º CEFHI (T5)" },     // J83 - SF11
-                { teamA: "1º Grupo L", teamB: "3º EHIJK (T6)" },     // J84 - SF12
-                { teamA: "1º Grupo J", teamB: "2º Grupo H" },        // J85 - SF13
-                { teamA: "2º Grupo D", teamB: "2º Grupo G" },        // J86 - SF14
-                { teamA: "1º Grupo B", teamB: "3º EFGIJ (T7)" },     // J87 - SF15
-                { teamA: "1º Grupo K", teamB: "3º DEIJL (T8)" }      // J88 - SF16
+                { teamA: "1º Grupo E", teamB: "3º ABCDF (T1)" }, { teamA: "1º Grupo I", teamB: "3º CDFGH (T2)" }, { teamA: "2º Grupo A", teamB: "2º Grupo B" }, { teamA: "1º Grupo F", teamB: "2º Grupo C" },
+                { teamA: "2º Grupo K", teamB: "2º Grupo L" }, { teamA: "1º Grupo H", teamB: "2º Grupo J" }, { teamA: "1º Grupo D", teamB: "3º BEFIJ (T3)" }, { teamA: "1º Grupo G", teamB: "3º AEHIJ (T4)" },
+                { teamA: "1º Grupo C", teamB: "2º Grupo F" }, { teamA: "2º Grupo E", teamB: "2º Grupo I" }, { teamA: "1º Grupo A", teamB: "3º CEFHI (T5)" }, { teamA: "1º Grupo L", teamB: "3º EHIJK (T6)" },
+                { teamA: "1º Grupo J", teamB: "2º Grupo H" }, { teamA: "2º Grupo D", teamB: "2º Grupo G" }, { teamA: "1º Grupo B", teamB: "3º EFGIJ (T7)" }, { teamA: "1º Grupo K", teamB: "3º DEIJL (T8)" }
             ],
             R16: [
-                { teamA: "Vencedor J73", teamB: "Vencedor J74" }, // J89 - O1
-                { teamA: "Vencedor J75", teamB: "Vencedor J76" }, // J90 - O2
-                { teamA: "Vencedor J77", teamB: "Vencedor J78" }, // J91 - O3
-                { teamA: "Vencedor J79", teamB: "Vencedor J80" }, // J92 - O4
-                { teamA: "Vencedor J81", teamB: "Vencedor J82" }, // J93 - O5
-                { teamA: "Vencedor J83", teamB: "Vencedor J84" }, // J94 - O6
-                { teamA: "Vencedor J85", teamB: "Vencedor J86" }, // J95 - O7
-                { teamA: "Vencedor J87", teamB: "Vencedor J88" }  // J96 - O8
+                { teamA: "Vencedor J73", teamB: "Vencedor J74" }, { teamA: "Vencedor J75", teamB: "Vencedor J76" }, { teamA: "Vencedor J77", teamB: "Vencedor J78" }, { teamA: "Vencedor J79", teamB: "Vencedor J80" },
+                { teamA: "Vencedor J81", teamB: "Vencedor J82" }, { teamA: "Vencedor J83", teamB: "Vencedor J84" }, { teamA: "Vencedor J85", teamB: "Vencedor J86" }, { teamA: "Vencedor J87", teamB: "Vencedor J88" }
             ],
             QF: [
-                { teamA: "Vencedor J89", teamB: "Vencedor J90" }, // J97 - Q1
-                { teamA: "Vencedor J91", teamB: "Vencedor J92" }, // J98 - Q2
-                { teamA: "Vencedor J93", teamB: "Vencedor J94" }, // J99 - Q3
-                { teamA: "Vencedor J95", teamB: "Vencedor J96" }  // J100 - Q4
+                { teamA: "Vencedor J89", teamB: "Vencedor J90" }, { teamA: "Vencedor J91", teamB: "Vencedor J92" }, { teamA: "Vencedor J93", teamB: "Vencedor J94" }, { teamA: "Vencedor J95", teamB: "Vencedor J96" }
             ],
-            SF: [
-                { teamA: "Vencedor J97", teamB: "Vencedor J98" }, // J101 - Semi1
-                { teamA: "Vencedor J99", teamB: "Vencedor J100" } // J102 - Semi2
-            ],
-            thirdPlace: { teamA: "Perdedor J101", teamB: "Perdedor J102" }, // J103
-            final: { teamA: "Vencedor J101", teamB: "Vencedor J102" } // J104
+            SF: [{ teamA: "Vencedor J97", teamB: "Vencedor J98" }, { teamA: "Vencedor J99", teamB: "Vencedor J100" }],
+            thirdPlace: { teamA: "Perdedor J101", teamB: "Perdedor J102" },
+            final: { teamA: "Vencedor J101", teamB: "Vencedor J102" }
         };
 
-        // State object to be persisted
         let state = null;
-        let activeTab = "grupos"; // "grupos" or "matamata"
-        let activeGroupFilter = "todos"; // "todos", "A"-"L", "terceiros"
-        let activeKnockoutRound = 0; // 0: R32, 1: R16, 2: QF, 3: SF, 4: Finais (used on mobile)
+        let activeTab = "grupos";
+        let activeGroupFilter = "todos";
+        let activeKnockoutRound = 0;
 
-        // Initial load/reset logic
-        function initializeState(forceReset = false) {
-            const stored = localStorage.getItem("copa2026State");
-            if (stored && !forceReset) {
+        // Conexão e Inicialização do Firebase
+        async function initializeState(forceReset = false) {
+            if (!forceReset) {
                 try {
-                    state = JSON.parse(stored);
-
-                    // Schema Migration: Garante a correção estrita de datas para os dados antigos já salvos
-                    let migrated = false;
-
-                    for (const letter in state.groups) {
-                        if (state.groups[letter] && state.groups[letter].matches) {
-                            state.groups[letter].matches.forEach((m, idx) => {
-                                const correctDate = getGroupMatchDateTime(letter, m.round, idx);
-                                if (m.datetime !== correctDate) {
-                                    m.datetime = correctDate;
-                                    migrated = true;
-                                }
-                            });
-                        }
+                    const dbRef = ref(db);
+                    const snapshot = await get(child(dbRef, DB_NODE));
+                    if (snapshot.exists()) {
+                        state = snapshot.val();
+                        renderApp();
+                        showToast("Dados carregados da nuvem com sucesso!", "info");
+                        return;
                     }
-
-                    const stages = ['R32', 'R16', 'QF', 'SF'];
-                    stages.forEach(stage => {
-                        if (state.knockout && state.knockout[stage]) {
-                            state.knockout[stage].forEach((m, idx) => {
-                                const correctDate = getKnockoutMatchDateTime(stage, idx);
-                                if (m.datetime !== correctDate) {
-                                    m.datetime = correctDate;
-                                    migrated = true;
-                                }
-                            });
-                        }
-                    });
-
-                    if (state.knockout) {
-                        if (state.knockout.thirdPlace && state.knockout.thirdPlace.datetime !== "18/07/2026 - 18:00") {
-                            state.knockout.thirdPlace.datetime = "18/07/2026 - 18:00";
-                            migrated = true;
-                        }
-                        if (state.knockout.final && state.knockout.final.datetime !== "19/07/2026 - 16:00") {
-                            state.knockout.final.datetime = "19/07/2026 - 16:00";
-                            migrated = true;
-                        }
-                    }
-
-                    if (migrated) {
-                        saveState();
-                    }
-                    return;
                 } catch (e) {
-                    console.error("Erro ao ler dados salvos, recriando...", e);
+                    console.error("Erro ao ler do Firebase, criando novo estado...", e);
                 }
             }
 
-            state = {
-                groups: {},
-                knockout: {
-                    R32: [],
-                    R16: [],
-                    QF: [],
-                    SF: [],
-                    thirdPlace: null,
-                    final: null
-                },
-                hasGeneratedKnockout: false
-            };
+            state = { groups: {}, knockout: { R32: [], R16: [], QF: [], SF: [], thirdPlace: null, final: null }, hasGeneratedKnockout: false };
 
-            // Populate Groups A to L
             for (const letter in INITIAL_GROUPS_DATA) {
                 const teams = INITIAL_GROUPS_DATA[letter];
-                state.groups[letter] = {
-                    teams: teams,
-                    matches: generateGroupMatches(letter, teams)
-                };
+                state.groups[letter] = { teams: teams, matches: generateGroupMatches(letter, teams) };
             }
 
-            // Populate empty knockout structure
-            // R32 (16 matches)
-            for (let i = 0; i < 16; i++) {
-                state.knockout.R32.push({
-                    id: `R32-${i + 1}`, stage: 'R32', index: i,
-                    teamA: null, teamB: null, scoreA: null, scoreB: null, penA: null, penB: null, winnerId: null,
-                    datetime: getKnockoutMatchDateTime('R32', i)
-                });
-            }
+            for (let i = 0; i < 16; i++) state.knockout.R32.push({ id: `R32-${i + 1}`, stage: 'R32', index: i, teamA: null, teamB: null, scoreA: null, scoreB: null, penA: null, penB: null, winnerId: null, datetime: getKnockoutMatchDateTime('R32', i) });
+            for (let i = 0; i < 8; i++) state.knockout.R16.push({ id: `R16-${i + 1}`, stage: 'R16', index: i, teamA: null, teamB: null, scoreA: null, scoreB: null, penA: null, penB: null, winnerId: null, datetime: getKnockoutMatchDateTime('R16', i) });
+            for (let i = 0; i < 4; i++) state.knockout.QF.push({ id: `QF-${i + 1}`, stage: 'QF', index: i, teamA: null, teamB: null, scoreA: null, scoreB: null, penA: null, penB: null, winnerId: null, datetime: getKnockoutMatchDateTime('QF', i) });
+            for (let i = 0; i < 2; i++) state.knockout.SF.push({ id: `SF-${i + 1}`, stage: 'SF', index: i, teamA: null, teamB: null, scoreA: null, scoreB: null, penA: null, penB: null, winnerId: null, datetime: getKnockoutMatchDateTime('SF', i) });
 
-            // R16 (8 matches)
-            for (let i = 0; i < 8; i++) {
-                state.knockout.R16.push({
-                    id: `R16-${i + 1}`, stage: 'R16', index: i,
-                    teamA: null, teamB: null, scoreA: null, scoreB: null, penA: null, penB: null, winnerId: null,
-                    datetime: getKnockoutMatchDateTime('R16', i)
-                });
-            }
-
-            // QF (4 matches)
-            for (let i = 0; i < 4; i++) {
-                state.knockout.QF.push({
-                    id: `QF-${i + 1}`, stage: 'QF', index: i,
-                    teamA: null, teamB: null, scoreA: null, scoreB: null, penA: null, penB: null, winnerId: null,
-                    datetime: getKnockoutMatchDateTime('QF', i)
-                });
-            }
-
-            // SF (2 matches)
-            for (let i = 0; i < 2; i++) {
-                state.knockout.SF.push({
-                    id: `SF-${i + 1}`, stage: 'SF', index: i,
-                    teamA: null, teamB: null, scoreA: null, scoreB: null, penA: null, penB: null, winnerId: null,
-                    datetime: getKnockoutMatchDateTime('SF', i)
-                });
-            }
-
-            // 3rd Place
-            state.knockout.thirdPlace = {
-                id: `TP`, stage: 'thirdPlace', index: 0,
-                teamA: null, teamB: null, scoreA: null, scoreB: null, penA: null, penB: null, winnerId: null,
-                datetime: "18/07/2026 - 18:00"
-            };
-
-            // Final
-            state.knockout.final = {
-                id: `F`, stage: 'final', index: 0,
-                teamA: null, teamB: null, scoreA: null, scoreB: null, penA: null, penB: null, winnerId: null,
-                datetime: "19/07/2026 - 16:00"
-            };
+            state.knockout.thirdPlace = { id: `TP`, stage: 'thirdPlace', index: 0, teamA: null, teamB: null, scoreA: null, scoreB: null, penA: null, penB: null, winnerId: null, datetime: "18/07/2026 - 18:00" };
+            state.knockout.final = { id: `F`, stage: 'final', index: 0, teamA: null, teamB: null, scoreA: null, scoreB: null, penA: null, penB: null, winnerId: null, datetime: "19/07/2026 - 16:00" };
 
             saveState();
+            renderApp();
         }
 
-        function saveState() {
-            localStorage.setItem("copa2026State", JSON.stringify(state));
+        async function saveState() {
+            try {
+                await set(ref(db, DB_NODE), state);
+            } catch (e) {
+                console.error("Falha ao escrever no banco em nuvem:", e);
+                showToast("Erro ao sincronizar dados na nuvem.", "warning");
+            }
         }
 
         function resetChampionship() {
-            showConfirm(
-                "Resetar Campeonato?",
-                "Deseja realmente apagar todos os placares e reiniciar o campeonato do zero? Esta ação é irreversível.",
-                true,
-                () => {
-                    initializeState(true);
-                    activeTab = "grupos";
-                    activeGroupFilter = "todos";
-                    activeKnockoutRound = 0;
-                    renderApp();
-                    showToast("Simulador reiniciado com sucesso!", "info");
-                }
-            );
+            showConfirm("Resetar Campeonato?", "Deseja realmente apagar todos os placares no Banco de Dados e reiniciar o campeonato do zero?", true, () => {
+                initializeState(true);
+                activeTab = "grupos";
+                activeGroupFilter = "todos";
+                activeKnockoutRound = 0;
+                showToast("Simulador reiniciado e sincronizado!", "success");
+            });
         }
 
-        // Map exact Group Match Date/Times
+        // Attach global events explicitly because ES modules encapsulate scope
+        window.resetChampionship = resetChampionship;
+        window.switchTab = switchTab;
+        window.changeGroupFilter = changeGroupFilter;
+        window.simulateGroupStageMatches = simulateGroupStageMatches;
+        window.generateKnockoutFromGroups = generateKnockoutFromGroups;
+        window.simulateClassificadosAutomatically = simulateClassificadosAutomatically;
+        window.clearKnockout = clearKnockout;
+        window.changeKnockoutRound = changeKnockoutRound;
+
         function getGroupMatchDateTime(groupLetter, round, matchIndexInGroup) {
             const dates = {
-                'A-0': "11/06/2026 - 16:00",
-                'A-1': "11/06/2026 - 23:00",
-                'A-2': "18/06/2026 - 22:00",
-                'A-3': "18/06/2026 - 13:00",
-                'A-4': "24/06/2026 - 22:00",
-                'A-5': "24/06/2026 - 22:00",
-
-                'B-0': "12/06/2026 - 16:00",
-                'B-1': "13/06/2026 - 16:00",
-                'B-2': "18/06/2026 - 19:00",
-                'B-3': "18/06/2026 - 16:00",
-                'B-4': "24/06/2026 - 16:00",
-                'B-5': "24/06/2026 - 16:00",
-
-                'C-0': "13/06/2026 - 19:00",
-                'C-1': "13/06/2026 - 22:00",
-                'C-2': "19/06/2026 - 21:30",
-                'C-3': "19/06/2026 - 19:00",
-                'C-4': "24/06/2026 - 19:00",
-                'C-5': "24/06/2026 - 19:00",
-
-                'D-0': "12/06/2026 - 22:00",
-                'D-1': "14/06/2026 - 01:00",
-                'D-2': "19/06/2026 - 16:00",
-                'D-3': "20/06/2026 - 01:00",
-                'D-4': "25/06/2026 - 23:00",
-                'D-5': "25/06/2026 - 23:00",
-
-                'E-0': "14/06/2026 - 14:00",
-                'E-1': "14/06/2026 - 20:00",
-                'E-2': "20/06/2026 - 17:00",
-                'E-3': "20/06/2026 - 21:00",
-                'E-4': "25/06/2026 - 17:00",
-                'E-5': "25/06/2026 - 17:00",
-
-                'F-0': "14/06/2026 - 17:00",
-                'F-1': "14/06/2026 - 23:00",
-                'F-2': "20/06/2026 - 14:00",
-                'F-3': "21/06/2026 - 01:00",
-                'F-4': "25/06/2026 - 20:00",
-                'F-5': "25/06/2026 - 20:00",
-
-                'G-0': "15/06/2026 - 16:00",
-                'G-1': "15/06/2026 - 22:00",
-                'G-2': "21/06/2026 - 16:00",
-                'G-3': "21/06/2026 - 22:00",
-                'G-4': "27/06/2026 - 00:00",
-                'G-5': "27/06/2026 - 00:00",
-
-                'H-0': "15/06/2026 - 13:00",
-                'H-1': "15/06/2026 - 19:00",
-                'H-2': "21/06/2026 - 13:00",
-                'H-3': "21/06/2026 - 19:00",
-                'H-4': "26/06/2026 - 21:00",
-                'H-5': "26/06/2026 - 21:00",
-
-                'I-0': "16/06/2026 - 16:00",
-                'I-1': "16/06/2026 - 19:00",
-                'I-2': "22/06/2026 - 18:00",
-                'I-3': "22/06/2026 - 21:00",
-                'I-4': "26/06/2026 - 16:00",
-                'I-5': "26/06/2026 - 16:00",
-
-                'J-0': "16/06/2026 - 22:00",
-                'J-1': "17/06/2026 - 01:00",
-                'J-2': "22/06/2026 - 14:00",
-                'J-3': "23/06/2026 - 00:00",
-                'J-4': "27/06/2026 - 23:00",
-                'J-5': "27/06/2026 - 23:00",
-
-                'K-0': "17/06/2026 - 14:00",
-                'K-1': "17/06/2026 - 23:00",
-                'K-2': "23/06/2026 - 14:00",
-                'K-3': "23/06/2026 - 23:00",
-                'K-4': "27/06/2026 - 20:30",
-                'K-5': "27/06/2026 - 20:30",
-
-                'L-0': "17/06/2026 - 17:00",
-                'L-1': "17/06/2026 - 20:00",
-                'L-2': "23/06/2026 - 17:00",
-                'L-3': "23/06/2026 - 20:00",
-                'L-4': "27/06/2026 - 18:00",
-                'L-5': "27/06/2026 - 18:00"
+                'A-0': "11/06/2026 - 16:00", 'A-1': "11/06/2026 - 23:00", 'A-2': "18/06/2026 - 22:00", 'A-3': "18/06/2026 - 13:00", 'A-4': "24/06/2026 - 22:00", 'A-5': "24/06/2026 - 22:00",
+                'B-0': "12/06/2026 - 16:00", 'B-1': "13/06/2026 - 16:00", 'B-2': "18/06/2026 - 19:00", 'B-3': "18/06/2026 - 16:00", 'B-4': "24/06/2026 - 16:00", 'B-5': "24/06/2026 - 16:00",
+                'C-0': "13/06/2026 - 19:00", 'C-1': "13/06/2026 - 22:00", 'C-2': "19/06/2026 - 21:30", 'C-3': "19/06/2026 - 19:00", 'C-4': "24/06/2026 - 19:00", 'C-5': "24/06/2026 - 19:00",
+                'D-0': "12/06/2026 - 22:00", 'D-1': "14/06/2026 - 01:00", 'D-2': "19/06/2026 - 16:00", 'D-3': "20/06/2026 - 01:00", 'D-4': "25/06/2026 - 23:00", 'D-5': "25/06/2026 - 23:00",
+                'E-0': "14/06/2026 - 14:00", 'E-1': "14/06/2026 - 20:00", 'E-2': "20/06/2026 - 17:00", 'E-3': "20/06/2026 - 21:00", 'E-4': "25/06/2026 - 17:00", 'E-5': "25/06/2026 - 17:00",
+                'F-0': "14/06/2026 - 17:00", 'F-1': "14/06/2026 - 23:00", 'F-2': "20/06/2026 - 14:00", 'F-3': "21/06/2026 - 01:00", 'F-4': "25/06/2026 - 20:00", 'F-5': "25/06/2026 - 20:00",
+                'G-0': "15/06/2026 - 16:00", 'G-1': "15/06/2026 - 22:00", 'G-2': "21/06/2026 - 16:00", 'G-3': "21/06/2026 - 22:00", 'G-4': "27/06/2026 - 00:00", 'G-5': "27/06/2026 - 00:00",
+                'H-0': "15/06/2026 - 13:00", 'H-1': "15/06/2026 - 19:00", 'H-2': "21/06/2026 - 13:00", 'H-3': "21/06/2026 - 19:00", 'H-4': "26/06/2026 - 21:00", 'H-5': "26/06/2026 - 21:00",
+                'I-0': "16/06/2026 - 16:00", 'I-1': "16/06/2026 - 19:00", 'I-2': "22/06/2026 - 18:00", 'I-3': "22/06/2026 - 21:00", 'I-4': "26/06/2026 - 16:00", 'I-5': "26/06/2026 - 16:00",
+                'J-0': "16/06/2026 - 22:00", 'J-1': "17/06/2026 - 01:00", 'J-2': "22/06/2026 - 14:00", 'J-3': "23/06/2026 - 00:00", 'J-4': "27/06/2026 - 23:00", 'J-5': "27/06/2026 - 23:00",
+                'K-0': "17/06/2026 - 14:00", 'K-1': "17/06/2026 - 23:00", 'K-2': "23/06/2026 - 14:00", 'K-3': "23/06/2026 - 23:00", 'K-4': "27/06/2026 - 20:30", 'K-5': "27/06/2026 - 20:30",
+                'L-0': "17/06/2026 - 17:00", 'L-1': "17/06/2026 - 20:00", 'L-2': "23/06/2026 - 17:00", 'L-3': "23/06/2026 - 20:00", 'L-4': "27/06/2026 - 18:00", 'L-5': "27/06/2026 - 18:00"
             };
             return dates[`${groupLetter}-${matchIndexInGroup}`] || "";
         }
 
-        // Map exact Knockout Match Date/Times
         function getKnockoutMatchDateTime(stage, index) {
             const dates = {
-                'R32': [
-                    "29/06/2026 - 17:30", // SF1
-                    "30/06/2026 - 18:00", // SF2
-                    "28/06/2026 - 16:00", // SF3
-                    "29/06/2026 - 22:00", // SF4
-                    "02/07/2026 - 20:00", // SF5
-                    "02/07/2026 - 16:00", // SF6
-                    "01/07/2026 - 21:00", // SF7
-                    "01/07/2026 - 17:00", // SF8
-                    "29/06/2026 - 14:00", // SF9
-                    "30/06/2026 - 14:00", // SF10
-                    "30/06/2026 - 22:00", // SF11
-                    "01/07/2026 - 13:00", // SF12
-                    "03/07/2026 - 19:00", // SF13
-                    "03/07/2026 - 15:00", // SF14
-                    "02/07/2026 - 00:00", // SF15
-                    "03/07/2026 - 22:30"  // SF16
-                ],
-                'R16': [
-                    "04/07/2026 - 18:00", // O1
-                    "04/07/2026 - 14:00", // O2
-                    "06/07/2026 - 16:00", // O3
-                    "06/07/2026 - 21:00", // O4
-                    "05/07/2026 - 17:00", // O5
-                    "05/07/2026 - 21:00", // O6
-                    "07/07/2026 - 13:00", // O7
-                    "07/07/2026 - 17:00"  // O8
-                ],
-                'QF': [
-                    "09/07/2026 - 17:00", // Q1
-                    "10/07/2026 - 16:00", // Q2
-                    "11/07/2026 - 18:00", // Q3
-                    "11/07/2026 - 22:00"  // Q4
-                ],
-                'SF': [
-                    "14/07/2026 - 16:00", // Semi1
-                    "15/07/2026 - 16:00"  // Semi2
-                ]
+                'R32': ["29/06/2026 - 17:30", "30/06/2026 - 18:00", "28/06/2026 - 16:00", "29/06/2026 - 22:00", "02/07/2026 - 20:00", "02/07/2026 - 16:00", "01/07/2026 - 21:00", "01/07/2026 - 17:00", "29/06/2026 - 14:00", "30/06/2026 - 14:00", "30/06/2026 - 22:00", "01/07/2026 - 13:00", "03/07/2026 - 19:00", "03/07/2026 - 15:00", "02/07/2026 - 00:00", "03/07/2026 - 22:30"],
+                'R16': ["04/07/2026 - 18:00", "04/07/2026 - 14:00", "06/07/2026 - 16:00", "06/07/2026 - 21:00", "05/07/2026 - 17:00", "05/07/2026 - 21:00", "07/07/2026 - 13:00", "07/07/2026 - 17:00"],
+                'QF': ["09/07/2026 - 17:00", "10/07/2026 - 16:00", "11/07/2026 - 18:00", "11/07/2026 - 22:00"],
+                'SF': ["14/07/2026 - 16:00", "15/07/2026 - 16:00"]
             };
             return dates[stage] ? dates[stage][index] : "";
         }
 
-        // Round-robin Match Generator (6 games for 4 teams)
         function generateGroupMatches(groupLetter, teams) {
             const matchSpecs = [
-                { round: 1, teamA: teams[0], teamB: teams[1] },
-                { round: 1, teamA: teams[2], teamB: teams[3] },
-                { round: 2, teamA: teams[0], teamB: teams[2] },
-                { round: 2, teamA: teams[1], teamB: teams[3] },
-                { round: 3, teamA: teams[0], teamB: teams[3] },
-                { round: 3, teamA: teams[1], teamB: teams[2] }
+                { round: 1, teamA: teams[0], teamB: teams[1] }, { round: 1, teamA: teams[2], teamB: teams[3] },
+                { round: 2, teamA: teams[0], teamB: teams[2] }, { round: 2, teamA: teams[1], teamB: teams[3] },
+                { round: 3, teamA: teams[0], teamB: teams[3] }, { round: 3, teamA: teams[1], teamB: teams[2] }
             ];
-
-            return matchSpecs.map((spec, idx) => {
-                return {
-                    id: `${groupLetter}-${idx + 1}`,
-                    round: spec.round,
-                    teamA: spec.teamA,
-                    teamB: spec.teamB,
-                    scoreA: null,
-                    scoreB: null,
-                    datetime: getGroupMatchDateTime(groupLetter, spec.round, idx)
-                };
-            });
+            return matchSpecs.map((spec, idx) => ({ id: `${groupLetter}-${idx + 1}`, round: spec.round, teamA: spec.teamA, teamB: spec.teamB, scoreA: null, scoreB: null, datetime: getGroupMatchDateTime(groupLetter, spec.round, idx) }));
         }
 
-        // Calculate group standings logic
         function calculateGroupStandings(groupLetter) {
             const group = state.groups[groupLetter];
-            const teams = group.teams;
-            const matches = group.matches;
-
-            // Standings mapping
             const standings = {};
-            teams.forEach(t => {
-                standings[t.code] = { team: t, pts: 0, j: 0, v: 0, e: 0, d: 0, gp: 0, gc: 0, sg: 0 };
-            });
+            group.teams.forEach(t => standings[t.code] = { team: t, pts: 0, j: 0, v: 0, e: 0, d: 0, gp: 0, gc: 0, sg: 0 });
 
-            // Compute match statistics
-            matches.forEach(m => {
+            group.matches.forEach(m => {
                 if (m.scoreA !== null && m.scoreB !== null && m.scoreA !== "" && m.scoreB !== "") {
-                    const sA = parseInt(m.scoreA);
-                    const sB = parseInt(m.scoreB);
-                    const tA = standings[m.teamA.code];
-                    const tB = standings[m.teamB.code];
-
+                    const sA = parseInt(m.scoreA); const sB = parseInt(m.scoreB);
+                    const tA = standings[m.teamA.code]; const tB = standings[m.teamB.code];
                     if (tA && tB) {
-                        tA.j += 1;
-                        tB.j += 1;
-                        tA.gp += sA;
-                        tA.gc += sB;
-                        tB.gp += sB;
-                        tB.gc += sA;
-
-                        if (sA > sB) {
-                            tA.pts += 3;
-                            tA.v += 1;
-                            tB.d += 1;
-                        } else if (sB > sA) {
-                            tB.pts += 3;
-                            tB.v += 1;
-                            tA.d += 1;
-                        } else {
-                            tA.pts += 1;
-                            tB.pts += 1;
-                            tA.e += 1;
-                            tB.e += 1;
-                        }
+                        tA.j += 1; tB.j += 1; tA.gp += sA; tA.gc += sB; tB.gp += sB; tB.gc += sA;
+                        if (sA > sB) { tA.pts += 3; tA.v += 1; tB.d += 1; }
+                        else if (sB > sA) { tB.pts += 3; tB.v += 1; tA.d += 1; }
+                        else { tA.pts += 1; tB.pts += 1; tA.e += 1; tB.e += 1; }
                     }
                 }
             });
-
-            // Compute goal difference (SG)
-            for (const code in standings) {
-                standings[code].sg = standings[code].gp - standings[code].gc;
-            }
-
-            // Sort according to FIFA tie breakers
+            for (const code in standings) standings[code].sg = standings[code].gp - standings[code].gc;
             return Object.values(standings).sort((a, b) => {
-                if (b.pts !== a.pts) return b.pts - a.pts;
-                if (b.sg !== a.sg) return b.sg - a.sg;
-                if (b.gp !== a.gp) return b.gp - a.gp;
-                if (b.v !== a.v) return b.v - a.v;
+                if (b.pts !== a.pts) return b.pts - a.pts; if (b.sg !== a.sg) return b.sg - a.sg;
+                if (b.gp !== a.gp) return b.gp - a.gp; if (b.v !== a.v) return b.v - a.v;
                 return a.team.name.localeCompare(b.team.name);
             });
         }
 
-        // Get sorted array of all third-place teams
         function getThirdPlacesStandings() {
             const thirds = [];
-            const groupLetters = ['A', 'B', 'C', 'D', 'E', 'F', 'G', 'H', 'I', 'J', 'K', 'L'];
-
-            groupLetters.forEach(g => {
+            ['A', 'B', 'C', 'D', 'E', 'F', 'G', 'H', 'I', 'J', 'K', 'L'].forEach(g => {
                 const sorted = calculateGroupStandings(g);
-                // The 3rd place team is at index 2
-                const pos3 = sorted[2];
-                thirds.push({
-                    team: pos3.team,
-                    group: g,
-                    pts: pos3.pts,
-                    j: pos3.j,
-                    v: pos3.v,
-                    e: pos3.e,
-                    d: pos3.d,
-                    gp: pos3.gp,
-                    gc: pos3.gc,
-                    sg: pos3.sg
-                });
+                thirds.push({ team: sorted[2].team, group: g, ...sorted[2] });
             });
-
-            // Sort thirds: Pts -> SG -> GP -> Wins -> Alphabetical Group Name
             return thirds.sort((a, b) => {
-                if (b.pts !== a.pts) return b.pts - a.pts;
-                if (b.sg !== a.sg) return b.sg - a.sg;
-                if (b.gp !== a.gp) return b.gp - a.gp;
-                if (b.v !== a.v) return b.v - a.v;
+                if (b.pts !== a.pts) return b.pts - a.pts; if (b.sg !== a.sg) return b.sg - a.sg;
+                if (b.gp !== a.gp) return b.gp - a.gp; if (b.v !== a.v) return b.v - a.v;
                 return a.group.localeCompare(b.group);
             });
         }
 
-        // Generates the knockout phase from current group standings
         function generateKnockoutFromGroups() {
-            // Check if some matches are not played, just to prompt info
             let unplayedCount = 0;
-            for (const letter in state.groups) {
-                state.groups[letter].matches.forEach(m => {
-                    if (m.scoreA === null || m.scoreB === null || m.scoreA === "" || m.scoreB === "") {
-                        unplayedCount++;
-                    }
-                });
-            }
-
+            for (const letter in state.groups) state.groups[letter].matches.forEach(m => { if (m.scoreA === null || m.scoreB === null || m.scoreA === "" || m.scoreB === "") unplayedCount++; });
             if (unplayedCount > 0) {
-                showConfirm(
-                    "Jogos Pendentes",
-                    `Restam ${unplayedCount} jogos sem placar na fase de grupos. Deseja gerar o mata-mata com a classificação atual mesmo assim?`,
-                    false,
-                    () => {
-                        proceedToGenerateKnockout();
-                    }
-                );
-            } else {
-                proceedToGenerateKnockout();
-            }
+                showConfirm("Jogos Pendentes", `Restam ${unplayedCount} jogos sem placar. Gerar com a classificação atual?`, false, proceedToGenerateKnockout);
+            } else { proceedToGenerateKnockout(); }
         }
 
         function proceedToGenerateKnockout() {
-            const firsts = {};
-            const seconds = {};
-
-            const groupLetters = ['A', 'B', 'C', 'D', 'E', 'F', 'G', 'H', 'I', 'J', 'K', 'L'];
-            groupLetters.forEach(g => {
-                const standings = calculateGroupStandings(g);
-                firsts[g] = standings[0].team;
-                seconds[g] = standings[1].team;
-            });
-
+            const firsts = {}; const seconds = {};
+            ['A', 'B', 'C', 'D', 'E', 'F', 'G', 'H', 'I', 'J', 'K', 'L'].forEach(g => { const st = calculateGroupStandings(g); firsts[g] = st[0].team; seconds[g] = st[1].team; });
             const thirds = getThirdPlacesStandings();
-            // Take top 8
-            const T1 = thirds[0].team;
-            const T2 = thirds[1].team;
-            const T3 = thirds[2].team;
-            const T4 = thirds[3].team;
-            const T5 = thirds[4].team;
-            const T6 = thirds[5].team;
-            const T7 = thirds[6].team;
-            const T8 = thirds[7].team;
-
-            // Reset all scores in the knockout stage
             clearKnockoutData();
 
-            // Pairings mapping for R32 according to correct chronological bracket definition
-            state.knockout.R32[0].teamA = firsts['E']; state.knockout.R32[0].teamB = T1;
-            state.knockout.R32[1].teamA = firsts['I']; state.knockout.R32[1].teamB = T2;
-            state.knockout.R32[2].teamA = seconds['A']; state.knockout.R32[2].teamB = seconds['B'];
-            state.knockout.R32[3].teamA = firsts['F']; state.knockout.R32[3].teamB = seconds['C'];
-            state.knockout.R32[4].teamA = seconds['K']; state.knockout.R32[4].teamB = seconds['L'];
-            state.knockout.R32[5].teamA = firsts['H']; state.knockout.R32[5].teamB = seconds['J'];
-            state.knockout.R32[6].teamA = firsts['D']; state.knockout.R32[6].teamB = T3;
-            state.knockout.R32[7].teamA = firsts['G']; state.knockout.R32[7].teamB = T4;
-            state.knockout.R32[8].teamA = firsts['C']; state.knockout.R32[8].teamB = seconds['F'];
-            state.knockout.R32[9].teamA = seconds['E']; state.knockout.R32[9].teamB = seconds['I'];
-            state.knockout.R32[10].teamA = firsts['A']; state.knockout.R32[10].teamB = T5;
-            state.knockout.R32[11].teamA = firsts['L']; state.knockout.R32[11].teamB = T6;
-            state.knockout.R32[12].teamA = firsts['J']; state.knockout.R32[12].teamB = seconds['H'];
-            state.knockout.R32[13].teamA = seconds['D']; state.knockout.R32[13].teamB = seconds['G'];
-            state.knockout.R32[14].teamA = firsts['B']; state.knockout.R32[14].teamB = T7;
-            state.knockout.R32[15].teamA = firsts['K']; state.knockout.R32[15].teamB = T8;
+            const r32 = state.knockout.R32;
+            r32[0].teamA = firsts['E']; r32[0].teamB = thirds[0].team; r32[1].teamA = firsts['I']; r32[1].teamB = thirds[1].team;
+            r32[2].teamA = seconds['A']; r32[2].teamB = seconds['B']; r32[3].teamA = firsts['F']; r32[3].teamB = seconds['C'];
+            r32[4].teamA = seconds['K']; r32[4].teamB = seconds['L']; r32[5].teamA = firsts['H']; r32[5].teamB = seconds['J'];
+            r32[6].teamA = firsts['D']; r32[6].teamB = thirds[2].team; r32[7].teamA = firsts['G']; r32[7].teamB = thirds[3].team;
+            r32[8].teamA = firsts['C']; r32[8].teamB = seconds['F']; r32[9].teamA = seconds['E']; r32[9].teamB = seconds['I'];
+            r32[10].teamA = firsts['A']; r32[10].teamB = thirds[4].team; r32[11].teamA = firsts['L']; r32[11].teamB = thirds[5].team;
+            r32[12].teamA = firsts['J']; r32[12].teamB = seconds['H']; r32[13].teamA = seconds['D']; r32[13].teamB = seconds['G'];
+            r32[14].teamA = firsts['B']; r32[14].teamB = thirds[6].team; r32[15].teamA = firsts['K']; r32[15].teamB = thirds[7].team;
 
-            state.hasGeneratedKnockout = true;
-            saveState();
-            switchTab('matamata');
-            showToast("Fase de Mata-Mata gerada com sucesso!", "success");
+            state.hasGeneratedKnockout = true; saveState(); switchTab('matamata'); showToast("Mata-Mata sincronizado!", "success");
         }
 
-        // Fills the R32 directly with 32 elite countries for testing
         function simulateClassificadosAutomatically() {
-            const eliteTeams = [
-                { name: "Brasil", flag: "🇧🇷", code: "BRA" },
-                { name: "Costa Rica", flag: "🇨🇷", code: "CRC" },
-                { name: "Alemanha", flag: "🇩🇪", code: "GER" },
-                { name: "Uruguai", flag: "🇺🇾", code: "URU" },
-                { name: "Argentina", flag: "🇦🇷", code: "ARG" },
-                { name: "Polônia", flag: "🇵🇱", code: "POL" },
-                { name: "Holanda", flag: "🇳🇱", code: "NED" },
-                { name: "Colômbia", flag: "🇨🇴", code: "COL" },
-                { name: "França", flag: "🇫🇷", code: "FRA" },
-                { name: "Suíça", flag: "🇨🇭", code: "SUI" },
-                { name: "Croácia", flag: "🇭🇷", code: "CRO" },
-                { name: "Suécia", flag: "🇸🇪", code: "SWE" },
-                { name: "Espanha", flag: "🇪🇸", code: "ESP" },
-                { name: "Ucrânia", flag: "🇺🇦", code: "UKR" },
-                { name: "Marrocos", flag: "🇲🇦", code: "MAR" },
-                { name: "Equador", flag: "🇪🇨", code: "ECU" },
-                { name: "Inglaterra", flag: "🏴\u200d󠁧\u200d󠁢\u200d\u200d󠁥\u200d󠁮\u200d󠁧\u200d󠁿", code: "ENG" },
-                { name: "Chéquia", flag: "🇨🇿", code: "CZE" },
-                { name: "Portugal", flag: "🇵🇹", code: "POR" },
-                { name: "Japão", flag: "🇯🇵", code: "JPN" },
-                { name: "Itália", flag: "🇮🇹", code: "ITA" },
-                { name: "Coreia do Sul", flag: "🇰🇷", code: "KOR" },
-                { name: "Bélgica", flag: "🇧🇪", code: "BEL" },
-                { name: "Chile", flag: "🇨🇱", code: "CHI" },
-                { name: "EUA", flag: "🇺🇸", code: "USA" },
-                { name: "Camarões", flag: "🇨🇲", code: "CMR" },
-                { name: "México", flag: "🇲🇽", code: "MEX" },
-                { name: "Nigéria", flag: "🇳🇬", code: "NGA" },
-                { name: "Canadá", flag: "🇨🇦", code: "CAN" },
-                { name: "Egito", flag: "🇪🇬", code: "EGY" },
-                { name: "Paraguai", flag: "🇵🇾", code: "PAR" },
-                { name: "Senegal", flag: "🇸🇳", code: "SEN" }
-            ];
-
+            const eliteTeams = [{ name: "Brasil", flag: "🇧🇷", code: "BRA" }, { name: "Costa Rica", flag: "🇨🇷", code: "CRC" }, { name: "Alemanha", flag: "🇩🇪", code: "GER" }, { name: "Uruguai", flag: "🇺🇾", code: "URU" }, { name: "Argentina", flag: "🇦🇷", code: "ARG" }, { name: "Polônia", flag: "🇵🇱", code: "POL" }, { name: "Holanda", flag: "🇳🇱", code: "NED" }, { name: "Colômbia", flag: "🇨🇴", code: "COL" }, { name: "França", flag: "🇫🇷", code: "FRA" }, { name: "Suíça", flag: "🇨🇭", code: "SUI" }, { name: "Croácia", flag: "🇭🇷", code: "CRO" }, { name: "Suécia", flag: "🇸🇪", code: "SWE" }, { name: "Espanha", flag: "🇪🇸", code: "ESP" }, { name: "Ucrânia", flag: "🇺🇦", code: "UKR" }, { name: "Marrocos", flag: "🇲🇦", code: "MAR" }, { name: "Equador", flag: "🇪🇨", code: "ECU" }, { name: "Inglaterra", flag: "🏴\u200d󠁧\u200d󠁢\u200d\u200d󠁥\u200d󠁮\u200d󠁧\u200d󠁿", code: "ENG" }, { name: "Chéquia", flag: "🇨🇿", code: "CZE" }, { name: "Portugal", flag: "🇵🇹", code: "POR" }, { name: "Japão", flag: "🇯🇵", code: "JPN" }, { name: "Itália", flag: "🇮🇹", code: "ITA" }, { name: "Coreia do Sul", flag: "🇰🇷", code: "KOR" }, { name: "Bélgica", flag: "🇧🇪", code: "BEL" }, { name: "Chile", flag: "🇨🇱", code: "CHI" }, { name: "EUA", flag: "🇺🇸", code: "USA" }, { name: "Camarões", flag: "🇨🇲", code: "CMR" }, { name: "México", flag: "🇲🇽", code: "MEX" }, { name: "Nigéria", flag: "🇳🇬", code: "NGA" }, { name: "Canadá", flag: "🇨🇦", code: "CAN" }, { name: "Egito", flag: "🇪🇬", code: "EGY" }, { name: "Paraguai", flag: "🇵🇾", code: "PAR" }, { name: "Senegal", flag: "🇸🇳", code: "SEN" }];
             clearKnockoutData();
-
-            for (let i = 0; i < 16; i++) {
-                state.knockout.R32[i].teamA = eliteTeams[i * 2];
-                state.knockout.R32[i].teamB = eliteTeams[i * 2 + 1];
-            }
-
-            state.hasGeneratedKnockout = true;
-            saveState();
-            renderKnockoutBracket();
-            showToast("Mata-Mata populado com seleções de elite!", "success");
+            for (let i = 0; i < 16; i++) { state.knockout.R32[i].teamA = eliteTeams[i * 2]; state.knockout.R32[i].teamB = eliteTeams[i * 2 + 1]; }
+            state.hasGeneratedKnockout = true; saveState(); renderKnockoutBracket(); showToast("Nuvem populada com testes!", "success");
         }
 
         function clearKnockoutData() {
-            // Resets teams and scores of all phases
-            state.knockout.R32.forEach(m => {
-                m.teamA = null; m.teamB = null; m.scoreA = null; m.scoreB = null; m.penA = null; m.penB = null; m.winnerId = null;
-            });
-            state.knockout.R16.forEach(m => {
-                m.teamA = null; m.teamB = null; m.scoreA = null; m.scoreB = null; m.penA = null; m.penB = null; m.winnerId = null;
-            });
-            state.knockout.QF.forEach(m => {
-                m.teamA = null; m.teamB = null; m.scoreA = null; m.scoreB = null; m.penA = null; m.penB = null; m.winnerId = null;
-            });
-            state.knockout.SF.forEach(m => {
-                m.teamA = null; m.teamB = null; m.scoreA = null; m.scoreB = null; m.penA = null; m.penB = null; m.winnerId = null;
-            });
-            state.knockout.thirdPlace.teamA = null;
-            state.knockout.thirdPlace.teamB = null;
-            state.knockout.thirdPlace.scoreA = null;
-            state.knockout.thirdPlace.scoreB = null;
-            state.knockout.thirdPlace.penA = null;
-            state.knockout.thirdPlace.penB = null;
-            state.knockout.thirdPlace.winnerId = null;
-
-            state.knockout.final.teamA = null;
-            state.knockout.final.teamB = null;
-            state.knockout.final.scoreA = null;
-            state.knockout.final.scoreB = null;
-            state.knockout.final.penA = null;
-            state.knockout.final.penB = null;
-            state.knockout.final.winnerId = null;
+            ['R32', 'R16', 'QF', 'SF'].forEach(stage => state.knockout[stage].forEach(m => { m.teamA = null; m.teamB = null; m.scoreA = null; m.scoreB = null; m.penA = null; m.penB = null; m.winnerId = null; }));
+            state.knockout.thirdPlace.teamA = null; state.knockout.thirdPlace.teamB = null; state.knockout.thirdPlace.scoreA = null; state.knockout.thirdPlace.scoreB = null; state.knockout.thirdPlace.penA = null; state.knockout.thirdPlace.penB = null; state.knockout.thirdPlace.winnerId = null;
+            state.knockout.final.teamA = null; state.knockout.final.teamB = null; state.knockout.final.scoreA = null; state.knockout.final.scoreB = null; state.knockout.final.penA = null; state.knockout.final.penB = null; state.knockout.final.winnerId = null;
             state.hasGeneratedKnockout = false;
         }
 
         function clearKnockout() {
-            showConfirm(
-                "Limpar Chaveamento?",
-                "Deseja realmente limpar todos os placares e seleções do chaveamento de Mata-Mata?",
-                true,
-                () => {
-                    clearKnockoutData();
-                    saveState();
-                    renderKnockoutBracket();
-                    showToast("Chaveamento de Mata-Mata limpo!", "info");
-                }
-            );
+            showConfirm("Limpar Chaveamento?", "Limpar placares do Mata-Mata?", true, () => { clearKnockoutData(); saveState(); renderKnockoutBracket(); showToast("Nuvem: Chaveamento limpo!", "info"); });
         }
 
-        // Resolves winner of a knockout match and handles penalty validation
         function resolveKnockoutWinner(match) {
             if (match.scoreA === null || match.scoreB === null || match.scoreA === "" || match.scoreB === "") {
-                match.winnerId = null;
-                match.penA = null;
-                match.penB = null;
-                propagateKnockout(match.stage, match.index, null, null);
-                return;
+                match.winnerId = null; match.penA = null; match.penB = null; propagateKnockout(match.stage, match.index, null, null); return;
             }
-
-            const sA = parseInt(match.scoreA);
-            const sB = parseInt(match.scoreB);
-
-            if (sA > sB) {
-                match.winnerId = 'A';
-                match.penA = null;
-                match.penB = null;
-                propagateKnockout(match.stage, match.index, match.teamA, match.teamB);
-            } else if (sB > sA) {
-                match.winnerId = 'B';
-                match.penA = null;
-                match.penB = null;
-                propagateKnockout(match.stage, match.index, match.teamB, match.teamA);
-            } else {
-                // Draw in normal time - require penalties
-                if (match.penA === null || match.penB === null || match.penA === "" || match.penB === "") {
-                    match.winnerId = null;
-                    propagateKnockout(match.stage, match.index, null, null);
-                    return;
-                }
-
-                const pA = parseInt(match.penA);
-                const pB = parseInt(match.penB);
-
-                if (pA > pB) {
-                    match.winnerId = 'A';
-                    propagateKnockout(match.stage, match.index, match.teamA, match.teamB);
-                } else if (pB > pA) {
-                    match.winnerId = 'B';
-                    propagateKnockout(match.stage, match.index, match.teamB, match.teamA);
-                } else {
-                    // Double draw in penalties not allowed
-                    match.winnerId = null;
-                    propagateKnockout(match.stage, match.index, null, null);
-                }
+            const sA = parseInt(match.scoreA); const sB = parseInt(match.scoreB);
+            if (sA > sB) { match.winnerId = 'A'; match.penA = null; match.penB = null; propagateKnockout(match.stage, match.index, match.teamA, match.teamB); }
+            else if (sB > sA) { match.winnerId = 'B'; match.penA = null; match.penB = null; propagateKnockout(match.stage, match.index, match.teamB, match.teamA); }
+            else {
+                if (match.penA === null || match.penB === null || match.penA === "" || match.penB === "") { match.winnerId = null; propagateKnockout(match.stage, match.index, null, null); return; }
+                const pA = parseInt(match.penA); const pB = parseInt(match.penB);
+                if (pA > pB) { match.winnerId = 'A'; propagateKnockout(match.stage, match.index, match.teamA, match.teamB); }
+                else if (pB > pA) { match.winnerId = 'B'; propagateKnockout(match.stage, match.index, match.teamB, match.teamA); }
+                else { match.winnerId = null; propagateKnockout(match.stage, match.index, null, null); }
             }
         }
 
-        // Recursive propagation function
         function propagateKnockout(stage, matchIndex, winnerTeam, loserTeam) {
-            let targetStage = null;
-            let targetMatchIndex = null;
-            let targetSlot = null; // 'A' or 'B'
-
-            if (stage === 'R32') {
-                targetStage = 'R16';
-                targetMatchIndex = Math.floor(matchIndex / 2);
-                targetSlot = (matchIndex % 2 === 0) ? 'A' : 'B';
-            } else if (stage === 'R16') {
-                targetStage = 'QF';
-                targetMatchIndex = Math.floor(matchIndex / 2);
-                targetSlot = (matchIndex % 2 === 0) ? 'A' : 'B';
-            } else if (stage === 'QF') {
-                targetStage = 'SF';
-                targetMatchIndex = Math.floor(matchIndex / 2);
-                targetSlot = (matchIndex % 2 === 0) ? 'A' : 'B';
-            } else if (stage === 'SF') {
-                // SF winners go to final
-                let finalMatch = state.knockout.final;
-                let finalSlot = (matchIndex === 0) ? 'teamA' : 'teamB';
-                updateKnockoutSlot(finalMatch, finalSlot, winnerTeam);
-
-                // SF losers go to third place match
-                let tpMatch = state.knockout.thirdPlace;
-                let tpSlot = (matchIndex === 0) ? 'teamA' : 'teamB';
-                updateKnockoutSlot(tpMatch, tpSlot, loserTeam);
+            let targetStage = null; let targetMatchIndex = null; let targetSlot = null;
+            if (stage === 'R32') { targetStage = 'R16'; targetMatchIndex = Math.floor(matchIndex / 2); targetSlot = (matchIndex % 2 === 0) ? 'A' : 'B'; }
+            else if (stage === 'R16') { targetStage = 'QF'; targetMatchIndex = Math.floor(matchIndex / 2); targetSlot = (matchIndex % 2 === 0) ? 'A' : 'B'; }
+            else if (stage === 'QF') { targetStage = 'SF'; targetMatchIndex = Math.floor(matchIndex / 2); targetSlot = (matchIndex % 2 === 0) ? 'A' : 'B'; }
+            else if (stage === 'SF') {
+                updateKnockoutSlot(state.knockout.final, (matchIndex === 0) ? 'teamA' : 'teamB', winnerTeam);
+                updateKnockoutSlot(state.knockout.thirdPlace, (matchIndex === 0) ? 'teamA' : 'teamB', loserTeam);
                 return;
-            } else {
-                // Finals do not propagate further
-                return;
-            }
+            } else return;
 
-            if (targetStage) {
-                let targetMatch = state.knockout[targetStage][targetMatchIndex];
-                let slotName = (targetSlot === 'A') ? 'teamA' : 'teamB';
-                updateKnockoutSlot(targetMatch, slotName, winnerTeam);
-            }
+            if (targetStage) updateKnockoutSlot(state.knockout[targetStage][targetMatchIndex], (targetSlot === 'A') ? 'teamA' : 'teamB', winnerTeam);
         }
 
         function updateKnockoutSlot(match, slotName, team) {
             const currentTeam = match[slotName];
-            // Check if team changed
             if (!currentTeam || !team || currentTeam.code !== team.code) {
                 match[slotName] = team ? { ...team } : null;
-
-                // Reset this match results
-                match.scoreA = null;
-                match.scoreB = null;
-                match.penA = null;
-                match.penB = null;
-                match.winnerId = null;
-
-                // Recurse downstream
+                match.scoreA = null; match.scoreB = null; match.penA = null; match.penB = null; match.winnerId = null;
                 propagateKnockout(match.stage, match.index, null, null);
             }
         }
 
-        // Fills all group stage matches with realistic random scores
         function simulateGroupStageMatches() {
-            const groupLetters = ['A', 'B', 'C', 'D', 'E', 'F', 'G', 'H', 'I', 'J', 'K', 'L'];
-            const weightScores = [0, 0, 1, 1, 1, 2, 2, 2, 3, 3, 4]; // realistic goals distribution
-
-            groupLetters.forEach(g => {
-                state.groups[g].matches.forEach(m => {
-                    m.scoreA = weightScores[Math.floor(Math.random() * weightScores.length)];
-                    m.scoreB = weightScores[Math.floor(Math.random() * weightScores.length)];
-                });
-            });
-
-            saveState();
-            renderGroups();
-            showToast("Fase de Grupos simulada com sucesso!", "success");
+            const weightScores = [0, 0, 1, 1, 1, 2, 2, 2, 3, 3, 4];
+            ['A', 'B', 'C', 'D', 'E', 'F', 'G', 'H', 'I', 'J', 'K', 'L'].forEach(g => state.groups[g].matches.forEach(m => { m.scoreA = weightScores[Math.floor(Math.random() * weightScores.length)]; m.scoreB = weightScores[Math.floor(Math.random() * weightScores.length)]; }));
+            saveState(); renderGroups(); showToast("Grupos simulados e salvos!", "success");
         }
 
-        // UI RENDERERS
         function switchTab(tab) {
             activeTab = tab;
-
-            const tabGrupos = document.getElementById("tab-grupos-btn");
-            const tabMatamata = document.getElementById("tab-matamata-btn");
-            const gruposView = document.getElementById("grupos-view");
-            const matamataView = document.getElementById("matamata-view");
-
+            const tabGrupos = document.getElementById("tab-grupos-btn"); const tabMatamata = document.getElementById("tab-matamata-btn");
+            const gruposView = document.getElementById("grupos-view"); const matamataView = document.getElementById("matamata-view");
             if (tab === 'grupos') {
                 tabGrupos.className = "py-4 px-3 border-b-2 border-emerald-500 font-bold text-sm text-emerald-400 flex items-center gap-2 transition-all duration-300 hover:text-emerald-300";
                 tabMatamata.className = "py-4 px-3 border-b-2 border-transparent font-medium text-sm text-slate-400 flex items-center gap-2 transition-all duration-300 hover:text-slate-200";
-                gruposView.classList.remove("hidden");
-                matamataView.classList.add("hidden");
-                renderGroups();
+                gruposView.classList.remove("hidden"); matamataView.classList.add("hidden"); renderGroups();
             } else {
                 tabMatamata.className = "py-4 px-3 border-b-2 border-amber-500 font-bold text-sm text-amber-400 flex items-center gap-2 transition-all duration-300 hover:text-amber-300";
                 tabGrupos.className = "py-4 px-3 border-b-2 border-transparent font-medium text-sm text-slate-400 flex items-center gap-2 transition-all duration-300 hover:text-slate-200";
-                matamataView.classList.remove("hidden");
-                gruposView.classList.add("hidden");
-                renderKnockoutBracket();
+                matamataView.classList.remove("hidden"); gruposView.classList.add("hidden"); renderKnockoutBracket();
             }
         }
 
-        function changeGroupFilter(filter) {
-            activeGroupFilter = filter;
-            renderGroupFilterPills();
-            renderGroups();
-        }
+        function changeGroupFilter(filter) { activeGroupFilter = filter; renderGroupFilterPills(); renderGroups(); }
 
         function renderGroupFilterPills() {
             const container = document.getElementById("group-filter-container");
-            let html = "";
-
-            const filters = [
-                { id: "todos", label: "Ver Todos" },
-                { id: "A", label: "Grupo A" }, { id: "B", label: "Grupo B" },
-                { id: "C", label: "Grupo C" }, { id: "D", label: "Grupo D" },
-                { id: "E", label: "Grupo E" }, { id: "F", label: "Grupo F" },
-                { id: "G", label: "Grupo G" }, { id: "H", label: "Grupo H" },
-                { id: "I", label: "Grupo I" }, { id: "J", label: "Grupo J" },
-                { id: "K", label: "Grupo K" }, { id: "L", label: "Grupo L" },
-                { id: "terceiros", label: "Melhores 3ºs" }
-            ];
-
-            filters.forEach(f => {
+            const filters = [{ id: "todos", label: "Ver Todos" }, { id: "A", label: "Grupo A" }, { id: "B", label: "Grupo B" }, { id: "C", label: "Grupo C" }, { id: "D", label: "Grupo D" }, { id: "E", label: "Grupo E" }, { id: "F", label: "Grupo F" }, { id: "G", label: "Grupo G" }, { id: "H", label: "Grupo H" }, { id: "I", label: "Grupo I" }, { id: "J", label: "Grupo J" }, { id: "K", label: "Grupo K" }, { id: "L", label: "Grupo L" }, { id: "terceiros", label: "Melhores 3ºs" }];
+            container.innerHTML = filters.map(f => {
                 const isActive = activeGroupFilter === f.id;
-                const activeClass = isActive
-                    ? "bg-emerald-500 hover:bg-emerald-400 text-copaNavy-dark font-bold shadow-md shadow-emerald-500/15"
-                    : "bg-slate-800 text-slate-300 hover:text-white hover:bg-slate-700/80 border border-slate-700/60";
-
-                html += `
-              <button onclick="changeGroupFilter('${f.id}')" class="px-3.5 py-1.5 rounded-lg text-xs font-semibold whitespace-nowrap transition-all duration-300 active:scale-95 ${activeClass}">
-                ${f.label}
-              </button>
-            `;
-            });
-
-            container.innerHTML = html;
+                const activeClass = isActive ? "bg-emerald-500 hover:bg-emerald-400 text-copaNavy-dark font-bold shadow-md shadow-emerald-500/15" : "bg-slate-800 text-slate-300 hover:text-white hover:bg-slate-700/80 border border-slate-700/60";
+                return `<button onclick="window.changeGroupFilter('${f.id}')" class="px-3.5 py-1.5 rounded-lg text-xs font-semibold whitespace-nowrap transition-all duration-300 active:scale-95 ${activeClass}">${f.label}</button>`;
+            }).join('');
         }
 
         function renderGroups() {
             const container = document.getElementById("groups-container");
-
-            if (activeGroupFilter === 'terceiros') {
-                container.className = "grid grid-cols-1 gap-8";
-                container.innerHTML = renderMelhoresTerceirosHTML();
-                return;
-            }
-
+            if (activeGroupFilter === 'terceiros') { container.className = "grid grid-cols-1 gap-8"; container.innerHTML = renderMelhoresTerceirosHTML(); return; }
             container.className = "grid grid-cols-1 xl:grid-cols-2 gap-8";
-            let html = "";
+            const groupLetters = activeGroupFilter === "todos" ? ['A', 'B', 'C', 'D', 'E', 'F', 'G', 'H', 'I', 'J', 'K', 'L'] : [activeGroupFilter];
 
-            const groupLetters = activeGroupFilter === "todos"
-                ? ['A', 'B', 'C', 'D', 'E', 'F', 'G', 'H', 'I', 'J', 'K', 'L']
-                : [activeGroupFilter];
-
-            groupLetters.forEach(g => {
-                const standings = calculateGroupStandings(g);
-                const matches = state.groups[g].matches;
-
-                html += `
+            container.innerHTML = groupLetters.map(g => {
+                const standings = calculateGroupStandings(g); const matches = state.groups[g].matches;
+                return `
               <div class="glass-card rounded-2xl p-4 sm:p-6 shadow-xl flex flex-col gap-6 relative overflow-hidden transition-transform duration-300 hover:scale-[1.005]">
                 <div class="flex items-center justify-between pb-3 border-b border-slate-700/40">
-                  <h3 class="text-xl font-extrabold text-slate-100 flex items-center gap-2">
-                    <span class="w-1 h-6 bg-emerald-500 rounded-full"></span>
-                    GRUPO ${g}
-                  </h3>
-                  <span class="text-xs font-bold text-emerald-400 px-2 py-0.5 bg-emerald-500/10 rounded-full uppercase">Fase de Grupos</span>
+                  <h3 class="text-xl font-extrabold text-slate-100 flex items-center gap-2"><span class="w-1 h-6 bg-emerald-500 rounded-full"></span>GRUPO ${g}</h3>
                 </div>
-
                 <div class="overflow-x-auto">
                   <table class="w-full text-left text-xs border-collapse">
-                    <thead>
-                      <tr class="text-slate-400 border-b border-slate-700/30 uppercase text-[10px] tracking-wider">
-                        <th class="py-2.5 pl-1 w-8 text-center">Cl</th>
-                        <th class="py-2.5 pl-2">Seleção</th>
-                        <th class="py-2.5 text-center font-bold text-slate-200">P</th>
-                        <th class="py-2.5 text-center">J</th>
-                        <th class="py-2.5 text-center">V</th>
-                        <th class="py-2.5 text-center">E</th>
-                        <th class="py-2.5 text-center">D</th>
-                        <th class="py-2.5 text-center">GP</th>
-                        <th class="py-2.5 text-center">GC</th>
-                        <th class="py-2.5 text-center">SG</th>
-                      </tr>
-                    </thead>
+                    <thead><tr class="text-slate-400 border-b border-slate-700/30 uppercase text-[10px] tracking-wider"><th class="py-2.5 pl-1 w-8 text-center">Cl</th><th class="py-2.5 pl-2">Seleção</th><th class="py-2.5 text-center font-bold text-slate-200">P</th><th class="py-2.5 text-center">J</th><th class="py-2.5 text-center">V</th><th class="py-2.5 text-center">E</th><th class="py-2.5 text-center">D</th><th class="py-2.5 text-center">GP</th><th class="py-2.5 text-center">GC</th><th class="py-2.5 text-center">SG</th></tr></thead>
                     <tbody class="divide-y divide-slate-800/40">
                       ${standings.map((row, index) => {
-                    const pos = index + 1;
-                    let rowClass = "hover:bg-slate-700/10 transition-colors duration-150";
-                    let posBadge = "bg-slate-800 text-slate-400";
-
-                    if (pos <= 2) {
-                        rowClass += " bg-emerald-950/5 border-l-2 border-emerald-500";
-                        posBadge = "bg-emerald-500/20 text-emerald-400 font-bold";
-                    } else if (pos === 3) {
-                        rowClass += " bg-amber-950/5 border-l-2 border-amber-500/50";
-                        posBadge = "bg-amber-500/20 text-amber-300 font-bold";
-                    } else {
-                        rowClass += " opacity-70";
-                    }
-
-                    return `
-                          <tr class="${rowClass}">
-                            <td class="py-2.5 text-center">
-                              <span class="inline-flex items-center justify-center w-5 h-5 text-[10px] rounded-md ${posBadge}">
-                                ${pos}
-                              </span>
-                            </td>
-                            <td class="py-2.5 pl-2 font-semibold text-slate-200">
-                              <span class="mr-1.5 text-base">${row.team.flag}</span>
-                              <span class="hidden sm:inline">${row.team.name}</span>
-                              <span class="inline sm:hidden font-mono uppercase text-slate-400">${row.team.code}</span>
-                            </td>
-                            <td class="py-2.5 text-center font-bold text-slate-100">${row.pts}</td>
-                            <td class="py-2.5 text-center">${row.j}</td>
-                            <td class="py-2.5 text-center text-slate-300">${row.v}</td>
-                            <td class="py-2.5 text-center text-slate-400">${row.e}</td>
-                            <td class="py-2.5 text-center text-slate-400">${row.d}</td>
-                            <td class="py-2.5 text-center">${row.gp}</td>
-                            <td class="py-2.5 text-center text-slate-400">${row.gc}</td>
-                            <td class="py-2.5 text-center font-medium ${row.sg > 0 ? 'text-emerald-400' : row.sg < 0 ? 'text-rose-400' : 'text-slate-400'}">${row.sg > 0 ? '+' + row.sg : row.sg}</td>
-                          </tr>
-                        `;
+                    const pos = index + 1; let rowClass = "hover:bg-slate-700/10 transition-colors duration-150"; let posBadge = "bg-slate-800 text-slate-400";
+                    if (pos <= 2) { rowClass += " bg-emerald-950/5 border-l-2 border-emerald-500"; posBadge = "bg-emerald-500/20 text-emerald-400 font-bold"; }
+                    else if (pos === 3) { rowClass += " bg-amber-950/5 border-l-2 border-amber-500/50"; posBadge = "bg-amber-500/20 text-amber-300 font-bold"; }
+                    else { rowClass += " opacity-70"; }
+                    return `<tr class="${rowClass}"><td class="py-2.5 text-center"><span class="inline-flex items-center justify-center w-5 h-5 text-[10px] rounded-md ${posBadge}">${pos}</span></td><td class="py-2.5 pl-2 font-semibold text-slate-200"><span class="mr-1.5 text-base">${row.team.flag}</span><span class="hidden sm:inline">${row.team.name}</span><span class="inline sm:hidden font-mono uppercase text-slate-400">${row.team.code}</span></td><td class="py-2.5 text-center font-bold text-slate-100">${row.pts}</td><td class="py-2.5 text-center">${row.j}</td><td class="py-2.5 text-center text-slate-300">${row.v}</td><td class="py-2.5 text-center text-slate-400">${row.e}</td><td class="py-2.5 text-center text-slate-400">${row.d}</td><td class="py-2.5 text-center">${row.gp}</td><td class="py-2.5 text-center text-slate-400">${row.gc}</td><td class="py-2.5 text-center font-medium ${row.sg > 0 ? 'text-emerald-400' : row.sg < 0 ? 'text-rose-400' : 'text-slate-400'}">${row.sg > 0 ? '+' + row.sg : row.sg}</td></tr>`;
                 }).join('')}
                     </tbody>
                   </table>
                 </div>
-
                 <div class="flex flex-col gap-2">
                   <div class="text-[10px] font-bold text-slate-500 uppercase tracking-wider mb-1">Jogos do Grupo</div>
                   <div class="grid grid-cols-1 sm:grid-cols-2 gap-3">
-                    ${matches.map(m => {
-                    const scoreA_val = m.scoreA !== null ? m.scoreA : "";
-                    const scoreB_val = m.scoreB !== null ? m.scoreB : "";
-
-                    return `
-                        <div class="bg-copaNavy-dark/50 border border-slate-700/40 rounded-xl p-3 flex flex-col justify-between gap-2.5 transition-all duration-300 hover:border-slate-600/60">
-                          <div class="flex justify-between items-center text-[10px] text-slate-500 font-semibold uppercase">
-                            <span class="text-[9px] text-slate-400 font-normal">${m.datetime}</span>
-                            <span class="text-emerald-500/70">Grupo ${g}</span>
+                    ${matches.map(m => `
+                      <div class="bg-copaNavy-dark/50 border border-slate-700/40 rounded-xl p-3 flex flex-col justify-between gap-2.5 transition-all duration-300 hover:border-slate-600/60">
+                        <div class="flex justify-between items-center text-[10px] text-slate-500 font-semibold uppercase"><span class="text-[9px] text-slate-400 font-normal">${m.datetime}</span><span class="text-emerald-500/70">Grupo ${g}</span></div>
+                        <div class="flex items-center justify-between gap-2">
+                          <div class="flex items-center gap-1.5 w-[38%] overflow-hidden"><span class="text-xl flex-shrink-0">${m.teamA.flag}</span><span class="font-bold text-xs text-slate-200 truncate" title="${m.teamA.name}">${m.teamA.name}</span></div>
+                          <div class="flex items-center gap-1">
+                            <input type="number" min="0" max="99" placeholder="-" value="${m.scoreA !== null ? m.scoreA : ''}" data-group="${g}" data-match-id="${m.id}" data-team-type="A" class="group-score-input w-9 h-8 text-center text-sm font-extrabold bg-copaNavy-light border border-slate-600 rounded-lg focus:border-emerald-500 focus:ring-1 focus:ring-emerald-500 outline-none text-slate-100 transition-all">
+                            <span class="text-xs text-slate-500 font-bold px-0.5">x</span>
+                            <input type="number" min="0" max="99" placeholder="-" value="${m.scoreB !== null ? m.scoreB : ''}" data-group="${g}" data-match-id="${m.id}" data-team-type="B" class="group-score-input w-9 h-8 text-center text-sm font-extrabold bg-copaNavy-light border border-slate-600 rounded-lg focus:border-emerald-500 focus:ring-1 focus:ring-emerald-500 outline-none text-slate-100 transition-all">
                           </div>
-
-                          <div class="flex items-center justify-between gap-2">
-                            <div class="flex items-center gap-1.5 w-[38%] overflow-hidden">
-                              <span class="text-xl flex-shrink-0">${m.teamA.flag}</span>
-                              <span class="font-bold text-xs text-slate-200 truncate" title="${m.teamA.name}">${m.teamA.name}</span>
-                            </div>
-
-                            <div class="flex items-center gap-1">
-                              <input
-                                type="number"
-                                min="0"
-                                max="99"
-                                placeholder="-"
-                                value="${scoreA_val}"
-                                data-group="${g}"
-                                data-match-id="${m.id}"
-                                data-team-type="A"
-                                class="group-score-input w-9 h-8 text-center text-sm font-extrabold bg-copaNavy-light border border-slate-600 rounded-lg focus:border-emerald-500 focus:ring-1 focus:ring-emerald-500 outline-none text-slate-100 transition-all"
-                              >
-                              <span class="text-xs text-slate-500 font-bold px-0.5">x</span>
-                              <input
-                                type="number"
-                                min="0"
-                                max="99"
-                                placeholder="-"
-                                value="${scoreB_val}"
-                                data-group="${g}"
-                                data-match-id="${m.id}"
-                                data-team-type="B"
-                                class="group-score-input w-9 h-8 text-center text-sm font-extrabold bg-copaNavy-light border border-slate-600 rounded-lg focus:border-emerald-500 focus:ring-1 focus:ring-emerald-500 outline-none text-slate-100 transition-all"
-                              >
-                            </div>
-
-                            <div class="flex items-center gap-1.5 w-[38%] justify-end overflow-hidden">
-                              <span class="font-bold text-xs text-slate-200 truncate order-1 text-right" title="${m.teamB.name}">${m.teamB.name}</span>
-                              <span class="text-xl flex-shrink-0 order-2">${m.teamB.flag}</span>
-                            </div>
-                          </div>
+                          <div class="flex items-center gap-1.5 w-[38%] justify-end overflow-hidden"><span class="font-bold text-xs text-slate-200 truncate order-1 text-right" title="${m.teamB.name}">${m.teamB.name}</span><span class="text-xl flex-shrink-0 order-2">${m.teamB.flag}</span></div>
                         </div>
-                      `;
-                }).join('')}
+                      </div>
+                    `).join('')}
                   </div>
                 </div>
               </div>
             `;
-            });
-
-            container.innerHTML = html;
+            }).join('');
         }
 
         function renderMelhoresTerceirosHTML() {
             const thirds = getThirdPlacesStandings();
-
-            return `
-            <div class="glass-card rounded-2xl p-6 shadow-xl flex flex-col gap-6 relative overflow-hidden transition-transform duration-300 max-w-4xl mx-auto w-full">
-              <div class="flex items-center justify-between pb-3 border-b border-slate-700/40">
-                <h3 class="text-xl font-extrabold text-slate-100 flex items-center gap-2">
-                  <span class="w-1 h-6 bg-amber-500 rounded-full"></span>
-                  Classificação dos 3ºs Colocados
-                </h3>
-                <span class="text-xs font-bold text-amber-400 px-2.5 py-0.5 bg-amber-500/10 rounded-full uppercase">Top 8 Avançam</span>
-              </div>
-
-              <p class="text-xs text-slate-400 leading-relaxed -mt-2">
-                No novo regulamento da Copa do Mundo de 2026, os terceiros colocados de todos os 12 grupos são comparados nesta tabela unificada. As 8 melhores seleções garantem vagas na fase de Dezesseis-avos de Final.
-              </p>
-
-              <div class="overflow-x-auto">
-                <table class="w-full text-left text-xs border-collapse">
-                  <thead>
-                    <tr class="text-slate-400 border-b border-slate-700/30 uppercase text-[10px] tracking-wider">
-                      <th class="py-3 pl-1 w-10 text-center">Pos</th>
-                      <th class="py-3 pl-2">Grupo</th>
-                      <th class="py-3 pl-2">Seleção</th>
-                      <th class="py-3 text-center font-bold text-slate-200">P</th>
-                      <th class="py-3 text-center">J</th>
-                      <th class="py-3 text-center">V</th>
-                      <th class="py-3 text-center">E</th>
-                      <th class="py-3 text-center">D</th>
-                      <th class="py-3 text-center">GP</th>
-                      <th class="py-3 text-center">GC</th>
-                      <th class="py-3 text-center">SG</th>
-                    </tr>
-                  </thead>
-                  <tbody class="divide-y divide-slate-800/40">
-                    ${thirds.map((row, index) => {
-                const pos = index + 1;
-                let rowClass = "hover:bg-slate-700/10 transition-colors duration-150";
-                let posBadge = "bg-slate-800 text-slate-400";
-
-                if (pos <= 8) {
-                    rowClass += " bg-emerald-950/5 border-l-2 border-emerald-500";
-                    posBadge = "bg-emerald-500/20 text-emerald-400 font-bold";
-                } else {
-                    rowClass += " bg-rose-950/5 border-l-2 border-rose-500/40 opacity-70";
-                    posBadge = "bg-rose-500/20 text-rose-400 font-bold";
-                }
-
-                return `
-                        <tr class="${rowClass}">
-                          <td class="py-3 text-center">
-                            <span class="inline-flex items-center justify-center w-5.5 h-5.5 text-[10px] rounded-md ${posBadge}">
-                              ${pos}
-                            </span>
-                          </td>
-                          <td class="py-3 pl-2 text-slate-400 font-bold text-center w-14">Gr. ${row.group}</td>
-                          <td class="py-3 pl-2 font-semibold text-slate-200">
-                            <span class="mr-2 text-base">${row.team.flag}</span>
-                            <span>${row.team.name}</span>
-                          </td>
-                          <td class="py-3 text-center font-bold text-slate-100">${row.pts}</td>
-                          <td class="py-3 text-center">${row.j}</td>
-                          <td class="py-3 text-center text-slate-300">${row.v}</td>
-                          <td class="py-3 text-center text-slate-400">${row.e}</td>
-                          <td class="py-3 text-center text-slate-400">${row.d}</td>
-                          <td class="py-3 text-center">${row.gp}</td>
-                          <td class="py-3 text-center text-slate-400">${row.gc}</td>
-                          <td class="py-3 text-center font-medium ${row.sg > 0 ? 'text-emerald-400' : row.sg < 0 ? 'text-rose-400' : 'text-slate-400'}">${row.sg > 0 ? '+' + row.sg : row.sg}</td>
-                        </tr>
-                      `;
-            }).join('')}
-                  </tbody>
-                </table>
-              </div>
-            </div>
-          `;
+            return `<div class="glass-card rounded-2xl p-6 shadow-xl flex flex-col gap-6 relative overflow-hidden transition-transform duration-300 max-w-4xl mx-auto w-full"><div class="flex items-center justify-between pb-3 border-b border-slate-700/40"><h3 class="text-xl font-extrabold text-slate-100 flex items-center gap-2"><span class="w-1 h-6 bg-amber-500 rounded-full"></span>Classificação dos 3ºs Colocados</h3></div><div class="overflow-x-auto"><table class="w-full text-left text-xs border-collapse"><thead><tr class="text-slate-400 border-b border-slate-700/30 uppercase text-[10px] tracking-wider"><th class="py-3 pl-1 w-10 text-center">Pos</th><th class="py-3 pl-2">Grupo</th><th class="py-3 pl-2">Seleção</th><th class="py-3 text-center font-bold text-slate-200">P</th><th class="py-3 text-center">J</th><th class="py-3 text-center">V</th><th class="py-3 text-center">E</th><th class="py-3 text-center">D</th><th class="py-3 text-center">GP</th><th class="py-3 text-center">GC</th><th class="py-3 text-center">SG</th></tr></thead><tbody class="divide-y divide-slate-800/40">${thirds.map((row, index) => { const pos = index + 1; let rowClass = "hover:bg-slate-700/10 transition-colors duration-150"; let posBadge = "bg-slate-800 text-slate-400"; if (pos <= 8) { rowClass += " bg-emerald-950/5 border-l-2 border-emerald-500"; posBadge = "bg-emerald-500/20 text-emerald-400 font-bold"; } else { rowClass += " bg-rose-950/5 border-l-2 border-rose-500/40 opacity-70"; posBadge = "bg-rose-500/20 text-rose-400 font-bold"; } return `<tr class="${rowClass}"><td class="py-3 text-center"><span class="inline-flex items-center justify-center w-5.5 h-5.5 text-[10px] rounded-md ${posBadge}">${pos}</span></td><td class="py-3 pl-2 text-slate-400 font-bold text-center w-14">Gr. ${row.group}</td><td class="py-3 pl-2 font-semibold text-slate-200"><span class="mr-2 text-base">${row.team.flag}</span><span>${row.team.name}</span></td><td class="py-3 text-center font-bold text-slate-100">${row.pts}</td><td class="py-3 text-center">${row.j}</td><td class="py-3 text-center text-slate-300">${row.v}</td><td class="py-3 text-center text-slate-400">${row.e}</td><td class="py-3 text-center text-slate-400">${row.d}</td><td class="py-3 text-center">${row.gp}</td><td class="py-3 text-center text-slate-400">${row.gc}</td><td class="py-3 text-center font-medium ${row.sg > 0 ? 'text-emerald-400' : row.sg < 0 ? 'text-rose-400' : 'text-slate-400'}">${row.sg > 0 ? '+' + row.sg : row.sg}</td></tr>`; }).join('')}</tbody></table></div></div>`;
         }
 
-        // Render Knockout navigation tabs for mobile view
         function renderKnockoutTabs() {
             const container = document.getElementById("knockout-mobile-tabs");
-            let html = "";
-
-            const rounds = [
-                { index: 0, label: "Dezesseis-avos", size: "32 times" },
-                { index: 1, label: "Oitavas", size: "16 times" },
-                { index: 2, label: "Quartas", size: "8 times" },
-                { index: 3, label: "Semifinais", size: "4 times" },
-                { index: 4, label: "Finais", size: "2 finais" }
-            ];
-
-            rounds.forEach(r => {
+            const rounds = [{ index: 0, label: "Dezesseis-avos", size: "32 times" }, { index: 1, label: "Oitavas", size: "16 times" }, { index: 2, label: "Quartas", size: "8 times" }, { index: 3, label: "Semifinais", size: "4 times" }, { index: 4, label: "Finais", size: "2 finais" }];
+            container.innerHTML = rounds.map(r => {
                 const isActive = activeKnockoutRound === r.index;
-                const activeClass = isActive
-                    ? "bg-amber-500/15 border border-amber-500/40 text-amber-400 font-bold"
-                    : "text-slate-400 hover:text-slate-200 hover:bg-slate-800/40 border border-transparent";
-
-                html += `
-              <button onclick="changeKnockoutRound(${r.index})" class="flex-1 min-w-[85px] py-2 px-1 rounded-xl flex flex-col items-center justify-center transition-all duration-300 ${activeClass}">
-                <span class="text-xs font-semibold whitespace-nowrap">${r.label}</span>
-                <span class="text-[9px] opacity-65 font-medium whitespace-nowrap mt-0.5">${r.size}</span>
-              </button>
-            `;
-            });
-
-            container.innerHTML = html;
+                const activeClass = isActive ? "bg-amber-500/15 border border-amber-500/40 text-amber-400 font-bold" : "text-slate-400 hover:text-slate-200 hover:bg-slate-800/40 border border-transparent";
+                return `<button onclick="window.changeKnockoutRound(${r.index})" class="flex-1 min-w-[85px] py-2 px-1 rounded-xl flex flex-col items-center justify-center transition-all duration-300 ${activeClass}"><span class="text-xs font-semibold whitespace-nowrap">${r.label}</span><span class="text-[9px] opacity-65 font-medium whitespace-nowrap mt-0.5">${r.size}</span></button>`;
+            }).join('');
         }
 
-        function changeKnockoutRound(roundIndex) {
-            activeKnockoutRound = roundIndex;
-            renderKnockoutTabs();
-            renderKnockoutBracket();
-        }
+        function changeKnockoutRound(roundIndex) { activeKnockoutRound = roundIndex; renderKnockoutTabs(); renderKnockoutBracket(); }
 
-        // Render the knockout tree
         function renderKnockoutBracket() {
             const container = document.getElementById("bracket-tree-container");
-            let html = "";
+            const stages = [{ key: 'R32', label: 'Dezesseis-avos', matches: state.knockout.R32, matchOffset: 73 }, { key: 'R16', label: 'Oitavas', matches: state.knockout.R16, matchOffset: 89 }, { key: 'QF', label: 'Quartas', matches: state.knockout.QF, matchOffset: 97 }, { key: 'SF', label: 'Semis', matches: state.knockout.SF, matchOffset: 101 }, { key: 'Finais', label: 'Finais', matches: [state.knockout.thirdPlace, state.knockout.final], matchOffset: 103 }];
 
-            // We have 5 columns: R32, R16, QF, SF, Finais (Third Place & Final)
-            const stages = [
-                { key: 'R32', label: 'Dezesseis-avos de Final', matches: state.knockout.R32, matchOffset: 73 },
-                { key: 'R16', label: 'Oitavas de Final', matches: state.knockout.R16, matchOffset: 89 },
-                { key: 'QF', label: 'Quartas de Final', matches: state.knockout.QF, matchOffset: 97 },
-                { key: 'SF', label: 'Semifinais', matches: state.knockout.SF, matchOffset: 101 },
-                { key: 'Finais', label: 'Finais', matches: [state.knockout.thirdPlace, state.knockout.final], matchOffset: 103 }
-            ];
-
-            stages.forEach((stage, sIdx) => {
-                // Mobile visibility handling: only display activeKnockoutRound on mobile
+            container.innerHTML = stages.map((stage, sIdx) => {
                 const mobileHideClass = activeKnockoutRound === sIdx ? "flex" : "hidden";
-
-                // Desktop uses flex column with h-full and justify-around to stretch and center matches
                 let colClass = `${mobileHideClass} md:flex flex-col w-full md:w-72 flex-shrink-0 gap-4 md:gap-0 justify-around h-auto md:h-full md:py-2`;
+                if (stage.key === 'R32') colClass = `${mobileHideClass} md:flex flex-col w-full md:w-72 flex-shrink-0 gap-4 md:space-y-3.5 md:gap-0 justify-start overflow-y-auto h-auto md:h-full md:pr-1`;
 
-                if (stage.key === 'R32') {
-                    // R32 column does not need justify-around stretch as it is the base list
-                    colClass = `${mobileHideClass} md:flex flex-col w-full md:w-72 flex-shrink-0 gap-4 md:space-y-3.5 md:gap-0 justify-start overflow-y-auto h-auto md:h-full md:pr-1`;
-                }
-
-                html += `
+                return `
               <div class="${colClass}">
-                <div class="block md:hidden text-xs font-bold text-amber-500 uppercase tracking-wider pl-1.5 pb-1">
-                  ${stage.label}
-                </div>
-
+                <div class="block md:hidden text-xs font-bold text-amber-500 uppercase tracking-wider pl-1.5 pb-1">${stage.label}</div>
                 ${stage.matches.map((m, mIdx) => {
                     if (!m) return '';
-
-                    const matchNum = stage.key === 'Finais'
-                        ? (m.id === 'TP' ? 103 : 104)
-                        : (stage.matchOffset + mIdx);
-
+                    const matchNum = stage.key === 'Finais' ? (m.id === 'TP' ? 103 : 104) : (stage.matchOffset + mIdx);
                     const isDraw = m.scoreA !== null && m.scoreB !== null && parseInt(m.scoreA) === parseInt(m.scoreB);
-                    const showPenalties = isDraw;
-
-                    // Render values
-                    const tAName = m.teamA ? m.teamA.name : "";
-                    const tAFlag = m.teamA ? m.teamA.flag : "⚽";
-                    const tACode = m.teamA ? m.teamA.code : "";
-                    const tAPlaceholder = KNOCKOUT_PLACEHOLDERS[m.stage]
-                        ? (KNOCKOUT_PLACEHOLDERS[m.stage][m.index] ? KNOCKOUT_PLACEHOLDERS[m.stage][m.index].teamA : KNOCKOUT_PLACEHOLDERS[m.stage].teamA)
-                        : "";
-
-                    const tBName = m.teamB ? m.teamB.name : "";
-                    const tBFlag = m.teamB ? m.teamB.flag : "⚽";
-                    const tBCode = m.teamB ? m.teamB.code : "";
-                    const tBPlaceholder = KNOCKOUT_PLACEHOLDERS[m.stage]
-                        ? (KNOCKOUT_PLACEHOLDERS[m.stage][m.index] ? KNOCKOUT_PLACEHOLDERS[m.stage][m.index].teamB : KNOCKOUT_PLACEHOLDERS[m.stage].teamB)
-                        : "";
-
-                    const scoreA_val = m.scoreA !== null ? m.scoreA : "";
-                    const scoreB_val = m.scoreB !== null ? m.scoreB : "";
-                    const penA_val = m.penA !== null ? m.penA : "";
-                    const penB_val = m.penB !== null ? m.penB : "";
-
-                    // Highlights
-                    const winnerA = m.winnerId === 'A';
-                    const winnerB = m.winnerId === 'B';
+                    const tAName = m.teamA ? m.teamA.name : ""; const tAFlag = m.teamA ? m.teamA.flag : "⚽"; const tAPlaceholder = KNOCKOUT_PLACEHOLDERS[m.stage] ? (KNOCKOUT_PLACEHOLDERS[m.stage][m.index] ? KNOCKOUT_PLACEHOLDERS[m.stage][m.index].teamA : KNOCKOUT_PLACEHOLDERS[m.stage].teamA) : "";
+                    const tBName = m.teamB ? m.teamB.name : ""; const tBFlag = m.teamB ? m.teamB.flag : "⚽"; const tBPlaceholder = KNOCKOUT_PLACEHOLDERS[m.stage] ? (KNOCKOUT_PLACEHOLDERS[m.stage][m.index] ? KNOCKOUT_PLACEHOLDERS[m.stage][m.index].teamB : KNOCKOUT_PLACEHOLDERS[m.stage].teamB) : "";
+                    const scoreA_val = m.scoreA !== null ? m.scoreA : ""; const scoreB_val = m.scoreB !== null ? m.scoreB : ""; const penA_val = m.penA !== null ? m.penA : ""; const penB_val = m.penB !== null ? m.penB : "";
+                    const winnerA = m.winnerId === 'A'; const winnerB = m.winnerId === 'B';
                     const teamAColorClass = winnerA ? "text-amber-400 font-extrabold" : winnerB ? "text-slate-500 opacity-60" : "text-slate-200";
                     const teamBColorClass = winnerB ? "text-amber-400 font-extrabold" : winnerA ? "text-slate-500 opacity-60" : "text-slate-200";
                     const cardBorderClass = (winnerA || winnerB) ? "border-amber-500/40 glow-gold bg-slate-800/80" : "border-slate-800 bg-slate-800/40";
-
-                    // Custom text labels for Finals
-                    let gameTitle = `Jogo ${matchNum}`;
-                    if (m.id === 'TP') gameTitle = "DISPUTA DE 3º LUGAR (J103)";
-                    if (m.id === 'F') gameTitle = "GRANDE FINAL (J104)";
+                    let gameTitle = `Jogo ${matchNum}`; if (m.id === 'TP') gameTitle = "DISPUTA DE 3º LUGAR"; if (m.id === 'F') gameTitle = "GRANDE FINAL";
 
                     return `
                     <div class="border rounded-2xl p-3 shadow-md flex flex-col gap-2 transition-all duration-300 hover:border-amber-500/50 w-full md:w-68 flex-shrink-0 ${cardBorderClass}">
-
                       <div class="flex justify-between items-center text-[9px] text-slate-500 font-bold uppercase pb-1.5 border-b border-slate-700/30">
-                        <span class="${(winnerA || winnerB) ? 'text-amber-400' : 'text-slate-400'}">${gameTitle}</span>
-                        <span class="text-[8px] text-slate-400 font-normal">${m.datetime}</span>
+                        <span class="${(winnerA || winnerB) ? 'text-amber-400' : 'text-slate-400'}">${gameTitle}</span><span class="text-[8px] text-slate-400 font-normal">${m.datetime}</span>
                       </div>
-
                       <div class="flex items-center justify-between gap-1 h-8">
                         <div class="flex items-center gap-2 overflow-hidden w-[55%]">
-                          <span class="text-xl flex-shrink-0">${tAFlag}</span>
-                          ${m.teamA
-                            ? `<span class="text-xs truncate ${teamAColorClass}" title="${tAName}">${tAName}</span>`
-                            : `<span class="text-xs text-slate-500 italic truncate" title="${tAPlaceholder}">${tAPlaceholder}</span>`
-                        }
+                          <span class="text-xl flex-shrink-0">${tAFlag}</span>${m.teamA ? `<span class="text-xs truncate ${teamAColorClass}" title="${tAName}">${tAName}</span>` : `<span class="text-xs text-slate-500 italic truncate" title="${tAPlaceholder}">${tAPlaceholder}</span>`}
                         </div>
-
                         <div class="flex items-center gap-1.5">
-                          <input
-                            type="number"
-                            min="0"
-                            placeholder="P"
-                            title="Pênaltis"
-                            value="${penA_val}"
-                            data-stage="${m.stage}"
-                            data-index="${m.index}"
-                            data-field="penA"
-                            class="knockout-score-input w-7.5 h-7.5 text-center text-xs font-bold bg-amber-950/20 border border-amber-900/60 text-amber-300 rounded-md focus:border-amber-500 outline-none transition-all ${showPenalties ? 'inline' : 'hidden'}"
-                            ${!m.teamA || !m.teamB ? 'disabled' : ''}
-                          >
-                          <input
-                            type="number"
-                            min="0"
-                            placeholder="-"
-                            value="${scoreA_val}"
-                            data-stage="${m.stage}"
-                            data-index="${m.index}"
-                            data-field="scoreA"
-                            class="knockout-score-input w-8.5 h-8.5 text-center text-sm font-extrabold bg-copaNavy border border-slate-700 rounded-lg focus:border-amber-500 focus:ring-1 focus:ring-amber-500 outline-none text-slate-100 transition-all ${winnerA ? 'border-amber-500/50 bg-amber-950/10' : ''}"
-                            ${!m.teamA || !m.teamB ? 'disabled' : ''}
-                          >
+                          <input type="number" min="0" placeholder="P" value="${penA_val}" data-stage="${m.stage}" data-index="${m.index}" data-field="penA" class="knockout-score-input w-7.5 h-7.5 text-center text-xs font-bold bg-amber-950/20 border border-amber-900/60 text-amber-300 rounded-md focus:border-amber-500 outline-none transition-all ${isDraw ? 'inline' : 'hidden'}" ${!m.teamA || !m.teamB ? 'disabled' : ''}>
+                          <input type="number" min="0" placeholder="-" value="${scoreA_val}" data-stage="${m.stage}" data-index="${m.index}" data-field="scoreA" class="knockout-score-input w-8.5 h-8.5 text-center text-sm font-extrabold bg-copaNavy border border-slate-700 rounded-lg focus:border-amber-500 focus:ring-1 focus:ring-amber-500 outline-none text-slate-100 transition-all ${winnerA ? 'border-amber-500/50 bg-amber-950/10' : ''}" ${!m.teamA || !m.teamB ? 'disabled' : ''}>
                         </div>
                       </div>
-
                       <div class="flex items-center justify-between gap-1 h-8">
                         <div class="flex items-center gap-2 overflow-hidden w-[55%]">
-                          <span class="text-xl flex-shrink-0">${tBFlag}</span>
-                          ${m.teamB
-                            ? `<span class="text-xs truncate ${teamBColorClass}" title="${tBName}">${tBName}</span>`
-                            : `<span class="text-xs text-slate-500 italic truncate" title="${tBPlaceholder}">${tBPlaceholder}</span>`
-                        }
+                          <span class="text-xl flex-shrink-0">${tBFlag}</span>${m.teamB ? `<span class="text-xs truncate ${teamBColorClass}" title="${tBName}">${tBName}</span>` : `<span class="text-xs text-slate-500 italic truncate" title="${tBPlaceholder}">${tBPlaceholder}</span>`}
                         </div>
-
                         <div class="flex items-center gap-1.5">
-                          <input
-                            type="number"
-                            min="0"
-                            placeholder="P"
-                            title="Pênaltis"
-                            value="${penB_val}"
-                            data-stage="${m.stage}"
-                            data-index="${m.index}"
-                            data-field="penB"
-                            class="knockout-score-input w-7.5 h-7.5 text-center text-xs font-bold bg-amber-950/20 border border-amber-900/60 text-amber-300 rounded-md focus:border-amber-500 outline-none transition-all ${showPenalties ? 'inline' : 'hidden'}"
-                            ${!m.teamA || !m.teamB ? 'disabled' : ''}
-                          >
-                          <input
-                            type="number"
-                            min="0"
-                            placeholder="-"
-                            value="${scoreB_val}"
-                            data-stage="${m.stage}"
-                            data-index="${m.index}"
-                            data-field="scoreB"
-                            class="knockout-score-input w-8.5 h-8.5 text-center text-sm font-extrabold bg-copaNavy border border-slate-700 rounded-lg focus:border-amber-500 focus:ring-1 focus:ring-amber-500 outline-none text-slate-100 transition-all ${winnerB ? 'border-amber-500/50 bg-amber-950/10' : ''}"
-                            ${!m.teamA || !m.teamB ? 'disabled' : ''}
-                          >
+                          <input type="number" min="0" placeholder="P" value="${penB_val}" data-stage="${m.stage}" data-index="${m.index}" data-field="penB" class="knockout-score-input w-7.5 h-7.5 text-center text-xs font-bold bg-amber-950/20 border border-amber-900/60 text-amber-300 rounded-md focus:border-amber-500 outline-none transition-all ${isDraw ? 'inline' : 'hidden'}" ${!m.teamA || !m.teamB ? 'disabled' : ''}>
+                          <input type="number" min="0" placeholder="-" value="${scoreB_val}" data-stage="${m.stage}" data-index="${m.index}" data-field="scoreB" class="knockout-score-input w-8.5 h-8.5 text-center text-sm font-extrabold bg-copaNavy border border-slate-700 rounded-lg focus:border-amber-500 focus:ring-1 focus:ring-amber-500 outline-none text-slate-100 transition-all ${winnerB ? 'border-amber-500/50 bg-amber-950/10' : ''}" ${!m.teamA || !m.teamB ? 'disabled' : ''}>
                         </div>
                       </div>
-
                     </div>
                   `;
                 }).join('')}
               </div>
             `;
-            });
-
-            container.innerHTML = html;
+            }).join('');
         }
 
-        // Toast notifications utility
         function showToast(message, type = "success") {
-            const container = document.getElementById("toast-container");
-
-            const toast = document.createElement("div");
-            toast.className = `p-4 rounded-xl shadow-lg border text-sm flex items-center gap-3 transition-all duration-300 transform translate-y-2 opacity-0 select-none`;
-
-            let borderBgClass = "";
-            let icon = "";
-
-            if (type === "success") {
-                borderBgClass = "bg-slate-800 border-emerald-500/40 text-emerald-400 glow-green";
-                icon = `
-              <div class="p-1.5 bg-emerald-500/10 rounded-lg text-emerald-400">
-                <svg class="w-4 h-4" fill="none" stroke="currentColor" stroke-width="3" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
-                  <path stroke-linecap="round" stroke-linejoin="round" d="M4.5 12.75l6 6 9-13.5"></path>
-                </svg>
-              </div>
-            `;
-            } else if (type === "info") {
-                borderBgClass = "bg-slate-800 border-amber-500/40 text-amber-300 glow-gold";
-                icon = `
-              <div class="p-1.5 bg-amber-500/10 rounded-lg text-amber-400">
-                <svg class="w-4 h-4" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
-                  <path stroke-linecap="round" stroke-linejoin="round" d="M11.25 11.25l.041-.02a.75.75 0 111.063.852l-.708 2.836a.75.75 0 001.063.852l.041-.021M21 12a9 9 0 11-18 0 9 9 0 0118 0zm-9-3.75h.008v.008H12V8.25z"></path>
-                </svg>
-              </div>
-            `;
-            } else if (type === "warning") {
-                borderBgClass = "bg-slate-800 border-rose-500/40 text-rose-400";
-                icon = `
-              <div class="p-1.5 bg-rose-500/10 rounded-lg text-rose-400">
-                <svg class="w-4 h-4" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
-                  <path stroke-linecap="round" stroke-linejoin="round" d="M12 9v3.75m9-.75a9 9 0 11-18 0 9 9 0 0118 0zm-9 3.75h.008v.008H12v-.008z"></path>
-                </svg>
-              </div>
-            `;
-            }
-
-            toast.innerHTML = `${icon} <span class="font-semibold flex-1">${message}</span>`;
-            toast.className += ` ${borderBgClass}`;
-
-            container.appendChild(toast);
-
-            // Trigger animations
-            setTimeout(() => {
-                toast.classList.remove("translate-y-2", "opacity-0");
-                toast.classList.add("translate-y-0", "opacity-100");
-            }, 50);
-
-            // Dismiss after 3 seconds
-            setTimeout(() => {
-                toast.classList.add("translate-y-2", "opacity-0");
-                setTimeout(() => {
-                    toast.remove();
-                }, 300);
-            }, 3000);
+            const container = document.getElementById("toast-container"); const toast = document.createElement("div"); toast.className = `p-4 rounded-xl shadow-lg border text-sm flex items-center gap-3 transition-all duration-300 transform translate-y-2 opacity-0 select-none`;
+            let borderBgClass = ""; let icon = "";
+            if (type === "success") { borderBgClass = "bg-slate-800 border-emerald-500/40 text-emerald-400 glow-green"; icon = `<div class="p-1.5 bg-emerald-500/10 rounded-lg text-emerald-400"><svg class="w-4 h-4" fill="none" stroke="currentColor" stroke-width="3" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M4.5 12.75l6 6 9-13.5"></path></svg></div>`; }
+            else if (type === "info") { borderBgClass = "bg-slate-800 border-amber-500/40 text-amber-300 glow-gold"; icon = `<div class="p-1.5 bg-amber-500/10 rounded-lg text-amber-400"><svg class="w-4 h-4" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M11.25 11.25l.041-.02a.75.75 0 111.063.852l-.708 2.836a.75.75 0 001.063.852l.041-.021M21 12a9 9 0 11-18 0 9 9 0 0118 0zm-9-3.75h.008v.008H12V8.25z"></path></svg></div>`; }
+            else if (type === "warning") { borderBgClass = "bg-slate-800 border-rose-500/40 text-rose-400"; icon = `<div class="p-1.5 bg-rose-500/10 rounded-lg text-rose-400"><svg class="w-4 h-4" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M12 9v3.75m9-.75a9 9 0 11-18 0 9 9 0 0118 0zm-9 3.75h.008v.008H12v-.008z"></path></svg></div>`; }
+            toast.innerHTML = `${icon} <span class="font-semibold flex-1">${message}</span>`; toast.className += ` ${borderBgClass}`; container.appendChild(toast);
+            setTimeout(() => { toast.classList.remove("translate-y-2", "opacity-0"); toast.classList.add("translate-y-0", "opacity-100"); }, 50);
+            setTimeout(() => { toast.classList.add("translate-y-2", "opacity-0"); setTimeout(() => { toast.remove(); }, 300); }, 3000);
         }
 
-        // Global Event Delegation for Dynamic Inputs
         document.addEventListener("input", (e) => {
-            // Group Scores
             if (e.target.matches(".group-score-input")) {
-                const group = e.target.dataset.group;
-                const matchId = e.target.dataset.matchId;
-                const teamType = e.target.dataset.teamType;
-                const val = e.target.value;
-
+                const group = e.target.dataset.group; const matchId = e.target.dataset.matchId; const teamType = e.target.dataset.teamType; const val = e.target.value;
                 const match = state.groups[group].matches.find(m => m.id === matchId);
                 if (match) {
-                    if (val === "") {
-                        if (teamType === "A") match.scoreA = null;
-                        else match.scoreB = null;
-                    } else {
-                        const parsed = parseInt(val);
-                        if (!isNaN(parsed) && parsed >= 0) {
-                            if (teamType === "A") match.scoreA = parsed;
-                            else match.scoreB = parsed;
-                        }
-                    }
-                    saveState();
-
-                    // Re-render standings and matches for currently active view
-                    renderGroups();
+                    if (val === "") { if (teamType === "A") match.scoreA = null; else match.scoreB = null; }
+                    else { const parsed = parseInt(val); if (!isNaN(parsed) && parsed >= 0) { if (teamType === "A") match.scoreA = parsed; else match.scoreB = parsed; } }
+                    saveState(); renderGroups();
                 }
             }
-
-            // Knockout Scores & Penalties
             if (e.target.matches(".knockout-score-input")) {
-                const stage = e.target.dataset.stage;
-                const index = parseInt(e.target.dataset.index);
-                const field = e.target.dataset.field;
-                const val = e.target.value;
-
-                let match;
-                if (stage === "thirdPlace") {
-                    match = state.knockout.thirdPlace;
-                } else if (stage === "final") {
-                    match = state.knockout.final;
-                } else {
-                    match = state.knockout[stage][index];
-                }
-
+                const stage = e.target.dataset.stage; const index = parseInt(e.target.dataset.index); const field = e.target.dataset.field; const val = e.target.value;
+                let match; if (stage === "thirdPlace") match = state.knockout.thirdPlace; else if (stage === "final") match = state.knockout.final; else match = state.knockout[stage][index];
                 if (match) {
-                    if (val === "") {
-                        match[field] = null;
-                    } else {
-                        const parsed = parseInt(val);
-                        if (!isNaN(parsed) && parsed >= 0) {
-                            match[field] = parsed;
-                        }
-                    }
-
-                    resolveKnockoutWinner(match);
-                    saveState();
-                    renderKnockoutBracket();
+                    if (val === "") match[field] = null; else { const parsed = parseInt(val); if (!isNaN(parsed) && parsed >= 0) match[field] = parsed; }
+                    resolveKnockoutWinner(match); saveState(); renderKnockoutBracket();
                 }
             }
         });
 
-        // Custom confirm modal helper
         function showConfirm(title, desc, isDanger, onConfirm) {
-            const modal = document.getElementById("confirm-modal");
-            const box = document.getElementById("confirm-modal-box");
-            const modalTitle = document.getElementById("confirm-modal-title");
-            const modalDesc = document.getElementById("confirm-modal-desc");
-            const modalConfirmBtn = document.getElementById("confirm-modal-confirm");
-            const modalCancelBtn = document.getElementById("confirm-modal-cancel");
-            const modalIcon = document.getElementById("confirm-modal-icon");
-
-            modalTitle.textContent = title;
-            modalDesc.textContent = desc;
-
-            if (isDanger) {
-                modalIcon.className = "mx-auto bg-rose-500/10 text-rose-500 p-3 rounded-full w-14 h-14 flex items-center justify-center border border-rose-500/20";
-                modalIcon.innerHTML = `
-              <svg class="w-7 h-7 text-rose-500" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
-                <path stroke-linecap="round" stroke-linejoin="round" d="M12 9v3.75m-9.303 3.376c-.866 1.5.217 3.374 1.948 3.374h14.71c1.73 0 2.813-1.874 1.948-3.374L13.949 3.378c-.866-1.5-3.032-1.5-3.898 0L2.697 16.126zM12 15.75h.007v.008H12v-.008z"></path>
-              </svg>
-            `;
-                modalConfirmBtn.className = "flex-1 px-4 py-2 text-xs font-semibold rounded-xl bg-rose-600 hover:bg-rose-500 text-white transition-all active:scale-95 shadow-md shadow-rose-600/15";
-            } else {
-                modalIcon.className = "mx-auto bg-emerald-500/10 text-emerald-500 p-3 rounded-full w-14 h-14 flex items-center justify-center border border-emerald-500/20";
-                modalIcon.innerHTML = `
-              <svg class="w-7 h-7 text-emerald-400" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
-                <path stroke-linecap="round" stroke-linejoin="round" d="M13 10V3L4 14h7v7l9-11h-7z"></path>
-              </svg>
-            `;
-                modalConfirmBtn.className = "flex-1 px-4 py-2 text-xs font-semibold rounded-xl bg-emerald-500 hover:bg-emerald-400 text-copaNavy-dark transition-all active:scale-95 font-bold shadow-md shadow-emerald-600/15";
-            }
-
-            modal.classList.remove("hidden");
-            setTimeout(() => {
-                modal.classList.remove("opacity-0");
-                box.classList.remove("scale-95");
-                modal.classList.add("opacity-100");
-                box.classList.add("scale-100");
-            }, 10);
-
-            const cleanup = () => {
-                modal.classList.remove("opacity-100");
-                box.classList.remove("scale-100");
-                modal.classList.add("opacity-0");
-                box.classList.add("scale-95");
-                setTimeout(() => {
-                    modal.classList.add("hidden");
-                }, 300);
-
-                modalConfirmBtn.onclick = null;
-                modalCancelBtn.onclick = null;
-            };
-
-            modalConfirmBtn.onclick = () => {
-                onConfirm();
-                cleanup();
-            };
-
-            modalCancelBtn.onclick = () => {
-                cleanup();
-            };
+            const modal = document.getElementById("confirm-modal"); const box = document.getElementById("confirm-modal-box"); const modalConfirmBtn = document.getElementById("confirm-modal-confirm"); const modalCancelBtn = document.getElementById("confirm-modal-cancel"); const modalIcon = document.getElementById("confirm-modal-icon");
+            document.getElementById("confirm-modal-title").textContent = title; document.getElementById("confirm-modal-desc").textContent = desc;
+            if (isDanger) { modalIcon.className = "mx-auto bg-rose-500/10 text-rose-500 p-3 rounded-full w-14 h-14 flex items-center justify-center border border-rose-500/20"; modalIcon.innerHTML = `<svg class="w-7 h-7 text-rose-500" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M12 9v3.75m-9.303 3.376c-.866 1.5.217 3.374 1.948 3.374h14.71c1.73 0 2.813-1.874 1.948-3.374L13.949 3.378c-.866-1.5-3.032-1.5-3.898 0L2.697 16.126zM12 15.75h.007v.008H12v-.008z"></path></svg>`; modalConfirmBtn.className = "flex-1 px-4 py-2 text-xs font-semibold rounded-xl bg-rose-600 hover:bg-rose-500 text-white transition-all active:scale-95 shadow-md shadow-rose-600/15"; }
+            else { modalIcon.className = "mx-auto bg-emerald-500/10 text-emerald-500 p-3 rounded-full w-14 h-14 flex items-center justify-center border border-emerald-500/20"; modalIcon.innerHTML = `<svg class="w-7 h-7 text-emerald-400" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M13 10V3L4 14h7v7l9-11h-7z"></path></svg>`; modalConfirmBtn.className = "flex-1 px-4 py-2 text-xs font-semibold rounded-xl bg-emerald-500 hover:bg-emerald-400 text-copaNavy-dark transition-all active:scale-95 font-bold shadow-md shadow-emerald-600/15"; }
+            modal.classList.remove("hidden"); setTimeout(() => { modal.classList.remove("opacity-0"); box.classList.remove("scale-95"); modal.classList.add("opacity-100"); box.classList.add("scale-100"); }, 10);
+            const cleanup = () => { modal.classList.remove("opacity-100"); box.classList.remove("scale-100"); modal.classList.add("opacity-0"); box.classList.add("scale-95"); setTimeout(() => modal.classList.add("hidden"), 300); modalConfirmBtn.onclick = null; modalCancelBtn.onclick = null; };
+            modalConfirmBtn.onclick = () => { onConfirm(); cleanup(); }; modalCancelBtn.onclick = cleanup;
         }
 
-        // App Initialization
-        function renderApp() {
-            renderGroupFilterPills();
-            renderGroups();
-            renderKnockoutTabs();
-            renderKnockoutBracket();
-        }
+        function renderApp() { renderGroupFilterPills(); renderGroups(); renderKnockoutTabs(); renderKnockoutBracket(); }
 
-        // Initialize state on page load
+        // Start App fetching from Firebase
         initializeState();
-        renderApp();
+
     </script>
 </body>
 
 </html>
-
