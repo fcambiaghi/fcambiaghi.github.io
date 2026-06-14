@@ -87,6 +87,90 @@
         .text-right{
             text-align: right;
         }
+
+        @media print {
+            body { background: #ffffff !important; color: #000000 !important; }
+            header, nav, #toast-container, #confirm-modal, .no-print { display: none !important; }
+            main { padding: 0 !important; margin: 0 !important; max-width: 100% !important; }
+            .glass-card { 
+                background: #ffffff !important; 
+                border: 1px solid #e2e8f0 !important; 
+                box-shadow: none !important; 
+                break-inside: avoid; 
+                page-break-inside: avoid;
+            }
+            .text-slate-100, .text-slate-200, .text-slate-300, .text-slate-400, .text-slate-500 { color: #334155 !important; }
+            .border-slate-700, .border-slate-800 { border-color: #e2e8f0 !important; }
+            .bg-slate-800, .bg-copaNavy-light, .bg-copaNavy-dark { background-color: #f8fafc !important; }
+            
+            * {
+                -webkit-print-color-adjust: exact !important;
+                print-color-adjust: exact !important;
+            }
+
+            /* --- Otimizações de Impressão do Álbum --- */
+            #album-view > :not([hidden]) ~ :not([hidden]) {
+                margin-top: 0.5rem !important;
+            }
+            
+            /* Header do álbum */
+            #album-view > div:first-child { padding: 0.5rem !important; }
+            #album-view > div:first-child h2 { font-size: 1rem !important; }
+            #album-view > div:first-child p { font-size: 0.75rem !important; }
+            #album-view .h-2\.5 { height: 0.5rem !important; }
+
+            /* Grid principal (de 1/2/3 colunas para 4 colunas) */
+            #album-view .grid-cols-1.md\:grid-cols-2.xl\:grid-cols-3 {
+                grid-template-columns: repeat(4, minmax(0, 1fr)) !important;
+                gap: 0.25rem !important;
+            }
+
+            /* Cartões das seleções */
+            #album-view .glass-card {
+                padding: 0.25rem !important;
+                gap: 0.25rem !important;
+                border-radius: 0.25rem !important;
+            }
+
+            /* Cabeçalho da seleção (Bandeira, Nome, Qtde) */
+            #album-view .pb-2 { padding-bottom: 0.125rem !important; }
+            #album-view .text-2xl { font-size: 1rem !important; }
+            #album-view h4 { font-size: 0.65rem !important; }
+            #album-view .text-xs { font-size: 0.5rem !important; }
+            
+            /* Grid das 20 figurinhas */
+            #album-view .grid-cols-5 { gap: 0.125rem !important; }
+            #album-view button.h-10 {
+                height: 1.2rem !important;
+                font-size: 0.55rem !important;
+                border-radius: 0.125rem !important;
+                border-width: 1px !important;
+            }
+            
+            /* Distintivo de repetidas na figurinha */
+            #album-view button .absolute {
+                transform: scale(0.6);
+                transform-origin: top right;
+                top: -0.1rem;
+                right: -0.1rem;
+            }
+
+            /* Relatório de repetidas no final */
+            #album-view .mt-8 { margin-top: 0.5rem !important; }
+            #album-view .sm\:p-6 { padding: 0.5rem !important; }
+            #album-view .mb-6 { margin-bottom: 0.25rem !important; padding-bottom: 0.25rem !important; }
+            #album-view .text-lg { font-size: 0.85rem !important; }
+            
+            /* Grid de repetidas (de 1/2/3 para 4 colunas) */
+            #album-view .grid-cols-1.sm\:grid-cols-2.lg\:grid-cols-3 {
+                grid-template-columns: repeat(4, minmax(0, 1fr)) !important;
+                gap: 0.25rem !important;
+            }
+            #album-view .p-3\.5 { padding: 0.25rem !important; }
+            #album-view .gap-3 { gap: 0.125rem !important; }
+            #album-view .px-2 { padding-left: 0.25rem !important; padding-right: 0.25rem !important; }
+            #album-view .py-0\.5 { padding-top: 0 !important; padding-bottom: 0 !important; }
+        }
     </style>
 </head>
 
@@ -125,25 +209,31 @@
 
     <nav class="bg-copaNavy-light/60 border-b border-slate-800/80 sticky top-0 z-40 backdrop-blur-md">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div class="flex justify-center md:justify-start space-x-6">
-                <button id="tab-grupos-btn" onclick="window.switchTab('grupos')" class="py-4 px-3 border-b-2 border-emerald-500 font-bold text-sm text-emerald-400 flex items-center gap-2 transition-all duration-300 hover:text-emerald-300">
+            <div class="flex overflow-x-auto md:justify-start space-x-2 sm:space-x-6 [&::-webkit-scrollbar]:hidden [-ms-overflow-style:none] [scrollbar-width:none]">
+                <button id="tab-grupos-btn" onclick="window.switchTab('grupos')" class="py-4 px-3 border-b-2 border-emerald-500 font-bold text-sm text-emerald-400 flex items-center gap-2 transition-all duration-300 hover:text-emerald-300 whitespace-nowrap flex-shrink-0">
                     <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg">
                         <path d="M5 3a2 2 0 00-2 2v2a2 2 0 002 2h2a2 2 0 002-2V5a2 2 0 00-2-2H5zM5 11a2 2 0 00-2 2v2a2 2 0 002 2h2a2 2 0 002-2v-2a2 2 0 00-2-2H5zM11 5a2 2 0 012-2h2a2 2 0 012 2v2a2 2 0 01-2 2h-2a2 2 0 01-2-2V5zM11 13a2 2 0 012-2h2a2 2 0 012 2v2a2 2 0 01-2 2h-2a2 2 0 01-2-2v-2z"></path>
                     </svg>
                     Fase de Grupos
                 </button>
-                <button id="tab-matamata-btn" onclick="window.switchTab('matamata')" class="py-4 px-3 border-b-2 border-transparent font-medium text-sm text-slate-400 flex items-center gap-2 transition-all duration-300 hover:text-slate-200">
+                <button id="tab-matamata-btn" onclick="window.switchTab('matamata')" class="py-4 px-3 border-b-2 border-transparent font-medium text-sm text-slate-400 flex items-center gap-2 transition-all duration-300 hover:text-slate-200 whitespace-nowrap flex-shrink-0">
                     <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg">
                         <path fill-rule="evenodd" d="M12.586 4.586a2 2 0 112.828 2.828l-3 3a2 2 0 01-2.828 0 1 1 0 00-1.414 1.414 4 4 0 005.656 0l3-3a4 4 0 00-5.656-5.656l-1.5 1.5a1 1 0 101.414 1.414l1.5-1.5zm-5 5a2 2 0 012.828 0 1 1 0 101.414-1.414 4 4 0 00-5.656 0l-3 3a4 4 0 105.656 5.656l1.5-1.5a1 1 0 10-1.414-1.414l-1.5 1.5a2 2 0 11-2.828-2.828l3-3z" clip-rule="evenodd"></path>
                     </svg>
                     Mata-Mata (Chaveamento)
                 </button>
-                <button id="tab-report-btn" onclick="window.switchTab('relatorio')" class="py-4 px-3 border-b-2 border-transparent font-medium text-sm text-slate-400 flex items-center gap-2 transition-all duration-300 hover:text-slate-200">
+                <button id="tab-report-btn" onclick="window.switchTab('relatorio')" class="py-4 px-3 border-b-2 border-transparent font-medium text-sm text-slate-400 flex items-center gap-2 transition-all duration-300 hover:text-slate-200 whitespace-nowrap flex-shrink-0">
                     <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg">
                         <path d="M9 2a1 1 0 000 2h2a1 1 0 100-2H9z"></path>
                         <path fill-rule="evenodd" d="M4 5a2 2 0 012-2 1 1 0 100 2 1 1 0 00-1 1v10a1 1 0 001 1h10a1 1 0 001-1V5a1 1 0 00-1-1 1 1 0 100-2 2 2 0 00-2 2v10a3 3 0 01-3 3H7a3 3 0 01-3-3V5z" clip-rule="evenodd"></path>
                     </svg>
                     Relatório de Jogos
+                </button>
+                <button id="tab-album-btn" onclick="window.switchTab('album')" class="py-4 px-3 border-b-2 border-transparent font-medium text-sm text-slate-400 flex items-center gap-2 transition-all duration-300 hover:text-slate-200 whitespace-nowrap flex-shrink-0">
+                    <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg">
+                        <path d="M4 3a2 2 0 00-2 2v10a2 2 0 002 2h12a2 2 0 002-2V5a2 2 0 00-2-2H4zm12 12H4l4-8 3 6 2-4 3 6z" clip-rule="evenodd" fill-rule="evenodd"></path>
+                    </svg>
+                    Álbum
                 </button>
             </div>
         </div>
@@ -219,6 +309,10 @@
                 </div>
             </div>
             <div id="report-container" class="space-y-6"></div>
+        </div>
+        
+        <div id="album-view" class="space-y-6 hidden">
+            <!-- Conteúdo gerado via JS -->
         </div>
     </main>
 
@@ -298,6 +392,7 @@
         let activeTab = "grupos";
         let activeGroupFilter = "todos";
         let activeKnockoutRound = 0;
+        let stickerEditMode = "add"; // 'add' ou 'remove'
 
         // Conexão e Inicialização do Firebase
         async function initializeState(forceReset = false) {
@@ -358,6 +453,25 @@
                         });
                         // --- FIM DA CORREÇÃO ---
 
+                        // --- INÍCIO ADIÇÃO ÁLBUM ---
+                        if (!loadedState.stickers) {
+                            loadedState.stickers = generateInitialStickers();
+                        } else {
+                            const defaultStickers = generateInitialStickers();
+                            for (const code in defaultStickers) {
+                                if (!loadedState.stickers[code]) {
+                                    loadedState.stickers[code] = defaultStickers[code];
+                                } else {
+                                    // Força a reconstrução do Array nativo (Firebase converte Arrays em Objetos)
+                                    const raw = loadedState.stickers[code];
+                                    const parsed = [];
+                                    for(let i=0; i<20; i++) parsed.push(raw[i] ? parseInt(raw[i]) : 0);
+                                    loadedState.stickers[code] = parsed;
+                                }
+                            }
+                        }
+                        // --- FIM ADIÇÃO ÁLBUM ---
+
                         state = loadedState;
                         renderApp();
                         showToast("Dados carregados da nuvem com sucesso!", "info");
@@ -368,7 +482,7 @@
                 }
             }
 
-            state = { groups: {}, knockout: { R32: [], R16: [], QF: [], SF: [], thirdPlace: null, final: null }, hasGeneratedKnockout: false };
+            state = { groups: {}, knockout: { R32: [], R16: [], QF: [], SF: [], thirdPlace: null, final: null }, hasGeneratedKnockout: false, stickers: generateInitialStickers() };
 
             for (const letter in INITIAL_GROUPS_DATA) {
                 const teams = INITIAL_GROUPS_DATA[letter];
@@ -416,6 +530,19 @@
         window.clearKnockout = clearKnockout;
         window.changeKnockoutRound = changeKnockoutRound;
         window.renderGameReport = renderGameReport;
+        window.toggleStickerMode = toggleStickerMode;
+        window.handleStickerClick = handleStickerClick;
+        window.copyDuplicatesReport = copyDuplicatesReport;
+
+        function generateInitialStickers() {
+            const stickers = {};
+            for (const letter in INITIAL_GROUPS_DATA) {
+                INITIAL_GROUPS_DATA[letter].forEach(team => {
+                    stickers[team.code] = new Array(20).fill(0);
+                });
+            }
+            return stickers;
+        }
 
         function getGroupMatchDateTime(groupLetter, round, matchIndexInGroup) {
             const dates = {
@@ -587,34 +714,54 @@
             const tabGrupos = document.getElementById("tab-grupos-btn"); 
             const tabMatamata = document.getElementById("tab-matamata-btn");
             const tabReport = document.getElementById("tab-report-btn");
+            const tabAlbum = document.getElementById("tab-album-btn");
             const gruposView = document.getElementById("grupos-view"); 
             const matamataView = document.getElementById("matamata-view");
             const relatórioView = document.getElementById("relatorio-view");
+            const albumView = document.getElementById("album-view");
+
+            const defaultClass = "py-4 px-3 border-b-2 border-transparent font-medium text-sm text-slate-400 flex items-center gap-2 transition-all duration-300 hover:text-slate-200 whitespace-nowrap flex-shrink-0";
             
             if (tab === 'grupos') {
-                tabGrupos.className = "py-4 px-3 border-b-2 border-emerald-500 font-bold text-sm text-emerald-400 flex items-center gap-2 transition-all duration-300 hover:text-emerald-300";
-                tabMatamata.className = "py-4 px-3 border-b-2 border-transparent font-medium text-sm text-slate-400 flex items-center gap-2 transition-all duration-300 hover:text-slate-200";
-                tabReport.className = "py-4 px-3 border-b-2 border-transparent font-medium text-sm text-slate-400 flex items-center gap-2 transition-all duration-300 hover:text-slate-200";
+                tabGrupos.className = "py-4 px-3 border-b-2 border-emerald-500 font-bold text-sm text-emerald-400 flex items-center gap-2 transition-all duration-300 hover:text-emerald-300 whitespace-nowrap flex-shrink-0";
+                tabMatamata.className = defaultClass;
+                tabReport.className = defaultClass;
+                tabAlbum.className = defaultClass;
                 gruposView.classList.remove("hidden"); 
                 matamataView.classList.add("hidden"); 
                 relatórioView.classList.add("hidden");
+                albumView.classList.add("hidden");
                 renderGroups();
             } else if (tab === 'matamata') {
-                tabMatamata.className = "py-4 px-3 border-b-2 border-amber-500 font-bold text-sm text-amber-400 flex items-center gap-2 transition-all duration-300 hover:text-amber-300";
-                tabGrupos.className = "py-4 px-3 border-b-2 border-transparent font-medium text-sm text-slate-400 flex items-center gap-2 transition-all duration-300 hover:text-slate-200";
-                tabReport.className = "py-4 px-3 border-b-2 border-transparent font-medium text-sm text-slate-400 flex items-center gap-2 transition-all duration-300 hover:text-slate-200";
+                tabMatamata.className = "py-4 px-3 border-b-2 border-amber-500 font-bold text-sm text-amber-400 flex items-center gap-2 transition-all duration-300 hover:text-amber-300 whitespace-nowrap flex-shrink-0";
+                tabGrupos.className = defaultClass;
+                tabReport.className = defaultClass;
+                tabAlbum.className = defaultClass;
                 matamataView.classList.remove("hidden"); 
                 gruposView.classList.add("hidden"); 
                 relatórioView.classList.add("hidden");
+                albumView.classList.add("hidden");
                 renderKnockoutBracket();
             } else if (tab === 'relatorio') {
-                tabReport.className = "py-4 px-3 border-b-2 border-blue-500 font-bold text-sm text-blue-400 flex items-center gap-2 transition-all duration-300 hover:text-blue-300";
-                tabGrupos.className = "py-4 px-3 border-b-2 border-transparent font-medium text-sm text-slate-400 flex items-center gap-2 transition-all duration-300 hover:text-slate-200";
-                tabMatamata.className = "py-4 px-3 border-b-2 border-transparent font-medium text-sm text-slate-400 flex items-center gap-2 transition-all duration-300 hover:text-slate-200";
+                tabReport.className = "py-4 px-3 border-b-2 border-blue-500 font-bold text-sm text-blue-400 flex items-center gap-2 transition-all duration-300 hover:text-blue-300 whitespace-nowrap flex-shrink-0";
+                tabGrupos.className = defaultClass;
+                tabMatamata.className = defaultClass;
+                tabAlbum.className = defaultClass;
                 relatórioView.classList.remove("hidden"); 
                 gruposView.classList.add("hidden"); 
                 matamataView.classList.add("hidden");
+                albumView.classList.add("hidden");
                 renderGameReport();
+            } else if (tab === 'album') {
+                tabAlbum.className = "py-4 px-3 border-b-2 border-fuchsia-500 font-bold text-sm text-fuchsia-400 flex items-center gap-2 transition-all duration-300 hover:text-fuchsia-300 whitespace-nowrap flex-shrink-0";
+                tabGrupos.className = defaultClass;
+                tabMatamata.className = defaultClass;
+                tabReport.className = defaultClass;
+                albumView.classList.remove("hidden"); 
+                gruposView.classList.add("hidden"); 
+                matamataView.classList.add("hidden");
+                relatórioView.classList.add("hidden");
+                renderAlbum();
             }
         }
 
@@ -795,7 +942,7 @@
             modalConfirmBtn.onclick = () => { onConfirm(); cleanup(); }; modalCancelBtn.onclick = cleanup;
         }
 
-        function renderApp() { renderGroupFilterPills(); renderGroups(); renderKnockoutTabs(); renderKnockoutBracket(); }
+        function renderApp() { renderGroupFilterPills(); renderGroups(); renderKnockoutTabs(); renderKnockoutBracket(); renderAlbum(); }
 
         function renderGameReport() {
             const container = document.getElementById("report-container");
@@ -951,6 +1098,183 @@
                     </div>
                 `;
             }).join('');
+        }
+
+        function toggleStickerMode(mode) {
+            stickerEditMode = mode;
+            renderAlbum();
+        }
+
+        function handleStickerClick(teamCode, index) {
+            if (stickerEditMode === 'add') {
+                state.stickers[teamCode][index]++;
+            } else {
+                if (state.stickers[teamCode][index] > 0) {
+                    state.stickers[teamCode][index]--;
+                }
+            }
+            saveState();
+            renderAlbum();
+        }
+
+        function copyDuplicatesReport() {
+            if (!state.stickers) return;
+            const allTeams = [];
+            ['A', 'B', 'C', 'D', 'E', 'F', 'G', 'H', 'I', 'J', 'K', 'L'].forEach(g => {
+                INITIAL_GROUPS_DATA[g].forEach(team => allTeams.push(team));
+            });
+            allTeams.sort((a, b) => a.name.localeCompare(b.name));
+
+            let reportLines = ["*Minhas Repetidas - Copa 2026* \n"];
+            let hasDups = false;
+
+            allTeams.forEach(team => {
+                const code = team.code;
+                const stickers = state.stickers[code] || new Array(20).fill(0);
+                let teamDuplicates = [];
+                for (let i = 0; i < 20; i++) {
+                    if (stickers[i] > 1) {
+                        for (let j = 0; j < stickers[i] - 1; j++) teamDuplicates.push(i + 1);
+                    }
+                }
+                if (teamDuplicates.length > 0) {
+                    hasDups = true;
+                    reportLines.push(`*${team.flag} ${team.name} (${code}):* ${teamDuplicates.join(', ')}`);
+                }
+            });
+
+            if (!hasDups) {
+                showToast("Não há figurinhas repetidas para copiar.", "warning");
+                return;
+            }
+
+            navigator.clipboard.writeText(reportLines.join("\n")).then(() => {
+                showToast("Copiado para a área de transferência!", "success");
+            }).catch(() => {
+                showToast("Erro ao copiar texto.", "warning");
+            });
+        }
+
+        function renderAlbum() {
+            const container = document.getElementById("album-view");
+            if (!state.stickers) state.stickers = generateInitialStickers();
+
+            let totalStickers = Object.keys(state.stickers).length * 20;
+            let collected = 0;
+            let missing = 0;
+            let duplicates = 0;
+
+            for (const code in state.stickers) {
+                state.stickers[code].forEach(count => {
+                    if (count > 0) collected++;
+                    if (count === 0) missing++;
+                    if (count > 1) duplicates += (count - 1);
+                });
+            }
+
+            const percent = ((collected / totalStickers) * 100).toFixed(1);
+
+            let html = `
+                <div class="flex flex-col sm:flex-row gap-4 items-center justify-between bg-copaNavy-light/40 border border-slate-800 p-4 rounded-2xl">
+                    <div class="w-full sm:w-auto">
+                        <h2 class="text-lg font-bold text-slate-100 flex items-center gap-2">
+                            <svg class="w-5 h-5 text-fuchsia-500" fill="currentColor" viewBox="0 0 20 20"><path d="M4 3a2 2 0 00-2 2v10a2 2 0 002 2h12a2 2 0 002-2V5a2 2 0 00-2-2H4zm12 12H4l4-8 3 6 2-4 3 6z" clip-rule="evenodd" fill-rule="evenodd"></path></svg>
+                            Álbum de Figurinhas
+                        </h2>
+                        <div class="w-full bg-slate-800 rounded-full h-2.5 mt-3 mb-1 overflow-hidden border border-slate-700">
+                            <div class="bg-gradient-to-r from-fuchsia-600 to-fuchsia-400 h-2.5 rounded-full transition-all duration-500" style="width: ${percent}%"></div>
+                        </div>
+                        <p class="text-xs text-slate-400 font-medium">${percent}% Concluído (${collected}/${totalStickers})</p>
+                    </div>
+                    
+                    <div class="flex flex-wrap gap-3 w-full sm:w-auto justify-center sm:justify-end">
+                        <div class="flex gap-4 mr-4 text-center">
+                            <div class="flex flex-col"><span class="text-xs text-slate-500 uppercase font-bold">Faltam</span><span class="text-lg font-extrabold text-rose-400">${missing}</span></div>
+                            <div class="flex flex-col"><span class="text-xs text-slate-500 uppercase font-bold">Repetidas</span><span class="text-lg font-extrabold text-amber-400">${duplicates}</span></div>
+                        </div>
+                        <div class="flex bg-slate-800 p-1 rounded-xl border border-slate-700">
+                            <button onclick="window.toggleStickerMode('add')" class="px-3 py-1.5 text-xs font-bold rounded-lg transition-all ${stickerEditMode === 'add' ? 'bg-fuchsia-500 text-white shadow-md' : 'text-slate-400 hover:text-slate-200'}" title="Clique na figurinha para Adicionar">Adicionar</button>
+                            <button onclick="window.toggleStickerMode('remove')" class="px-3 py-1.5 text-xs font-bold rounded-lg transition-all ${stickerEditMode === 'remove' ? 'bg-rose-500 text-white shadow-md' : 'text-slate-400 hover:text-slate-200'}" title="Clique na figurinha para Remover">Remover</button>
+                        </div>
+                    </div>
+                </div>
+                <div class="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 gap-6 mt-6">
+            `;
+
+            const allTeams = [];
+            ['A', 'B', 'C', 'D', 'E', 'F', 'G', 'H', 'I', 'J', 'K', 'L'].forEach(g => {
+                INITIAL_GROUPS_DATA[g].forEach(team => allTeams.push(team));
+            });
+            allTeams.sort((a, b) => a.name.localeCompare(b.name));
+
+            allTeams.forEach(team => {
+                const code = team.code;
+                const stickers = state.stickers[code] || new Array(20).fill(0);
+                
+                html += `
+                    <div class="glass-card p-4 rounded-2xl shadow-xl flex flex-col gap-4 border border-slate-700/50">
+                        <div class="flex items-center justify-between border-b border-slate-700/40 pb-2">
+                            <div class="flex items-center gap-2">
+                                <span class="text-2xl">${team.flag}</span>
+                                <h4 class="font-bold text-slate-100">${team.name} <span class="text-xs text-slate-500 font-normal uppercase ml-1">${code}</span></h4>
+                            </div>
+                            <div class="text-xs font-bold text-fuchsia-400 bg-fuchsia-500/10 px-2 py-1 rounded-md">${stickers.filter(c => c > 0).length}/20</div>
+                        </div>
+                        <div class="grid grid-cols-5 gap-2">
+                `;
+                for (let i = 0; i < 20; i++) {
+                    const count = stickers[i];
+                    let btnClass = "relative h-10 w-full flex items-center justify-center rounded-lg text-sm font-bold transition-all duration-200 select-none active:scale-95 cursor-pointer ";
+                    
+                    if (count === 0) btnClass += "bg-slate-800 border border-slate-700 text-slate-600 hover:border-fuchsia-500/30 hover:text-slate-400";
+                    else if (count === 1) btnClass += "bg-fuchsia-600 border border-fuchsia-500 text-white shadow-md shadow-fuchsia-900/50 hover:bg-fuchsia-500";
+                    else btnClass += "bg-amber-500 border border-amber-400 text-amber-950 shadow-md shadow-amber-900/50 hover:bg-amber-400";
+
+                    let badge = count > 1 ? `<span class="absolute -top-1.5 -right-1.5 bg-rose-500 text-white text-[9px] font-black w-4 h-4 flex items-center justify-center rounded-full shadow-sm border border-rose-600 z-10">${count}</span>` : '';
+                    html += `<button onclick="window.handleStickerClick('${code}', ${i})" class="${btnClass}">${badge}${i + 1}</button>`;
+                }
+                html += `</div></div>`;
+            });
+            html += `</div>`;
+
+            html += `
+                <div class="mt-8 glass-card p-4 sm:p-6 rounded-2xl border border-slate-700/50 shadow-xl">
+                    <div class="flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4 mb-6 pb-4 border-b border-slate-700/40">
+                        <div class="flex items-center gap-2">
+                            <svg class="w-5 h-5 text-amber-500" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M8 16H6a2 2 0 01-2-2V6a2 2 0 012-2h8a2 2 0 012 2v2m-6 12h8a2 2 0 002-2v-8a2 2 0 00-2-2h-8a2 2 0 00-2 2v8a2 2 0 002 2z"></path></svg>
+                            <h3 class="text-lg font-bold text-slate-100">Relatório de Repetidas</h3>
+                        </div>
+                        <button onclick="window.copyDuplicatesReport()" class="no-print px-4 py-2 text-xs font-bold bg-amber-500/10 border border-amber-500/30 text-amber-400 hover:bg-amber-500 hover:text-white rounded-lg transition-all flex items-center gap-1.5 active:scale-95 shadow-sm hover:shadow-amber-500/20">
+                            <svg class="w-4 h-4" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M15.75 17.25v3.375c0 .621-.504 1.125-1.125 1.125h-9.75a1.125 1.125 0 01-1.125-1.125V7.875c0-.621.504-1.125 1.125-1.125H6.75a9.06 9.06 0 011.5.124m7.5 10.376h3.375c.621 0 1.125-.504 1.125-1.125V11.25c0-4.46-3.243-8.161-7.5-8.876a9.06 9.06 0 00-1.5-.124H9.375c-.621 0-1.125.504-1.125 1.125v3.5m7.5 10.375H9.375a1.125 1.125 0 01-1.125-1.125v-9.25m12 6.625v-1.875a3.375 3.375 0 00-3.375-3.375h-1.5a1.125 1.125 0 01-1.125-1.125v-1.5a3.375 3.375 0 00-3.375-3.375H9.75"></path></svg>
+                            Copiar p/ WhatsApp
+                        </button>
+                    </div>
+                    <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
+            `;
+
+            let hasAnyDuplicatesHTML = false;
+            allTeams.forEach(team => {
+                const code = team.code;
+                const stickers = state.stickers[code] || new Array(20).fill(0);
+                let teamDuplicates = [];
+                for (let i = 0; i < 20; i++) {
+                    if (stickers[i] > 1) {
+                        for (let j = 0; j < stickers[i] - 1; j++) teamDuplicates.push(i + 1);
+                    }
+                }
+
+                if (teamDuplicates.length > 0) {
+                    hasAnyDuplicatesHTML = true;
+                    html += `<div class="bg-copaNavy-dark/50 border border-slate-700/40 p-3.5 rounded-xl flex flex-col gap-3 transition-colors hover:border-slate-600"><div class="text-sm font-bold text-slate-200 flex items-center justify-between"><div class="flex items-center gap-2"><span class="text-lg">${team.flag}</span> ${team.name}</div><span class="text-[10px] text-slate-500 uppercase bg-slate-800 px-1.5 py-0.5 rounded">${code}</span></div><div class="flex flex-wrap gap-1.5">${teamDuplicates.map(num => `<span class="bg-amber-500/10 border border-amber-500/30 text-amber-400 text-xs font-bold px-2 py-0.5 rounded shadow-sm">${num}</span>`).join('')}</div></div>`;
+                }
+            });
+
+            if (!hasAnyDuplicatesHTML) {
+                html += `<div class="col-span-full text-slate-400 text-sm py-2 text-center bg-slate-800/30 rounded-xl p-4 border border-slate-700/30">Você ainda não tem nenhuma figurinha repetida.</div>`;
+            }
+
+            html += `</div></div>`;
+            container.innerHTML = html;
         }
 
         // Start App fetching from Firebase
