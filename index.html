@@ -533,6 +533,7 @@
         window.toggleStickerMode = toggleStickerMode;
         window.handleStickerClick = handleStickerClick;
         window.copyDuplicatesReport = copyDuplicatesReport;
+        window.copyMissingReport = copyMissingReport;
 
         function generateInitialStickers() {
             const stickers = {};
@@ -1155,6 +1156,44 @@
             });
         }
 
+        function copyMissingReport() {
+            if (!state.stickers) return;
+            const allTeams = [];
+            ['A', 'B', 'C', 'D', 'E', 'F', 'G', 'H', 'I', 'J', 'K', 'L'].forEach(g => {
+                INITIAL_GROUPS_DATA[g].forEach(team => allTeams.push(team));
+            });
+            allTeams.sort((a, b) => a.name.localeCompare(b.name));
+
+            let reportLines = ["*Figurinhas Faltantes - Copa 2026* \n"];
+            let hasMissing = false;
+
+            allTeams.forEach(team => {
+                const code = team.code;
+                const stickers = state.stickers[code] || new Array(20).fill(0);
+                let teamMissing = [];
+                for (let i = 0; i < 20; i++) {
+                    if (stickers[i] === 0) {
+                        teamMissing.push(i + 1);
+                    }
+                }
+                if (teamMissing.length > 0) {
+                    hasMissing = true;
+                    reportLines.push(`*${team.flag} ${team.name} (${code}):* ${teamMissing.join(', ')}`);
+                }
+            });
+
+            if (!hasMissing) {
+                showToast("Não há figurinhas faltando para copiar.", "warning");
+                return;
+            }
+
+            navigator.clipboard.writeText(reportLines.join("\n")).then(() => {
+                showToast("Copiado para a área de transferência!", "success");
+            }).catch(() => {
+                showToast("Erro ao copiar texto.", "warning");
+            });
+        }
+
         function renderAlbum() {
             const container = document.getElementById("album-view");
             if (!state.stickers) state.stickers = generateInitialStickers();
@@ -1271,6 +1310,44 @@
 
             if (!hasAnyDuplicatesHTML) {
                 html += `<div class="col-span-full text-slate-400 text-sm py-2 text-center bg-slate-800/30 rounded-xl p-4 border border-slate-700/30">Você ainda não tem nenhuma figurinha repetida.</div>`;
+            }
+
+            html += `</div></div>`;
+
+            html += `
+                <div class="mt-8 glass-card p-4 sm:p-6 rounded-2xl border border-slate-700/50 shadow-xl">
+                    <div class="flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4 mb-6 pb-4 border-b border-slate-700/40">
+                        <div class="flex items-center gap-2">
+                            <svg class="w-5 h-5 text-rose-500" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M21 21l-5.197-5.197m0 0A7.5 7.5 0 105.196 5.196a7.5 7.5 0 0010.607 10.607z"></path></svg>
+                            <h3 class="text-lg font-bold text-slate-100">Relatório de Faltantes</h3>
+                        </div>
+                        <button onclick="window.copyMissingReport()" class="no-print px-4 py-2 text-xs font-bold bg-rose-500/10 border border-rose-500/30 text-rose-400 hover:bg-rose-500 hover:text-white rounded-lg transition-all flex items-center gap-1.5 active:scale-95 shadow-sm hover:shadow-rose-500/20">
+                            <svg class="w-4 h-4" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M15.75 17.25v3.375c0 .621-.504 1.125-1.125 1.125h-9.75a1.125 1.125 0 01-1.125-1.125V7.875c0-.621.504-1.125 1.125-1.125H6.75a9.06 9.06 0 011.5.124m7.5 10.376h3.375c.621 0 1.125-.504 1.125-1.125V11.25c0-4.46-3.243-8.161-7.5-8.876a9.06 9.06 0 00-1.5-.124H9.375c-.621 0-1.125.504-1.125 1.125v3.5m7.5 10.375H9.375a1.125 1.125 0 01-1.125-1.125v-9.25m12 6.625v-1.875a3.375 3.375 0 00-3.375-3.375h-1.5a1.125 1.125 0 01-1.125-1.125v-1.5a3.375 3.375 0 00-3.375-3.375H9.75"></path></svg>
+                            Copiar p/ WhatsApp
+                        </button>
+                    </div>
+                    <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
+            `;
+
+            let hasAnyMissingHTML = false;
+            allTeams.forEach(team => {
+                const code = team.code;
+                const stickers = state.stickers[code] || new Array(20).fill(0);
+                let teamMissing = [];
+                for (let i = 0; i < 20; i++) {
+                    if (stickers[i] === 0) {
+                        teamMissing.push(i + 1);
+                    }
+                }
+
+                if (teamMissing.length > 0) {
+                    hasAnyMissingHTML = true;
+                    html += `<div class="bg-copaNavy-dark/50 border border-slate-700/40 p-3.5 rounded-xl flex flex-col gap-3 transition-colors hover:border-slate-600"><div class="text-sm font-bold text-slate-200 flex items-center justify-between"><div class="flex items-center gap-2"><span class="text-lg">${team.flag}</span> ${team.name}</div><span class="text-[10px] text-slate-500 uppercase bg-slate-800 px-1.5 py-0.5 rounded">${code}</span></div><div class="flex flex-wrap gap-1.5">${teamMissing.map(num => `<span class="bg-rose-500/10 border border-rose-500/30 text-rose-400 text-xs font-bold px-2 py-0.5 rounded shadow-sm">${num}</span>`).join('')}</div></div>`;
+                }
+            });
+
+            if (!hasAnyMissingHTML) {
+                html += `<div class="col-span-full text-slate-400 text-sm py-2 text-center bg-slate-800/30 rounded-xl p-4 border border-slate-700/30">Parabéns! Você completou o álbum e não tem figurinhas faltando.</div>`;
             }
 
             html += `</div></div>`;
