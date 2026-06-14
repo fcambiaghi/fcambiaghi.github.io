@@ -135,6 +135,13 @@
                     </svg>
                     Mata-Mata (Chaveamento)
                 </button>
+                <button id="tab-report-btn" onclick="window.switchTab('relatorio')" class="py-4 px-3 border-b-2 border-transparent font-medium text-sm text-slate-400 flex items-center gap-2 transition-all duration-300 hover:text-slate-200">
+                    <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg">
+                        <path d="M9 2a1 1 0 000 2h2a1 1 0 100-2H9z"></path>
+                        <path fill-rule="evenodd" d="M4 5a2 2 0 012-2 1 1 0 100 2 1 1 0 00-1 1v10a1 1 0 001 1h10a1 1 0 001-1V5a1 1 0 00-1-1 1 1 0 100-2 2 2 0 00-2 2v10a3 3 0 01-3 3H7a3 3 0 01-3-3V5z" clip-rule="evenodd"></path>
+                    </svg>
+                    Relatório de Jogos
+                </button>
             </div>
         </div>
     </nav>
@@ -193,6 +200,22 @@
             <div class="w-full overflow-x-auto pb-6 pt-4 px-2 select-none">
                 <div id="bracket-tree-container" class="flex flex-col md:flex-row space-y-8 md:space-y-0 md:space-x-8 md:h-[1950px] min-w-max md:min-w-0"></div>
             </div>
+        </div>
+
+        <div id="relatorio-view" class="space-y-6 hidden">
+            <div class="flex flex-col sm:flex-row gap-4 items-center justify-between bg-copaNavy-light/40 border border-slate-800 p-4 rounded-2xl">
+                <div class="text-left w-full sm:w-auto">
+                    <h2 class="text-lg font-bold text-slate-100 flex items-center gap-2">
+                        <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg">
+                            <path d="M9 2a1 1 0 000 2h2a1 1 0 100-2H9z"></path>
+                            <path fill-rule="evenodd" d="M4 5a2 2 0 012-2 1 1 0 100 2 1 1 0 00-1 1v10a1 1 0 001 1h10a1 1 0 001-1V5a1 1 0 00-1-1 1 1 0 100-2 2 2 0 00-2 2v10a3 3 0 01-3 3H7a3 3 0 01-3-3V5z" clip-rule="evenodd"></path>
+                        </svg>
+                        Relatório de Jogos
+                    </h2>
+                    <p class="text-xs text-slate-400 mt-0.5">Todos os jogos agrupados por data e ordenados por hora.</p>
+                </div>
+            </div>
+            <div id="report-container" class="space-y-6"></div>
         </div>
     </main>
 
@@ -389,6 +412,7 @@
         window.simulateClassificadosAutomatically = simulateClassificadosAutomatically;
         window.clearKnockout = clearKnockout;
         window.changeKnockoutRound = changeKnockoutRound;
+        window.renderGameReport = renderGameReport;
 
         function getGroupMatchDateTime(groupLetter, round, matchIndexInGroup) {
             const dates = {
@@ -557,16 +581,37 @@
 
         function switchTab(tab) {
             activeTab = tab;
-            const tabGrupos = document.getElementById("tab-grupos-btn"); const tabMatamata = document.getElementById("tab-matamata-btn");
-            const gruposView = document.getElementById("grupos-view"); const matamataView = document.getElementById("matamata-view");
+            const tabGrupos = document.getElementById("tab-grupos-btn"); 
+            const tabMatamata = document.getElementById("tab-matamata-btn");
+            const tabReport = document.getElementById("tab-report-btn");
+            const gruposView = document.getElementById("grupos-view"); 
+            const matamataView = document.getElementById("matamata-view");
+            const relatórioView = document.getElementById("relatorio-view");
+            
             if (tab === 'grupos') {
                 tabGrupos.className = "py-4 px-3 border-b-2 border-emerald-500 font-bold text-sm text-emerald-400 flex items-center gap-2 transition-all duration-300 hover:text-emerald-300";
                 tabMatamata.className = "py-4 px-3 border-b-2 border-transparent font-medium text-sm text-slate-400 flex items-center gap-2 transition-all duration-300 hover:text-slate-200";
-                gruposView.classList.remove("hidden"); matamataView.classList.add("hidden"); renderGroups();
-            } else {
+                tabReport.className = "py-4 px-3 border-b-2 border-transparent font-medium text-sm text-slate-400 flex items-center gap-2 transition-all duration-300 hover:text-slate-200";
+                gruposView.classList.remove("hidden"); 
+                matamataView.classList.add("hidden"); 
+                relatórioView.classList.add("hidden");
+                renderGroups();
+            } else if (tab === 'matamata') {
                 tabMatamata.className = "py-4 px-3 border-b-2 border-amber-500 font-bold text-sm text-amber-400 flex items-center gap-2 transition-all duration-300 hover:text-amber-300";
                 tabGrupos.className = "py-4 px-3 border-b-2 border-transparent font-medium text-sm text-slate-400 flex items-center gap-2 transition-all duration-300 hover:text-slate-200";
-                matamataView.classList.remove("hidden"); gruposView.classList.add("hidden"); renderKnockoutBracket();
+                tabReport.className = "py-4 px-3 border-b-2 border-transparent font-medium text-sm text-slate-400 flex items-center gap-2 transition-all duration-300 hover:text-slate-200";
+                matamataView.classList.remove("hidden"); 
+                gruposView.classList.add("hidden"); 
+                relatórioView.classList.add("hidden");
+                renderKnockoutBracket();
+            } else if (tab === 'relatorio') {
+                tabReport.className = "py-4 px-3 border-b-2 border-blue-500 font-bold text-sm text-blue-400 flex items-center gap-2 transition-all duration-300 hover:text-blue-300";
+                tabGrupos.className = "py-4 px-3 border-b-2 border-transparent font-medium text-sm text-slate-400 flex items-center gap-2 transition-all duration-300 hover:text-slate-200";
+                tabMatamata.className = "py-4 px-3 border-b-2 border-transparent font-medium text-sm text-slate-400 flex items-center gap-2 transition-all duration-300 hover:text-slate-200";
+                relatórioView.classList.remove("hidden"); 
+                gruposView.classList.add("hidden"); 
+                matamataView.classList.add("hidden");
+                renderGameReport();
             }
         }
 
@@ -748,6 +793,162 @@
         }
 
         function renderApp() { renderGroupFilterPills(); renderGroups(); renderKnockoutTabs(); renderKnockoutBracket(); }
+
+        function renderGameReport() {
+            const container = document.getElementById("report-container");
+            
+            // Collect all matches from groups and knockout stages
+            let allMatches = [];
+            
+            // Add group matches
+            for (const groupLetter in state.groups) {
+                state.groups[groupLetter].matches.forEach(match => {
+                    allMatches.push({
+                        id: match.id,
+                        teamA: match.teamA,
+                        teamB: match.teamB,
+                        scoreA: match.scoreA,
+                        scoreB: match.scoreB,
+                        datetime: match.datetime,
+                        stage: `Fase de Grupos - ${groupLetter}`,
+                        type: 'group'
+                    });
+                });
+            }
+            
+            // Add knockout matches
+            ['R32', 'R16', 'QF', 'SF'].forEach(stage => {
+                const stageName = {
+                    'R32': 'Oitavas de Final',
+                    'R16': 'Quartas de Final',
+                    'QF': 'Semifinal',
+                    'SF': 'Final'
+                }[stage];
+                
+                state.knockout[stage].forEach(match => {
+                    if (match.teamA && match.teamB) {
+                        allMatches.push({
+                            id: match.id,
+                            teamA: match.teamA,
+                            teamB: match.teamB,
+                            scoreA: match.scoreA,
+                            scoreB: match.scoreB,
+                            datetime: match.datetime,
+                            stage: stageName,
+                            type: 'knockout'
+                        });
+                    }
+                });
+            });
+            
+            // Add third place and final
+            if (state.knockout.thirdPlace.teamA && state.knockout.thirdPlace.teamB) {
+                allMatches.push({
+                    id: 'TP',
+                    teamA: state.knockout.thirdPlace.teamA,
+                    teamB: state.knockout.thirdPlace.teamB,
+                    scoreA: state.knockout.thirdPlace.scoreA,
+                    scoreB: state.knockout.thirdPlace.scoreB,
+                    datetime: state.knockout.thirdPlace.datetime,
+                    stage: '3º lugar',
+                    type: 'knockout'
+                });
+            }
+            
+            if (state.knockout.final.teamA && state.knockout.final.teamB) {
+                allMatches.push({
+                    id: 'F',
+                    teamA: state.knockout.final.teamA,
+                    teamB: state.knockout.final.teamB,
+                    scoreA: state.knockout.final.scoreA,
+                    scoreB: state.knockout.final.scoreB,
+                    datetime: state.knockout.final.datetime,
+                    stage: 'Final',
+                    type: 'knockout'
+                });
+            }
+            
+            // Parse datetime strings to sort by date and time
+            const parseDateTime = (dateStr) => {
+                if (!dateStr) return new Date(0);
+                const parts = dateStr.split(' - ');
+                if (parts.length !== 2) return new Date(0);
+                const [day, month, year] = parts[0].split('/');
+                const [hour, minute] = parts[1].split(':');
+                return new Date(year, month - 1, day, hour, minute);
+            };
+            
+            // Sort by date and time
+            allMatches.sort((a, b) => {
+                const dateA = parseDateTime(a.datetime);
+                const dateB = parseDateTime(b.datetime);
+                return dateA - dateB;
+            });
+            
+            // Group by date
+            const groupedByDate = {};
+            allMatches.forEach(match => {
+                const datePart = match.datetime.split(' - ')[0];
+                if (!groupedByDate[datePart]) {
+                    groupedByDate[datePart] = [];
+                }
+                groupedByDate[datePart].push(match);
+            });
+            
+            // Render HTML
+            if (Object.keys(groupedByDate).length === 0) {
+                container.innerHTML = '<div class="text-center py-12 text-slate-400">Nenhum jogo registrado ainda.</div>';
+                return;
+            }
+            
+            container.innerHTML = Object.entries(groupedByDate).map(([date, matches]) => {
+                const [day, month, year] = date.split('/');
+                const dateObj = new Date(year, month - 1, day);
+                const dayName = ['Domingo', 'Segunda', 'Terça', 'Quarta', 'Quinta', 'Sexta', 'Sábado'][dateObj.getDay()];
+                const monthName = ['Janeiro', 'Fevereiro', 'Março', 'Abril', 'Maio', 'Junho', 'Julho', 'Agosto', 'Setembro', 'Outubro', 'Novembro', 'Dezembro'][dateObj.getMonth()];
+                
+                return `
+                    <div class="glass-card rounded-2xl p-4 sm:p-6 shadow-xl">
+                        <div class="flex items-center gap-3 pb-4 border-b border-slate-700/40 mb-4">
+                            <span class="w-1 h-6 bg-blue-500 rounded-full"></span>
+                            <h3 class="text-lg font-bold text-slate-100">${dayName}, ${day} de ${monthName} de ${year}</h3>
+                        </div>
+                        <div class="space-y-3">
+                            ${matches.map(match => {
+                                const [time] = match.datetime.split(' - ').pop().split(':');
+                                const timePart = match.datetime.split(' - ')[1];
+                                const scoreDisplay = match.scoreA !== null && match.scoreB !== null 
+                                    ? `${match.scoreA} x ${match.scoreB}`
+                                    : '-';
+                                const resultClass = match.scoreA !== null && match.scoreB !== null
+                                    ? 'text-emerald-400'
+                                    : 'text-slate-400';
+                                
+                                return `
+                                    <div class="flex items-center justify-between p-3 bg-copaNavy-accent/40 rounded-lg hover:bg-copaNavy-accent/60 transition-colors duration-200 border border-slate-700/30">
+                                        <div class="flex items-center gap-2 flex-1 min-w-0">
+                                            <span class="text-xs font-bold text-amber-400 bg-amber-400/10 px-2 py-1 rounded whitespace-nowrap">${timePart}</span>
+                                            <div class="text-xs text-slate-400 px-2 py-1 bg-slate-800/40 rounded whitespace-nowrap">${match.stage}</div>
+                                        </div>
+                                        <div class="flex items-center gap-3 flex-1 min-w-0">
+                                            <div class="flex items-center gap-1 min-w-0 flex-1 text-right">
+                                                <span class="text-sm font-semibold text-slate-100 text-right truncate">${match.teamA.name}</span>
+                                                <span class="text-xs text-slate-400">${match.teamA.flag}</span>
+                                            </div>
+                                            <div class="text-sm font-bold ${resultClass} min-w-fit">${scoreDisplay}</div>
+                                            <div class="flex items-center gap-1 min-w-0 flex-1">
+                                                <span class="text-xs text-slate-400">${match.teamB.flag}</span>
+                                                <span class="text-sm font-semibold text-slate-100 truncate">${match.teamB.name}</span>
+                                            </div>
+                                        </div>
+                                    </div>
+                                `;
+                            }).join('')}
+                        </div>
+                    </div>
+                `;
+            }).join('');
+        }
 
         // Start App fetching from Firebase
         initializeState();
