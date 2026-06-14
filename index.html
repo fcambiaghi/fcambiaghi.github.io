@@ -84,6 +84,9 @@
         .glow-gold {
             box-shadow: 0 0 15px rgba(245, 158, 11, 0.15);
         }
+        .text-right{
+            text-align: right;
+        }
     </style>
 </head>
 
@@ -926,13 +929,13 @@
                                 
                                 return `
                                     <div class="flex items-center justify-between p-3 bg-copaNavy-accent/40 rounded-lg hover:bg-copaNavy-accent/60 transition-colors duration-200 border border-slate-700/30">
-                                        <div class="flex items-center gap-2 flex-1 min-w-0">
+                                        <div class="flex items-center gap-2 min-w-0">
                                             <span class="text-xs font-bold text-amber-400 bg-amber-400/10 px-2 py-1 rounded whitespace-nowrap">${timePart}</span>
                                             <div class="text-xs text-slate-400 px-2 py-1 bg-slate-800/40 rounded whitespace-nowrap">${match.stage}</div>
                                         </div>
                                         <div class="flex items-center gap-3 flex-1 min-w-0">
-                                            <div class="flex items-center gap-1 min-w-0 flex-1 text-right">
-                                                <span class="text-sm font-semibold text-slate-100 text-right truncate">${match.teamA.name}</span>
+                                            <div class="flex items-center gap-1 min-w-0 flex-1 justify-end">
+                                                <span class="text-sm font-semibold text-slate-100 truncate">${match.teamA.name}</span>
                                                 <span class="text-xs text-slate-400">${match.teamA.flag}</span>
                                             </div>
                                             <div class="text-sm font-bold ${resultClass} min-w-fit">${scoreDisplay}</div>
