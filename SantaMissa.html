@@ -1,0 +1,493 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>A Estrutura da Santa Missa</title>
+    <style>
+        :root {
+            --primary-color: #4a154b;
+            --secondary-color: #6b21a8;
+            --bg-color: #fcfbf9;
+            --card-bg: #ffffff;
+            --text-color: #2d3748;
+            --accent-color: #d97706;
+            --border-color: #e2e8f0;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+            line-height: 1.6;
+            color: var(--text-color);
+            background-color: var(--bg-color);
+            margin: 0;
+            padding: 20px;
+        }
+
+        .container {
+            max-width: 800px;
+            margin: 0 auto;
+            background: var(--card-bg);
+            padding: 40px;
+            border-radius: 12px;
+            box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
+            border: 1px solid var(--border-color);
+        }
+
+        .section {
+            margin-bottom: 35px;
+        }
+
+        .section-title {
+            color: var(--primary-color);
+            font-size: 1.5rem;
+            border-bottom: 2px solid var(--secondary-color);
+            padding-bottom: 8px;
+            margin-top: 0;
+            margin-bottom: 12px;
+        }
+
+        .objective {
+            background-color: #f3e8ff;
+            border-left: 4px solid var(--secondary-color);
+            padding: 10px 15px;
+            margin-bottom: 20px;
+            border-radius: 0 6px 6px 0;
+            font-size: 0.95rem;
+        }
+
+            .objective strong {
+                color: var(--secondary-color);
+            }
+
+        .subsection-title {
+            color: var(--secondary-color);
+            font-size: 1.15rem;
+            margin-top: 20px;
+            margin-bottom: 10px;
+        }
+
+        ul {
+            padding-left: 20px;
+            margin-top: 5px;
+        }
+
+        li {
+            margin-bottom: 10px;
+        }
+
+            li strong {
+                color: #1a202c;
+            }
+
+        em {
+            font-style: italic;
+            color: #4a5568;
+        }
+
+        .back-link {
+            display: inline-block;
+            margin-bottom: 20px;
+            color: var(--secondary-color);
+            text-decoration: none;
+            font-weight: bold;
+            font-size: 0.95rem;
+            transition: color 0.2s ease;
+        }
+
+        .back-link:hover {
+            color: var(--primary-color);
+            text-decoration: underline;
+        }
+
+        @media (max-width: 600px) {
+            .container {
+                padding: 20px;
+            }
+
+            .section-title {
+                font-size: 1.3rem;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <div class="container">
+        <a href="Index.html" class="back-link">&larr; Voltar ao Menu</a>
+
+        <!-- 1. Ritos Iniciais -->
+        <div class="section">
+            <h2 class="section-title">1. Ritos Iniciais</h2>
+            <div class="objective">
+                <strong>Objetivo:</strong> Reunir a comunidade, formar o corpo da Igreja e preparar o coração dos fiéis para ouvir a Palavra e celebrar a Eucaristia.
+            </div>
+            <ul>
+                <li><strong>Procissão e Canto de Entrada:</strong> O sacerdote e os ministros dirigem-se ao altar (que representa o próprio Cristo).</li>
+                <li><strong>Saudação:</strong> Inicia-se com o Sinal da Cruz ("Em nome do Pai, do Filho e do Espírito Santo"), invocando a presença da Trindade.</li>
+                <li><strong>Ato Penitencial:</strong> Momento de reconhecer a própria fragilidade e pedir a misericórdia de Deus para celebrar dignamente os mistérios.</li>
+                <li><strong>Hino de Louvor (<em>Glória</em>):</strong> Cântico de exaltação a Deus (usado nos domingos, exceto nos tempos penitenciais do Advento e Quaresma).</li>
+                <li><strong>Oração da Coleta:</strong> O sacerdote reúne ("coleta") as intenções de toda a assembleia em uma oração dirigida a Deus.</li>
+            </ul>
+        </div>
+
+        <!-- 2. Liturgia da Palavra -->
+        <div class="section">
+            <h2 class="section-title">2. Liturgia da Palavra</h2>
+            <div class="objective">
+                <strong>Objetivo:</strong> Deus fala ao Seu povo através das Escrituras.
+            </div>
+            <ul>
+                <li><strong>Primeira Leitura:</strong> Geralmente extraída do Antigo Testamento, mostrando as promessas e a história da salvação.</li>
+                <li><strong>Salmo Responsorial:</strong> A resposta em oração e meditação do povo à primeira leitura.</li>
+                <li><strong>Segunda Leitura:</strong> Presente nos domingos e solenidades, tirada das Cartas dos Apóstolos no Novo Testamento.</li>
+                <li><strong>Aclamação e Evangelho:</strong> O ponto alto da palavra. Aclama-se a Cristo (<em>Aleluia</em>), e o padre ou diácono proclama os ensinamentos, milagres e a vida de Jesus Cristo.</li>
+                <li><strong>Homilia:</strong> O sacerdote explica as leituras e faz a ponte da Palavra com a vida cotidiana.</li>
+                <li><strong>Profissão de Fé (<em>Credo</em>):</strong> A comunidade recita junta os dogmas centrais da fé católica.</li>
+                <li><strong>Oração da Comunidade (Preces):</strong> Pedidos da Igreja pelas necessidades do mundo, da Igreja e da comunidade local.</li>
+            </ul>
+        </div>
+
+        <!-- 3. Liturgia Eucarística -->
+        <div class="section">
+            <h2 class="section-title">3. Liturgia Eucarística</h2>
+            <div class="objective">
+                <strong>Objetivo:</strong> Atualização e memorial do Sacrifício de Cristo na cruz e a celebração do Banquete Eucarístico. É o coração da Missa.
+            </div>
+
+            <h3 class="subsection-title">A. Preparação das Oferendas (Ofertório)</h3>
+            <ul>
+                <li>O pão (hóstia) e o vinho com água são levados ao altar, simbolizando a oferta de nossas vidas e do fruto do trabalho humano.</li>
+            </ul>
+
+            <h3 class="subsection-title">B. Oração Eucarística</h3>
+            <ul>
+                <li><strong>Prefácio e <em>Santo</em>:</strong> Oração de ação de graças que introduz o momento mais solene, unindo o louvor da terra ao do céu.</li>
+                <li><strong>Epiclese (Invocação):</strong> O padre estende as mãos sobre o pão e o vinho pedindo que o Espírito Santo os santifique.</li>
+                <li><strong>Consagração:</strong> O momento central em que o sacerdote repete as palavras de Jesus na Última Ceia. Pela doutrina católica, ocorre a <em>transubstanciação</em> (o pão e o vinho tornam-se verdadeiramente o Corpo e o Sangue de Cristo).</li>
+                <li><strong>Anamnese e Doxologia Final:</strong> Lembra-se a Paixão, Ressurreição e Ascensão de Jesus, encerrando com o solene <em>"Por Cristo, com Cristo e em Cristo..."</em>.</li>
+            </ul>
+
+            <h3 class="subsection-title">C. Rito da Comunhão</h3>
+            <ul>
+                <li><strong>Pai-Nosso:</strong> A oração que o próprio Cristo ensinou.</li>
+                <li><strong>Rito da Paz e Fração do Pão:</strong> Gesto de reconciliação comunitária e a fração da hóstia ao som do cântico <em>Cordeiro de Deus</em>.</li>
+                <li><strong>Comunhão:</strong> Os fiéis devidamente dispostos aproximam-se para receber a Eucaristia.</li>
+                <li><strong>Oração Pós-Comunhão:</strong> Ação de graças pedindo que os frutos do sacramento atuem na vida dos fiéis.</li>
+            </ul>
+        </div>
+
+        <!-- 4. Ritos Finais -->
+        <div class="section">
+            <h2 class="section-title">4. Ritos Finais</h2>
+            <div class="objective">
+                <strong>Objetivo:</strong> Enviar a comunidade em missão para o mundo.
+            </div>
+            <ul>
+                <li><strong>Avisos:</strong> Breves comunicações sobre a vida da comunidade de fé.</li>
+                <li><strong>Bênção Final:</strong> O sacerdote abençoa a assembleia em nome da Trindade.</li>
+                <li><strong>Despedida:</strong> A famosa fórmula <em>"Ide em paz e o Senhor vos acompanhe"</em> recorda que a Missa (que vem do latim <em>missio</em>, "missão") continua na vida de cada dia.</li>
+            </ul>
+        </div>
+
+    </div>
+
+</body>
+</html>
+
+
+
+
+<!--<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Estrutura da Santa Missa</title>
+
+    <style>
+        :root {
+            --primary: #8b4513;
+            --secondary: #f8f5f0;
+            --accent: #d4af37;
+            --text: #333;
+            --border: #ddd;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: "Segoe UI", Arial, sans-serif;
+            background: #f4f4f4;
+            color: var(--text);
+            line-height: 1.7;
+            padding: 30px;
+        }
+
+        .container {
+            max-width: 1000px;
+            margin: auto;
+        }
+
+        h1 {
+            text-align: center;
+            color: var(--primary);
+            margin-bottom: 40px;
+            font-size: 2.4rem;
+        }
+
+        .section {
+            background: #fff;
+            padding: 25px;
+            margin-bottom: 25px;
+            border-radius: 16px;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.08);
+            border-left: 6px solid var(--accent);
+        }
+
+            .section h2 {
+                color: var(--primary);
+                margin-bottom: 15px;
+                font-size: 1.8rem;
+            }
+
+            .section h3 {
+                color: var(--primary);
+                margin: 20px 0 10px;
+                font-size: 1.3rem;
+            }
+
+        .objetivo {
+            background: var(--secondary);
+            border-left: 4px solid var(--accent);
+            padding: 12px 15px;
+            border-radius: 8px;
+            margin-bottom: 15px;
+        }
+
+            .objetivo strong {
+                color: var(--primary);
+            }
+
+        ul {
+            list-style: none;
+            padding-left: 0;
+        }
+
+            ul li {
+                background: #fafafa;
+                margin-bottom: 10px;
+                padding: 12px 15px;
+                border: 1px solid var(--border);
+                border-radius: 10px;
+                transition: all 0.3s ease;
+            }
+
+                ul li:hover {
+                    background: #fffdf7;
+                    transform: translateX(5px);
+                    border-color: var(--accent);
+                }
+
+        strong {
+            color: var(--primary);
+        }
+
+        em {
+            color: #6b4e16;
+            font-style: italic;
+        }
+
+        footer {
+            text-align: center;
+            margin-top: 40px;
+            color: #777;
+            font-size: 0.9rem;
+        }
+
+        @media (max-width: 768px) {
+            body {
+                padding: 15px;
+            }
+
+            h1 {
+                font-size: 2rem;
+            }
+
+            .section {
+                padding: 20px;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <div class="container">
+
+        <h1>Estrutura da Santa Missa</h1>
+
+        <section class="section">
+            <h2>1. Ritos Iniciais</h2>
+
+            <div class="objetivo">
+                <strong>Objetivo:</strong> Reunir a comunidade, formar o corpo da Igreja e preparar o coração dos fiéis para ouvir a Palavra e celebrar a Eucaristia.
+            </div>
+
+            <ul>
+                <li><strong>Procissão e Canto de Entrada:</strong> O sacerdote e os ministros dirigem-se ao altar (que representa o próprio Cristo).</li>
+                <li><strong>Saudação:</strong> Inicia-se com o Sinal da Cruz ("Em nome do Pai, do Filho e do Espírito Santo"), invocando a presença da Trindade.</li>
+                <li><strong>Ato Penitencial:</strong> Momento de reconhecer a própria fragilidade e pedir a misericórdia de Deus para celebrar dignamente os mistérios.</li>
+                <li><strong>Hino de Louvor (Glória):</strong> Cântico de exaltação a Deus.</li>
+                <li><strong>Oração da Coleta:</strong> O sacerdote reúne as intenções de toda a assembleia em uma oração dirigida a Deus.</li>
+            </ul>
+        </section>
+
+        <section class="section">
+            <h2>2. Liturgia da Palavra</h2>
+
+            <div class="objetivo">
+                <strong>Objetivo:</strong> Deus fala ao Seu povo através das Escrituras.
+            </div>
+
+            <ul>
+                <li><strong>Primeira Leitura:</strong> Geralmente extraída do Antigo Testamento.</li>
+                <li><strong>Salmo Responsorial:</strong> Resposta em oração e meditação do povo.</li>
+                <li><strong>Segunda Leitura:</strong> Tirada das Cartas dos Apóstolos.</li>
+                <li><strong>Aclamação e Evangelho:</strong> O ponto alto da Palavra com a proclamação do Evangelho.</li>
+                <li><strong>Homilia:</strong> Explicação das leituras e aplicação à vida cotidiana.</li>
+                <li><strong>Profissão de Fé (Credo):</strong> Recitação dos dogmas centrais da fé católica.</li>
+                <li><strong>Oração da Comunidade:</strong> Preces pelas necessidades do mundo e da Igreja.</li>
+            </ul>
+        </section>
+
+        <section class="section">
+            <h2>3. Liturgia Eucarística</h2>
+
+            <div class="objetivo">
+                <strong>Objetivo:</strong> Atualização e memorial do Sacrifício de Cristo e celebração do Banquete Eucarístico.
+            </div>
+
+            <h3>A. Preparação das Oferendas</h3>
+            <ul>
+                <li>O pão e o vinho são apresentados ao altar como oferta do povo de Deus.</li>
+            </ul>
+
+            <h3>B. Oração Eucarística</h3>
+            <ul>
+                <li><strong>Prefácio e Santo:</strong> Grande oração de louvor e ação de graças.</li>
+                <li><strong>Epiclese:</strong> Invocação do Espírito Santo sobre as oferendas.</li>
+                <li><strong>Consagração:</strong> O pão e o vinho tornam-se o Corpo e o Sangue de Cristo.</li>
+                <li><strong>Anamnese e Doxologia Final:</strong> Memorial da Paixão, Ressurreição e Ascensão do Senhor.</li>
+            </ul>
+
+            <h3>C. Rito da Comunhão</h3>
+            <ul>
+                <li><strong>Pai-Nosso:</strong> Oração ensinada por Jesus.</li>
+                <li><strong>Rito da Paz e Fração do Pão:</strong> Sinal de reconciliação e unidade.</li>
+                <li><strong>Comunhão:</strong> Recebimento da Eucaristia pelos fiéis.</li>
+                <li><strong>Oração Pós-Comunhão:</strong> Ação de graças pelos dons recebidos.</li>
+            </ul>
+        </section>
+
+        <section class="section">
+            <h2>4. Ritos Finais</h2>
+
+            <div class="objetivo">
+                <strong>Objetivo:</strong> Enviar a comunidade em missão para o mundo.
+            </div>
+
+            <ul>
+                <li><strong>Avisos:</strong> Comunicações da comunidade.</li>
+                <li><strong>Bênção Final:</strong> O sacerdote abençoa a assembleia.</li>
+                <li><strong>Despedida:</strong> "Ide em paz e o Senhor vos acompanhe".</li>
+            </ul>
+        </section>
+
+        <footer>
+            Estrutura da Santa Missa • Igreja Católica Apostólica Romana
+        </footer>
+
+    </div>
+
+</body>
+</html>-->
+<!--<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Estrutura da Santa Missa</title>
+</head>
+<body>
+
+    <h2>1. Ritos Iniciais</h2>
+    <p>
+        <strong>Objetivo:</strong> Reunir a comunidade, formar o corpo da Igreja e preparar o coração dos fiéis para ouvir a Palavra e celebrar a Eucaristia.
+    </p>
+
+    <ul>
+        <li><strong>Procissão e Canto de Entrada:</strong> O sacerdote e os ministros dirigem-se ao altar (que representa o próprio Cristo).</li>
+        <li><strong>Saudação:</strong> Inicia-se com o Sinal da Cruz ("Em nome do Pai, do Filho e do Espírito Santo"), invocando a presença da Trindade.</li>
+        <li><strong>Ato Penitencial:</strong> Momento de reconhecer a própria fragilidade e pedir a misericórdia de Deus para celebrar dignamente os mistérios.</li>
+        <li><strong>Hino de Louvor (Glória):</strong> Cântico de exaltação a Deus (usado nos domingos, exceto nos tempos penitenciais do Advento e Quaresma).</li>
+        <li><strong>Oração da Coleta:</strong> O sacerdote reúne ("coleta") as intenções de toda a assembleia em uma oração dirigida a Deus.</li>
+    </ul>
+
+    <h2>2. Liturgia da Palavra</h2>
+    <p>
+        <strong>Objetivo:</strong> Deus fala ao Seu povo através das Escrituras.
+    </p>
+
+    <ul>
+        <li><strong>Primeira Leitura:</strong> Geralmente extraída do Antigo Testamento, mostrando as promessas e a história da salvação.</li>
+        <li><strong>Salmo Responsorial:</strong> A resposta em oração e meditação do povo à primeira leitura.</li>
+        <li><strong>Segunda Leitura:</strong> Presente nos domingos e solenidades, tirada das Cartas dos Apóstolos no Novo Testamento.</li>
+        <li><strong>Aclamação e Evangelho:</strong> O ponto alto da Palavra. Aclama-se a Cristo (<em>Aleluia</em>), e o padre ou diácono proclama os ensinamentos, milagres e a vida de Jesus Cristo.</li>
+        <li><strong>Homilia:</strong> O sacerdote explica as leituras e faz a ponte da Palavra com a vida cotidiana.</li>
+        <li><strong>Profissão de Fé (Credo):</strong> A comunidade recita junta os dogmas centrais da fé católica.</li>
+        <li><strong>Oração da Comunidade (Preces):</strong> Pedidos da Igreja pelas necessidades do mundo, da Igreja e da comunidade local.</li>
+    </ul>
+
+    <h2>3. Liturgia Eucarística</h2>
+    <p>
+        <strong>Objetivo:</strong> Atualização e memorial do Sacrifício de Cristo na cruz e a celebração do Banquete Eucarístico. É o coração da Missa.
+    </p>
+
+    <h3>A. Preparação das Oferendas (Ofertório)</h3>
+    <ul>
+        <li>O pão (hóstia) e o vinho com água são levados ao altar, simbolizando a oferta de nossas vidas e do fruto do trabalho humano.</li>
+    </ul>
+
+    <h3>B. Oração Eucarística</h3>
+    <ul>
+        <li><strong>Prefácio e Santo:</strong> Oração de ação de graças que introduz o momento mais solene, unindo o louvor da terra ao do céu.</li>
+        <li><strong>Epiclese (Invocação):</strong> O padre estende as mãos sobre o pão e o vinho pedindo que o Espírito Santo os santifique.</li>
+        <li><strong>Consagração:</strong> O momento central em que o sacerdote repete as palavras de Jesus na Última Ceia. Pela doutrina católica, ocorre a <em>transubstanciação</em> (o pão e o vinho tornam-se verdadeiramente o Corpo e o Sangue de Cristo).</li>
+        <li><strong>Anamnese e Doxologia Final:</strong> Lembra-se a Paixão, Ressurreição e Ascensão de Jesus, encerrando com o solene <em>"Por Cristo, com Cristo e em Cristo..."</em>.</li>
+    </ul>
+
+    <h3>C. Rito da Comunhão</h3>
+    <ul>
+        <li><strong>Pai-Nosso:</strong> A oração que o próprio Cristo ensinou.</li>
+        <li><strong>Rito da Paz e Fração do Pão:</strong> Gesto de reconciliação comunitária e a fração da hóstia ao som do cântico <em>Cordeiro de Deus</em>.</li>
+        <li><strong>Comunhão:</strong> Os fiéis devidamente dispostos aproximam-se para receber a Eucaristia.</li>
+        <li><strong>Oração Pós-Comunhão:</strong> Ação de graças pedindo que os frutos do sacramento atuem na vida dos fiéis.</li>
+    </ul>
+
+    <h2>4. Ritos Finais</h2>
+    <p>
+        <strong>Objetivo:</strong> Enviar a comunidade em missão para o mundo.
+    </p>
+
+    <ul>
+        <li><strong>Avisos:</strong> Breves comunicações sobre a vida da comunidade de fé.</li>
+        <li><strong>Bênção Final:</strong> O sacerdote abençoa a assembleia em nome da Trindade.</li>
+        <li><strong>Despedida:</strong> A famosa fórmula <em>"Ide em paz e o Senhor vos acompanhe"</em> recorda que a Missa (que vem do latim <em>missio</em>, "missão") continua na vida de cada dia.</li>
+    </ul>
+
+</body>
+</html>-->

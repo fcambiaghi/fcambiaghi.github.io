@@ -1,0 +1,153 @@
+﻿<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Estudos sobre a Liturgia Católica</title>
+    <style>
+        :root {
+            --primary-color: #4a154b;
+            --secondary-color: #6b21a8;
+            --bg-color: #fcfbf9;
+            --card-bg: #ffffff;
+            --text-color: #2d3748;
+            --border-color: #e2e8f0;
+            --hover-bg: #f8fafc;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+            line-height: 1.6;
+            color: var(--text-color);
+            background-color: var(--bg-color);
+            margin: 0;
+            padding: 20px;
+        }
+
+        .container {
+            max-width: 800px;
+            margin: 40px auto;
+            background: var(--card-bg);
+            padding: 40px;
+            border-radius: 12px;
+            box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
+            border: 1px solid var(--border-color);
+        }
+
+        header {
+            text-align: center;
+            margin-bottom: 40px;
+        }
+
+        h1 {
+            color: var(--primary-color);
+            font-size: 2rem;
+            margin-bottom: 10px;
+        }
+
+        p.subtitle {
+            color: #64748b;
+            font-size: 1.05rem;
+            margin: 0;
+        }
+
+        .menu-grid {
+            display: grid;
+            gap: 20px;
+            grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+        }
+
+        .menu-card {
+            display: block;
+            text-decoration: none;
+            color: inherit;
+            background: #ffffff;
+            border: 2px solid var(--border-color);
+            border-radius: 10px;
+            padding: 24px;
+            transition: all 0.25s ease;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.02);
+        }
+
+            .menu-card:hover {
+                border-color: var(--secondary-color);
+                transform: translateY(-3px);
+                box-shadow: 0 10px 15px -3px rgba(107, 33, 168, 0.1);
+                background-color: var(--hover-bg);
+            }
+
+            .menu-card h2 {
+                color: var(--secondary-color);
+                font-size: 1.25rem;
+                margin-top: 0;
+                margin-bottom: 10px;
+            }
+
+            .menu-card p {
+                color: #4a5568;
+                font-size: 0.95rem;
+                margin: 0;
+                line-height: 1.5;
+            }
+
+        .badge {
+            display: inline-block;
+            background-color: #f3e8ff;
+            color: var(--secondary-color);
+            font-size: 0.75rem;
+            font-weight: bold;
+            padding: 4px 8px;
+            border-radius: 4px;
+            margin-bottom: 12px;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
+
+        @media (max-width: 600px) {
+            .container {
+                padding: 24px;
+                margin: 10px auto;
+            }
+
+            h1 {
+                font-size: 1.6rem;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <div class="container">
+        <header>
+            <h1>Guia de Estudo da Liturgia Católica</h1>
+            <p class="subtitle">Selecione um tópico abaixo para visualizar o conteúdo detalhado</p>
+        </header>
+
+        <nav class="menu-grid">
+
+            <!-- Link 1: Santa Missa -->
+            <a href="SantaMissa.html" class="menu-card">
+                <span class="badge">Rito Romano</span>
+                <h2>A Santa Missa</h2>
+                <p>Explicação detalhada da estrutura da Missa dividida em seus 4 momentos principais.</p>
+            </a>
+
+            <!-- Link 2: Teologia da Consagração -->
+            <a href="TeologiaConsagracao.html" class="menu-card">
+                <span class="badge">Eucaristia</span>
+                <h2>Teologia da Consagração</h2>
+                <p>Análise do momento central da Eucaristia, Epiclese, Transubstanciação e Presença Real.</p>
+            </a>
+
+            <!-- Link 3: Ano Litúrgico -->
+            <a href="AnoLiturgico.html" class="menu-card">
+                <span class="badge">Calendário</span>
+                <h2>O Ano Litúrgico</h2>
+                <p>Organização do tempo na Igreja, Ciclos do Natal e Páscoa, Tempo Comum e Cores Litúrgicas.</p>
+            </a>
+
+        </nav>
+    </div>
+
+</body>
+</html>
