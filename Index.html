@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="pt-BR">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -53,7 +54,7 @@
 
         .menu-grid {
             display: grid;
-            gap: 20px;
+            gap: 16px;
             grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
         }
 
@@ -63,44 +64,51 @@
             color: inherit;
             background: #ffffff;
             border: 2px solid var(--border-color);
-            border-radius: 10px;
-            padding: 24px;
-            transition: all 0.25s ease;
-            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.02);
+            border-radius: 8px;
+            padding: 16px;
+            transition: all 0.2s ease;
+            box-shadow: 0 1px 3px rgba(0, 0, 0, 0.02);
         }
 
-            .menu-card:hover {
-                border-color: var(--secondary-color);
-                transform: translateY(-3px);
-                box-shadow: 0 10px 15px -3px rgba(107, 33, 168, 0.1);
-                background-color: var(--hover-bg);
-            }
+        .menu-card:hover {
+            border-color: var(--secondary-color);
+            transform: translateY(-2px);
+            box-shadow: 0 6px 12px -3px rgba(107, 33, 168, 0.08);
+            background-color: var(--hover-bg);
+        }
 
-            .menu-card h2 {
-                color: var(--secondary-color);
-                font-size: 1.25rem;
-                margin-top: 0;
-                margin-bottom: 10px;
-            }
+        .menu-card-header {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: 8px;
+            margin-bottom: 8px;
+        }
 
-            .menu-card p {
-                color: #4a5568;
-                font-size: 0.95rem;
-                margin: 0;
-                line-height: 1.5;
-            }
+        .menu-card h2 {
+            color: var(--secondary-color);
+            font-size: 1.1rem;
+            margin: 0;
+        }
+
+        .menu-card p {
+            color: #4a5568;
+            font-size: 0.85rem;
+            margin: 0;
+            line-height: 1.4;
+        }
 
         .badge {
             display: inline-block;
             background-color: #f3e8ff;
             color: var(--secondary-color);
-            font-size: 0.75rem;
+            font-size: 0.7rem;
             font-weight: bold;
-            padding: 4px 8px;
+            padding: 2px 6px;
             border-radius: 4px;
-            margin-bottom: 12px;
             text-transform: uppercase;
             letter-spacing: 0.5px;
+            white-space: nowrap;
         }
 
         @media (max-width: 600px) {
@@ -115,6 +123,7 @@
         }
     </style>
 </head>
+
 <body>
 
     <div class="container">
@@ -127,34 +136,61 @@
 
             <!-- Link 1: Santa Missa -->
             <a href="SantaMissa.html" class="menu-card">
-                <span class="badge">Rito Romano</span>
-                <h2>A Santa Missa</h2>
+                <div class="menu-card-header">
+                    <h2>A Santa Missa</h2>
+                    <span class="badge">Rito Romano</span>
+                </div>
                 <p>Explicação detalhada da estrutura da Missa dividida em seus 4 momentos principais.</p>
             </a>
 
             <!-- Link 2: Teologia da Consagração -->
             <a href="TeologiaConsagracao.html" class="menu-card">
-                <span class="badge">Eucaristia</span>
-                <h2>Teologia da Consagração</h2>
+                <div class="menu-card-header">
+                    <h2>Teologia da Consagração</h2>
+                    <span class="badge">Eucaristia</span>
+                </div>
                 <p>Análise do momento central da Eucaristia, Epiclese, Transubstanciação e Presença Real.</p>
             </a>
 
             <!-- Link 3: Ano Litúrgico -->
             <a href="AnoLiturgico.html" class="menu-card">
-                <span class="badge">Calendário</span>
-                <h2>O Ano Litúrgico</h2>
+                <div class="menu-card-header">
+                    <h2>O Ano Litúrgico</h2>
+                    <span class="badge">Calendário</span>
+                </div>
                 <p>Organização do tempo na Igreja, Ciclos do Natal e Páscoa, Tempo Comum e Cores Litúrgicas.</p>
             </a>
 
             <!-- Link 4: As Indulgências -->
             <a href="Indulgencias.html" class="menu-card">
-                <span class="badge">Doutrina</span>
-                <h2>As Indulgências</h2>
+                <div class="menu-card-header">
+                    <h2>As Indulgências</h2>
+                    <span class="badge">Doutrina</span>
+                </div>
                 <p>O que são, a diferença entre culpa e pena temporal, tipos de indulgências e condições para obtê-las.</p>
+            </a>
+
+            <!-- Link 5: Terço Mariano -->
+            <a href="TercoMariano.html" class="menu-card">
+                <div class="menu-card-header">
+                    <h2>O Santo Terço</h2>
+                    <span class="badge">Devoção</span>
+                </div>
+                <p>Roteiro completo para a oração do Terço: sinal da cruz, oferecimento, mistérios contemplados e encerramento.</p>
+            </a>
+
+            <!-- Link 6: Quaresma de São Miguel -->
+            <a href="SaoMiguel.html" class="menu-card">
+                <div class="menu-card-header">
+                    <h2>Quaresma de São Miguel</h2>
+                    <span class="badge">Devoção</span>
+                </div>
+                <p>Roteiro completo de oração e preparação diária para os 40 dias de devoção a São Miguel Arcanjo.</p>
             </a>
 
         </nav>
     </div>
 
 </body>
+
 </html>
