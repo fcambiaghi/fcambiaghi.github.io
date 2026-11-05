@@ -1,0 +1,548 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Principais Orações Católicas</title>
+    <style>
+        :root {
+            --primary-color: #4a154b;
+            --secondary-color: #6b21a8;
+            --bg-color: #fcfbf9;
+            --card-bg: #ffffff;
+            --text-color: #2d3748;
+            --accent-color: #d97706;
+            --border-color: #e2e8f0;
+            --hover-bg: #f8fafc;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+            line-height: 1.6;
+            color: var(--text-color);
+            background-color: var(--bg-color);
+            margin: 0;
+            padding: 20px;
+        }
+
+        .container {
+            max-width: 800px;
+            margin: 0 auto;
+            background: var(--card-bg);
+            padding: 40px;
+            border-radius: 12px;
+            box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
+            border: 1px solid var(--border-color);
+        }
+
+        .back-link {
+            display: inline-block;
+            margin-bottom: 20px;
+            color: var(--secondary-color);
+            text-decoration: none;
+            font-weight: bold;
+            font-size: 0.95rem;
+            transition: color 0.2s ease;
+        }
+
+        .back-link:hover {
+            color: var(--primary-color);
+            text-decoration: underline;
+        }
+
+        header {
+            margin-bottom: 30px;
+            text-align: center;
+        }
+
+        h1 {
+            color: var(--primary-color);
+            font-size: 2rem;
+            margin-bottom: 5px;
+        }
+
+        p.subtitle {
+            color: #64748b;
+            margin: 0;
+        }
+
+        .category-title {
+            color: var(--primary-color);
+            font-size: 1.3rem;
+            border-bottom: 2px solid var(--secondary-color);
+            padding-bottom: 6px;
+            margin-top: 35px;
+            margin-bottom: 15px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+        }
+
+        .category-badge {
+            font-size: 0.75rem;
+            font-weight: bold;
+            color: var(--secondary-color);
+            background: #f3e8ff;
+            padding: 2px 8px;
+            border-radius: 4px;
+            text-transform: uppercase;
+        }
+
+        /* Accordion Styles */
+        .accordion {
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+            margin-bottom: 20px;
+        }
+
+        details.accordion-item {
+            border: 1px solid var(--border-color);
+            border-radius: 8px;
+            background: #ffffff;
+            transition: all 0.2s ease;
+            overflow: hidden;
+        }
+
+        details.accordion-item[open] {
+            border-color: var(--secondary-color);
+            box-shadow: 0 2px 8px rgba(107, 33, 168, 0.06);
+        }
+
+        summary.accordion-header {
+            padding: 14px 18px;
+            font-weight: 600;
+            color: #1a202c;
+            cursor: pointer;
+            list-style: none;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            user-select: none;
+            background-color: #ffffff;
+            transition: background-color 0.2s ease;
+        }
+
+        summary.accordion-header::-webkit-details-marker {
+            display: none;
+        }
+
+        summary.accordion-header:hover {
+            background-color: var(--hover-bg);
+            color: var(--secondary-color);
+        }
+
+        summary.accordion-header::after {
+            content: "+";
+            font-size: 1.25rem;
+            font-weight: bold;
+            color: var(--secondary-color);
+            line-height: 1;
+            transition: transform 0.2s ease;
+        }
+
+        details.accordion-item[open] summary.accordion-header::after {
+            content: "−";
+        }
+
+        details.accordion-item[open] summary.accordion-header {
+            background-color: #faf5ff;
+            border-bottom: 1px solid var(--border-color);
+        }
+
+        .accordion-content {
+            padding: 16px 20px;
+            background-color: #fcfbf9;
+            font-size: 0.95rem;
+            line-height: 1.6;
+        }
+
+        .prayer-text {
+            font-style: italic;
+            color: #2d3748;
+            margin: 0;
+        }
+
+        .prayer-text p {
+            margin: 0 0 10px 0;
+        }
+
+        .prayer-text p:last-child {
+            margin-bottom: 0;
+        }
+
+        .prayer-note {
+            margin-top: 10px;
+            padding-top: 8px;
+            border-top: 1px dashed var(--border-color);
+            font-size: 0.85rem;
+            color: #64748b;
+            font-style: normal;
+        }
+
+        .latin-block {
+            margin-top: 12px;
+            padding: 10px 14px;
+            background: #ffffff;
+            border-left: 3px solid var(--accent-color);
+            border-radius: 4px;
+            font-size: 0.9rem;
+        }
+
+        .latin-title {
+            font-weight: bold;
+            color: var(--accent-color);
+            font-size: 0.8rem;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+            margin-bottom: 4px;
+        }
+
+        .search-container {
+            margin-bottom: 25px;
+            display: flex;
+            gap: 10px;
+        }
+
+        .search-input {
+            width: 100%;
+            padding: 10px 14px;
+            border: 1px solid var(--border-color);
+            border-radius: 6px;
+            font-size: 0.95rem;
+            outline: none;
+            box-sizing: border-box;
+            transition: border-color 0.2s ease;
+        }
+
+        .search-input:focus {
+            border-color: var(--secondary-color);
+        }
+
+        @media (max-width: 600px) {
+            .container {
+                padding: 20px;
+            }
+
+            h1 {
+                font-size: 1.6rem;
+            }
+
+            .category-title {
+                font-size: 1.15rem;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container">
+        <a href="index.html" class="back-link">&larr; Voltar ao Menu</a>
+
+        <header>
+            <h1>Principais Orações Católicas</h1>
+            <p class="subtitle">Guia devocional e oracional com as preces fundamentais da Igreja</p>
+        </header>
+
+        <!-- Campo de busca rápida -->
+        <div class="search-container">
+            <input type="text" id="filterInput" class="search-input" placeholder="Filtrar orações... (ex: São Bento, Creio, Salve Rainha)" onkeyup="filterPrayers()">
+        </div>
+
+        <!-- 1. Orações Fundamentais -->
+        <h2 class="category-title">
+            <span>Orações Fundamentais</span>
+            <span class="category-badge">Básicas</span>
+        </h2>
+        <div class="accordion">
+            <details class="accordion-item">
+                <summary class="accordion-header">Sinal da Cruz</summary>
+                <div class="accordion-content">
+                    <div class="prayer-text">
+                        <p>Pelo sinal da Santa Cruz, livrai-nos, Deus, nosso Senhor, dos nossos inimigos.</p>
+                        <p>Em nome do Pai, e do Filho, e do Espírito Santo. Amém.</p>
+                    </div>
+                    <div class="latin-block">
+                        <div class="latin-title">Em Latim</div>
+                        <em>In nómine Patris, et Fílii, et Spíritus Sancti. Amen.</em>
+                    </div>
+                </div>
+            </details>
+
+            <details class="accordion-item">
+                <summary class="accordion-header">Pai Nosso (Oratio Dominica)</summary>
+                <div class="accordion-content">
+                    <div class="prayer-text">
+                        <p>Pai nosso, que estais nos céus, santificado seja o Vosso nome; venha a nós o Vosso reino, seja feita a Vossa vontade, assim na terra como no céu. O pão nosso de cada dia nos dai hoje; perdoai-nos as nossas ofensas, assim como nós perdoamos a quem nos tem ofendido; e não nos deixeis cair em tentação, mas livrai-nos do mal. Amém.</p>
+                    </div>
+                    <div class="latin-block">
+                        <div class="latin-title">Em Latim</div>
+                        <em>Pater noster, qui es in caelis, sanctificétur nomen tuum. Advéniat regnum tuum. Fiat volúntas tua, sicut in caelo et in terra. Panem nostrum cotidiánum da nobis hódie, et dimítte nobis débita nostra sicut et nos dimíttimus debitóribus nostris. Et ne nos indúcas in tentatiónem: sed líbera nos a malo. Amen.</em>
+                    </div>
+                </div>
+            </details>
+
+            <details class="accordion-item">
+                <summary class="accordion-header">Ave Maria (Salutatio Angelica)</summary>
+                <div class="accordion-content">
+                    <div class="prayer-text">
+                        <p>Ave Maria, cheia de graça, o Senhor é convosco; bendita sois Vós entre as mulheres, e bendito é o fruto do Vosso ventre, Jesus. Santa Maria, Mãe de Deus, rogai por nós, pecadores, agora e na hora da nossa morte. Amém.</p>
+                    </div>
+                    <div class="latin-block">
+                        <div class="latin-title">Em Latim</div>
+                        <em>Ave María, grátia plena, Dóminus tecum. Benedícta tu in muliéribus, et benedíctus fructus ventris tui, Iesus. Sancta María, Mater Dei, ora pro nobis peccatóribus, nunc et in hora mortis nostrae. Amen.</em>
+                    </div>
+                </div>
+            </details>
+
+            <details class="accordion-item">
+                <summary class="accordion-header">Glória ao Pai (Doxologia Menor)</summary>
+                <div class="accordion-content">
+                    <div class="prayer-text">
+                        <p>Glória ao Pai, e ao Filho, e ao Espírito Santo. Como era no princípio, agora e sempre. Amém.</p>
+                    </div>
+                    <div class="latin-block">
+                        <div class="latin-title">Em Latim</div>
+                        <em>Glória Patri, et Fílio, et Spirítui Sancto. Sicut erat in princípio, et nunc, et semper, et in saécula saeculórum. Amen.</em>
+                    </div>
+                </div>
+            </details>
+
+            <details class="accordion-item">
+                <summary class="accordion-header">Credo dos Apóstolos (Symbolum Apostolorum)</summary>
+                <div class="accordion-content">
+                    <div class="prayer-text">
+                        <p>Creio em Deus Pai Todo-Poderoso, Criador do céu e da terra; e em Jesus Cristo, seu único Filho, nosso Senhor; que foi concebido pelo poder do Espírito Santo; nasceu da Virgem Maria, padeceu sob Pôncio Pilatos, foi crucificado, morto e sepultado; desceu à mansão dos mortos; ressuscitou ao terceiro dia; subiu aos céus, está sentado à direita de Deus Pai todo-poderoso, donde há de vir a julgar os vivos e os mortos. Creio no Espírito Santo, na Santa Igreja Católica, na comunhão dos Santos, na remissão dos pecados, na ressurreição da carne, na vida eterna. Amém.</p>
+                    </div>
+                </div>
+            </details>
+
+            <details class="accordion-item">
+                <summary class="accordion-header">Ato de Contrição</summary>
+                <div class="accordion-content">
+                    <div class="prayer-text">
+                        <p>Meu Deus, eu me arrependo de todo o coração de Vos ter ofendido, porque sois tão bom e amável. Prometo firmemente, com a ajuda da Vossa graça, nunca mais pecar e fugir das ocasiões de pecado. Meu Jesus, misericórdia! Amém.</p>
+                    </div>
+                </div>
+            </details>
+        </div>
+
+        <!-- 2. Orações Marianas -->
+        <h2 class="category-title">
+            <span>Orações Marianas</span>
+            <span class="category-badge">Nossa Senhora</span>
+        </h2>
+        <div class="accordion">
+            <details class="accordion-item">
+                <summary class="accordion-header">Salve Rainha (Salve Regina)</summary>
+                <div class="accordion-content">
+                    <div class="prayer-text">
+                        <p>Salve, Rainha, Mãe de misericórdia, vida, doçura e esperança nossa, salve! A Vós bradamos, os degredados filhos de Eva. A Vós suspiramos, gemendo e chorando neste vale de lágrimas. Eia, pois, Advogada nossa, esses Vossos olhos misericordiosos a nós volvei. E depois deste desterro, mostrai-nos Jesus, bendito fruto do Vosso ventre. Ó clemente, ó piedosa, ó doce sempre Virgem Maria.</p>
+                        <p><strong>V.</strong> Rogai por nós, Santa Mãe de Deus.<br>
+                        <strong>R.</strong> Para que sejamos dignos das promessas de Cristo. Amém.</p>
+                    </div>
+                </div>
+            </details>
+
+            <details class="accordion-item">
+                <summary class="accordion-header">Lembrai-vos (Memorare de São Bernardo)</summary>
+                <div class="accordion-content">
+                    <div class="prayer-text">
+                        <p>Lembrai-vos, ó puríssima Virgem Maria, que nunca se ouviu dizer que algum daqueles que têm recorrido à vossa proteção, implorado a vossa assistência e reclamado o vosso socorro fosse por vós desamparado. Animado eu, pois, com igual confiança, a vós, Virgem das virgens, como a Mãe recorro; de vós me valho e, gemendo sob o peso dos meus pecados, me prosto a vossos pés. Não desprezeis as minhas súplicas, ó Mãe do Verbo encarnado, mas ouvi-as propícia e dignai-vos de as atender. Amém.</p>
+                    </div>
+                </div>
+            </details>
+
+            <details class="accordion-item">
+                <summary class="accordion-header">O Angelus (O Anjo do Senhor)</summary>
+                <div class="accordion-content">
+                    <div class="prayer-text">
+                        <p><strong>V.</strong> O Anjo do Senhor anunciou a Maria.<br>
+                        <strong>R.</strong> E ela concebeu do Espírito Santo.<br>
+                        <em>(Ave Maria...)</em></p>
+                        <p><strong>V.</strong> Eis aqui a serva do Senhor.<br>
+                        <strong>R.</strong> Faça-se em mim segundo a vossa palavra.<br>
+                        <em>(Ave Maria...)</em></p>
+                        <p><strong>V.</strong> E o Verbo se fez carne.<br>
+                        <strong>R.</strong> E habitou entre nós.<br>
+                        <em>(Ave Maria...)</em></p>
+                        <p><strong>V.</strong> Rogai por nós, Santa Mãe de Deus.<br>
+                        <strong>R.</strong> Para que sejamos dignos das promessas de Cristo.</p>
+                        <p><strong>Oremos:</strong> Infundi, Senhor, nós Vos pedimos, a Vossa graça em nossas almas, para que nós, que pela anunciação do Anjo conhecemos a Encarnação de Jesus Cristo, Vosso Filho, cheguemos, por Sua Paixão e Cruz, à glória da ressurreição. Por Cristo, nosso Senhor. Amém.</p>
+                    </div>
+                    <div class="prayer-note">Tradicionalmente rezado às 6h, 12h e 18h. No Tempo Pascal, é substituído pelo <em>Regina Caeli</em>.</div>
+                </div>
+            </details>
+
+            <details class="accordion-item">
+                <summary class="accordion-header">Magnificat (Cântico de Maria)</summary>
+                <div class="accordion-content">
+                    <div class="prayer-text">
+                        <p>A minha alma engrandece o Senhor e o meu espírito se alegra em Deus, meu Salvador. Porque olhou para a humildade de Sua serva; eis que desde agora todas as gerações me chamarão bem-aventurada. O Todo-poderoso fez por mim grandes coisas; Santo é o Seu nome. A Sua misericórdia estende-se de geração em geração sobre aqueles que O temem.</p>
+                        <p>Manifestou o poder do Seu braço e dispersou os soberbos. Derrubou os poderosos de seus tronos e exaltou os humildes. Aos famintos encheu de bens e aos ricos despediu de mãos vazias. Acolheu a Israel, Seu servo, lembrado da Sua misericórdia, como havia prometido aos nossos pais, a Abraão e à sua descendência para sempre. Glória ao Pai... Amém.</p>
+                    </div>
+                </div>
+            </details>
+        </div>
+
+        <!-- 3. Devoção e Proteção aos Santos e Anjos -->
+        <h2 class="category-title">
+            <span>Proteção e Santos</span>
+            <span class="category-badge">Intercessão</span>
+        </h2>
+        <div class="accordion">
+            <!-- Oração da Medalha de São Bento -->
+            <details class="accordion-item">
+                <summary class="accordion-header">Oração de São Bento (Cruz Sagrada)</summary>
+                <div class="accordion-content">
+                    <div class="prayer-text">
+                        <p><strong>A Cruz Sagrada seja a minha luz,<br>
+                        Não seja o dragão meu guia.<br>
+                        Retira-te, satanás!<br>
+                        Nunca me aconselhes coisas vãs.<br>
+                        É mau o que tu me ofereces:<br>
+                        Bebe tu mesmo o teu veneno!</strong></p>
+                        <p>Em nome do Pai, e do Filho, e do Espírito Santo. Amém.</p>
+                    </div>
+                    <div class="latin-block">
+                        <div class="latin-title">Fórmula Tradicional em Latim (Siglas da Medalha)</div>
+                        <p><em>Crux Sacra Sit Mihi Lux!</em> (CSSML)<br>
+                        <em>Non Draco Sit Mihi Dux!</em> (NDSMD)<br>
+                        <em>Vade Retro Satana!</em> (VRS)<br>
+                        <em>Numquam Suade Mihi Vana!</em> (NSMV)<br>
+                        <em>Sunt Mala Quae Libas!</em> (SMQL)<br>
+                        <em>Ipse Venena Bibas!</em> (IVPB)</p>
+                    </div>
+                    <div class="prayer-note">
+                        <strong>História:</strong> As letras inscritas no verso da Medalha de São Bento correspondem à oração em latim que expressa firme renúncia às tentações e ao maligno, invocando o poder protetor da Santa Cruz de Cristo.
+                    </div>
+                </div>
+            </details>
+
+            <details class="accordion-item">
+                <summary class="accordion-header">São Miguel Arcanjo (Papa Leão XIII)</summary>
+                <div class="accordion-content">
+                    <div class="prayer-text">
+                        <p>São Miguel Arcanjo, defendei-nos no combate; sede o nosso refúgio contra as maldades e ciladas do demônio. Ordene-lhe Deus, instantemente o pedimos, e vós, príncipe da milícia celeste, pelo divino poder, precipitai no inferno a Satanás e a todos os espíritos malignos, que andam pelo mundo para perder as almas. Amém.</p>
+                    </div>
+                </div>
+            </details>
+
+            <details class="accordion-item">
+                <summary class="accordion-header">Santo Anjo da Guarda</summary>
+                <div class="accordion-content">
+                    <div class="prayer-text">
+                        <p>Santo Anjo do Senhor, meu zeloso guardador, se a ti me confiou a piedade divina, sempre me rege, me guarde, me governe, me ilumine. Amém.</p>
+                    </div>
+                    <div class="latin-block">
+                        <div class="latin-title">Em Latim (Angele Dei)</div>
+                        <em>Ángele Dei, qui custos es mei, me tibi commissum pietáte supérna, illúmina, custódi, rege et gubérna. Amen.</em>
+                    </div>
+                </div>
+            </details>
+
+            <details class="accordion-item">
+                <summary class="accordion-header">Oração a São José (Ad Te Beate Ioseph)</summary>
+                <div class="accordion-content">
+                    <div class="prayer-text">
+                        <p>A vós, bem-aventurado São José, recorremos nas nossas tribulações e, depois de ter implorado o socorro de vossa Santíssima Esposa, cheios de confiança solicitamos também o vosso patrocínio. Por aquele laço sagrado de caridade que vos uniu à Imaculada Virgem Mãe de Deus, e pelo amor paternal que tivestes ao Menino Jesus, ardentemente vos suplicamos que lanceis um olhar benigno para a herança que Jesus Cristo adquiriu com o Seu Sangue, e nos socorrais nas nossas necessidades com o vosso auxílio e poder.</p>
+                        <p>Defendei, ó guarda providente da Sagrada Família, a prole escolhida de Jesus Cristo. Afastai para longe de nós, ó pai amantíssimo, todo o contágio de erros e corrupções. Do alto do céu sede-nos propício e assisti-nos, ó nosso fortíssimo libertador, na luta contra o poder das trevas; e assim como outrora livrastes da morte a vida ameaçada do Menino Jesus, defendei agora a Santa Igreja de Deus das ciladas do inimigo e de toda adversidade. Amém.</p>
+                    </div>
+                </div>
+            </details>
+        </div>
+
+        <!-- 4. Espírito Santo e Devoções Diárias -->
+        <h2 class="category-title">
+            <span>Espírito Santo e Devoções Diárias</span>
+            <span class="category-badge">Vida Espiritual</span>
+        </h2>
+        <div class="accordion">
+            <details class="accordion-item">
+                <summary class="accordion-header">Vinde, Espírito Santo (Veni Sancte Spiritus)</summary>
+                <div class="accordion-content">
+                    <div class="prayer-text">
+                        <p>Vinde, Espírito Santo, enchei os corações dos Vossos fiéis e acendei neles o fogo do Vosso amor.</p>
+                        <p><strong>V.</strong> Enviai o Vosso Espírito e tudo será criado.<br>
+                        <strong>R.</strong> E renovareis a face da terra.</p>
+                        <p><strong>Oremos:</strong> Ó Deus, que instruístes os corações dos Vossos fiéis com a luz do Espírito Santo, fazei que apreciemos retamente todas as coisas segundo o mesmo Espírito e gozemos sempre da Sua consolação. Por Cristo, Senhor nosso. Amém.</p>
+                    </div>
+                </div>
+            </details>
+
+            <details class="accordion-item">
+                <summary class="accordion-header">Alma de Cristo (Anima Christi)</summary>
+                <div class="accordion-content">
+                    <div class="prayer-text">
+                        <p>Alma de Cristo, santificai-me.<br>
+                        Corpo de Cristo, salvai-me.<br>
+                        Sangue de Cristo, inebriai-me.<br>
+                        Água do lado de Cristo, lavai-me.<br>
+                        Paixão de Cristo, confortai-me.<br>
+                        Ó bom Jesus, ouvi-me.<br>
+                        Dentro das vossas chagas, escondei-me.<br>
+                        Não permitais que me separe de vós.<br>
+                        Do espírito maligno, defendei-me.<br>
+                        Na hora da minha morte, chamai-me.<br>
+                        E mandai-me ir para vós,<br>
+                        para que com os vossos Santos vos louve<br>
+                        por todos os séculos dos séculos. Amém.</p>
+                    </div>
+                    <div class="prayer-note">Tradicionalmente rezada em ação de graças após a Sagrada Comunhão.</div>
+                </div>
+            </details>
+
+            <details class="accordion-item">
+                <summary class="accordion-header">Oração da Manhã (Oferecimento do Dia)</summary>
+                <div class="accordion-content">
+                    <div class="prayer-text">
+                        <p>Senhor meu Deus, neste novo dia que se inicia, ofereço-Vos todos os meus pensamentos, palavras, obras, alegrias e sofrimentos, unidos ao sacrifício de Vosso Filho Jesus na Santa Missa, pela salvação do mundo e pelas intenções da Vossa Santa Igreja. Guardai-me hoje de todo o pecado e de todo o mal. Amém.</p>
+                    </div>
+                </div>
+            </details>
+
+            <details class="accordion-item">
+                <summary class="accordion-header">Oração da Noite e Exame de Consciência</summary>
+                <div class="accordion-content">
+                    <div class="prayer-text">
+                        <p>Senhor meu Deus e Pai celestial, agradeço-Vos por todos os benefícios e graças que hoje me concedestes. Peço-Vos luz para reconhecer minhas faltas e Vos peço perdão de todas as ofensas que cometi. Em Vossas mãos, Senhor, entrego o meu espírito e o meu descanso nesta noite. Concedei-me uma noite tranquila e um fim perfeito. Em nome do Pai, e do Filho, e do Espírito Santo. Amém.</p>
+                    </div>
+                </div>
+            </details>
+        </div>
+    </div>
+
+    <script>
+        function filterPrayers() {
+            const query = document.getElementById('filterInput').value.toLowerCase().trim();
+            const items = document.querySelectorAll('.accordion-item');
+            const categories = document.querySelectorAll('.category-title');
+
+            items.forEach(item => {
+                const text = item.textContent.toLowerCase();
+                if (text.includes(query)) {
+                    item.style.display = '';
+                    if (query.length > 1) {
+                        item.open = true;
+                    }
+                } else {
+                    item.style.display = 'none';
+                    item.open = false;
+                }
+            });
+
+            // Ocultar títulos de categoria se não houver itens visíveis no grupo seguinte
+            categories.forEach(cat => {
+                const group = cat.nextElementSibling;
+                if (group && group.classList.contains('accordion')) {
+                    const visibleInGroup = group.querySelectorAll('.accordion-item:not([style*="display: none"])');
+                    cat.style.display = visibleInGroup.length === 0 ? 'none' : '';
+                }
+            });
+        }
+    </script>
+</body>
+
+</html>
+
