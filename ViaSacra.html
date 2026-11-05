@@ -1,0 +1,489 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Roteiro tradicional da Via-Sacra com as 14 estações da Paixão e Morte de Nosso Senhor Jesus Cristo, orações e meditações.">
+    <link rel="icon" type="image/svg+xml" href="favicon.svg">
+    <title>A Sagrada Via-Sacra</title>
+    <style>
+        :root {
+            --primary-color: #4a154b;
+            --secondary-color: #6b21a8;
+            --bg-color: #fcfbf9;
+            --card-bg: #ffffff;
+            --text-color: #2d3748;
+            --accent-color: #d97706;
+            --border-color: #e2e8f0;
+            --hover-bg: #f8fafc;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+            line-height: 1.6;
+            color: var(--text-color);
+            background-color: var(--bg-color);
+            margin: 0;
+            padding: 20px;
+        }
+
+        .container {
+            max-width: 800px;
+            margin: 0 auto;
+            background: var(--card-bg);
+            padding: 40px;
+            border-radius: 12px;
+            box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
+            border: 1px solid var(--border-color);
+        }
+
+        .back-link {
+            display: inline-block;
+            margin-bottom: 20px;
+            color: var(--secondary-color);
+            text-decoration: none;
+            font-weight: bold;
+            font-size: 0.95rem;
+            transition: color 0.2s ease;
+        }
+
+        .back-link:hover {
+            color: var(--primary-color);
+            text-decoration: underline;
+        }
+
+        header {
+            margin-bottom: 30px;
+            text-align: center;
+        }
+
+        h1 {
+            color: var(--primary-color);
+            font-size: 2rem;
+            margin-bottom: 5px;
+        }
+
+        p.subtitle {
+            color: #64748b;
+            margin: 0;
+        }
+
+        .objective {
+            background-color: #f3e8ff;
+            border-left: 4px solid var(--secondary-color);
+            padding: 14px 18px;
+            margin-bottom: 25px;
+            border-radius: 0 6px 6px 0;
+            font-size: 0.95rem;
+        }
+
+        .section-title {
+            color: var(--primary-color);
+            font-size: 1.4rem;
+            border-bottom: 2px solid var(--secondary-color);
+            padding-bottom: 8px;
+            margin-top: 30px;
+            margin-bottom: 15px;
+        }
+
+        .prayer-box {
+            background-color: #fcfbf9;
+            border: 1px solid var(--border-color);
+            padding: 15px;
+            border-radius: 6px;
+            font-style: italic;
+            margin: 12px 0;
+            font-size: 0.95rem;
+            line-height: 1.6;
+        }
+
+        .station-card {
+            border: 1px solid var(--border-color);
+            border-radius: 8px;
+            padding: 20px;
+            margin-bottom: 20px;
+            background: #ffffff;
+            transition: border-color 0.2s ease;
+        }
+
+        .station-card:hover {
+            border-color: var(--secondary-color);
+        }
+
+        .station-header {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            margin-bottom: 10px;
+            border-bottom: 1px dashed var(--border-color);
+            padding-bottom: 8px;
+        }
+
+        .station-num {
+            background-color: var(--primary-color);
+            color: #ffffff;
+            font-weight: bold;
+            font-size: 0.85rem;
+            padding: 4px 10px;
+            border-radius: 4px;
+            letter-spacing: 0.5px;
+        }
+
+        .station-title {
+            font-size: 1.15rem;
+            color: var(--primary-color);
+            margin: 0;
+            font-weight: bold;
+        }
+
+        .station-invocation {
+            background-color: #faf5ff;
+            padding: 8px 12px;
+            border-radius: 4px;
+            margin-bottom: 12px;
+            font-size: 0.9rem;
+        }
+
+        .station-invocation strong.v {
+            color: var(--secondary-color);
+        }
+
+        .station-text {
+            font-size: 0.95rem;
+            color: #2d3748;
+            margin-bottom: 12px;
+            line-height: 1.6;
+        }
+
+        .station-prayer {
+            font-style: italic;
+            background-color: #fcfbf9;
+            border-left: 3px solid var(--accent-color);
+            padding: 10px 14px;
+            font-size: 0.9rem;
+            border-radius: 0 4px 4px 0;
+        }
+
+        .station-footer {
+            margin-top: 10px;
+            font-size: 0.85rem;
+            color: #64748b;
+        }
+
+        @media (max-width: 600px) {
+            .container {
+                padding: 20px;
+            }
+
+            h1 {
+                font-size: 1.6rem;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container">
+        <a href="index.html" class="back-link">&larr; Voltar ao Menu</a>
+
+        <header>
+            <h1>A Sagrada Via-Sacra</h1>
+            <p class="subtitle">As 14 estações da Paixão, Morte e Redenção de Nosso Senhor Jesus Cristo</p>
+        </header>
+
+        <div class="objective">
+            <strong>O caminho da Cruz:</strong> O exercício da Via-Sacra consiste em acompanhar espiritualmente o trajeto de Jesus desde o tribunal de Pilatos até o Calvário e o Santo Sepulcro. É uma oração recomendada durante todo o ano, com especial relevo às sextas-feiras e no tempo da Santa Quaresma. Concede Indulgência Plenária sob as condições habituais da Igreja.
+        </div>
+
+        <!-- Início -->
+        <h2 class="section-title">Oração Preparatória</h2>
+        <p>Inicie pelo Sinal da Cruz:</p>
+        <div class="prayer-box">
+            "Pelo sinal da Santa Cruz, livrai-nos, Deus, nosso Senhor, dos nossos inimigos. Em nome do Pai, e do Filho, e do Espírito Santo. Amém."
+        </div>
+        <div class="prayer-box">
+            "Senhor Jesus Cristo, nós Vos oferecemos este santo exercício da Vossa Paixão em agradecimento pelo infinito amor com que destes a vida por nós. Concedei-nos a graça de nos compadecermos de Vossas dores e de nos arrependermos sinceramente dos nossos pecados, causa de Vossos sofrimentos. Virgem Dolorosa, acompanhai os nossos passos. Amém."
+        </div>
+
+        <!-- As 14 Estações -->
+        <h2 class="section-title">As Catorze Estações</h2>
+
+        <!-- I -->
+        <div class="station-card">
+            <div class="station-header">
+                <span class="station-num">I ESTAÇÃO</span>
+                <h3 class="station-title">Jesus é condenado à morte</h3>
+            </div>
+            <div class="station-invocation">
+                <strong class="v">V.</strong> Nós Vos adoramos, Senhor Jesus Cristo, e Vos bendizemos.<br>
+                <strong class="v">R.</strong> Porque pela Vossa Santa Cruz remistes o mundo.
+            </div>
+            <div class="station-text">
+                O Justo por excelência, Aquele que só fez o bem, é acusado falsamente e condenado à morte de cruz pelo juiz injusto. Jesus aceita o silêncio da condenação para nos libertar da condenação eterna.
+            </div>
+            <div class="station-prayer">
+                "Ó Jesus inocente, ensinai-me a aceitar as contrariedades e injustiças sem rancor, confiando plenamente no juízo soberano de Deus."
+            </div>
+            <div class="station-footer">Pai Nosso, Ave Maria, Glória ao Pai. <em>Tende piedade de nós, Senhor, tende piedade de nós.</em></div>
+        </div>
+
+        <!-- II -->
+        <div class="station-card">
+            <div class="station-header">
+                <span class="station-num">II ESTAÇÃO</span>
+                <h3 class="station-title">Jesus carrega a Cruz aos ombros</h3>
+            </div>
+            <div class="station-invocation">
+                <strong class="v">V.</strong> Nós Vos adoramos, Senhor Jesus Cristo, e Vos bendizemos.<br>
+                <strong class="v">R.</strong> Porque pela Vossa Santa Cruz remistes o mundo.
+            </div>
+            <div class="station-text">
+                O madeiro pesado é posto sobre os ombros já chagados pelas flagelações. Cristo abraça a Cruz de boa vontade, vendo nela o altar sagrado no qual resgataria a humanidade.
+            </div>
+            <div class="station-prayer">
+                "Senhor, dai-me coragem para tomar a minha cruz cotidiana e seguir Vossos passos com generosidade e amor."
+            </div>
+            <div class="station-footer">Pai Nosso, Ave Maria, Glória ao Pai. <em>Tende piedade de nós, Senhor, tende piedade de nós.</em></div>
+        </div>
+
+        <!-- III -->
+        <div class="station-card">
+            <div class="station-header">
+                <span class="station-num">III ESTAÇÃO</span>
+                <h3 class="station-title">Jesus cai pela primeira vez</h3>
+            </div>
+            <div class="station-invocation">
+                <strong class="v">V.</strong> Nós Vos adoramos, Senhor Jesus Cristo, e Vos bendizemos.<br>
+                <strong class="v">R.</strong> Porque pela Vossa Santa Cruz remistes o mundo.
+            </div>
+            <div class="station-text">
+                Esgotado pelas torturas, perda de sangue e o peso da cruz, o Salvador cai sobre o chão pedregoso. Porém, com amor incansável, levanta-Se para concluir a nossa salvação.
+            </div>
+            <div class="station-prayer">
+                "Ó Jesus, pelas dores desta primeira queda, amparai-me para que eu não permaneça caído quando ceder às minhas fragilidades."
+            </div>
+            <div class="station-footer">Pai Nosso, Ave Maria, Glória ao Pai. <em>Tende piedade de nós, Senhor, tende piedade de nós.</em></div>
+        </div>
+
+        <!-- IV -->
+        <div class="station-card">
+            <div class="station-header">
+                <span class="station-num">IV ESTAÇÃO</span>
+                <h3 class="station-title">Jesus encontra a Sua Santíssima Mãe</h3>
+            </div>
+            <div class="station-invocation">
+                <strong class="v">V.</strong> Nós Vos adoramos, Senhor Jesus Cristo, e Vos bendizemos.<br>
+                <strong class="v">R.</strong> Porque pela Vossa Santa Cruz remistes o mundo.
+            </div>
+            <div class="station-text">
+                No caminho do Calvário cruzam-se os olhares de Jesus e de Sua Mãe Imaculada. A espada profetizada pelo velho Simeão transpassa profundamente a alma virginal de Maria.
+            </div>
+            <div class="station-prayer">
+                "Virgem Dolorosa, sede o refúgio da minha alma e dai-me a graça de jamais entristecer o Vosso Filho com meus pecados."
+            </div>
+            <div class="station-footer">Pai Nosso, Ave Maria, Glória ao Pai. <em>Tende piedade de nós, Senhor, tende piedade de nós.</em></div>
+        </div>
+
+        <!-- V -->
+        <div class="station-card">
+            <div class="station-header">
+                <span class="station-num">V ESTAÇÃO</span>
+                <h3 class="station-title">Simão Cirineu ajuda Jesus a levar a Cruz</h3>
+            </div>
+            <div class="station-invocation">
+                <strong class="v">V.</strong> Nós Vos adoramos, Senhor Jesus Cristo, e Vos bendizemos.<br>
+                <strong class="v">R.</strong> Porque pela Vossa Santa Cruz remistes o mundo.
+            </div>
+            <div class="station-text">
+                Temendo que Jesus morresse antes de chegar ao monte, os soldados obrigam Simão de Cirene a carregar a cruz atrás d'Ele. Aquilo que parecia um peso forçado torna-se glória e graça eterna.
+            </div>
+            <div class="station-prayer">
+                "Fazei, Senhor, que eu reconheça a Vossa Cruz nos sofrimentos do meu próximo e saiba ajudá-lo com verdadeira caridade cristã."
+            </div>
+            <div class="station-footer">Pai Nosso, Ave Maria, Glória ao Pai. <em>Tende piedade de nós, Senhor, tende piedade de nós.</em></div>
+        </div>
+
+        <!-- VI -->
+        <div class="station-card">
+            <div class="station-header">
+                <span class="station-num">VI ESTAÇÃO</span>
+                <h3 class="station-title">A piedosa Verônica enxuga o rosto de Jesus</h3>
+            </div>
+            <div class="station-invocation">
+                <strong class="v">V.</strong> Nós Vos adoramos, Senhor Jesus Cristo, e Vos bendizemos.<br>
+                <strong class="v">R.</strong> Porque pela Vossa Santa Cruz remistes o mundo.
+            </div>
+            <div class="station-text">
+                Uma santa mulher rompe a barreira dos algozes para limpar a face do Senhor coberta de sangue e suor. Como recompensa, Jesus estampa Sua Santa Face naquele véu de linho.
+            </div>
+            <div class="station-prayer">
+                "Gravai, divino Salvador, a imagem do Vosso rosto sagrado no meu coração, para que nele viva para sempre o Vosso santo amor."
+            </div>
+            <div class="station-footer">Pai Nosso, Ave Maria, Glória ao Pai. <em>Tende piedade de nós, Senhor, tende piedade de nós.</em></div>
+        </div>
+
+        <!-- VII -->
+        <div class="station-card">
+            <div class="station-header">
+                <span class="station-num">VII ESTAÇÃO</span>
+                <h3 class="station-title">Jesus cai pela segunda vez</h3>
+            </div>
+            <div class="station-invocation">
+                <strong class="v">V.</strong> Nós Vos adoramos, Senhor Jesus Cristo, e Vos bendizemos.<br>
+                <strong class="v">R.</strong> Porque pela Vossa Santa Cruz remistes o mundo.
+            </div>
+            <div class="station-text">
+                Ao transpor os limites da cidade, o Redentor cai novamente sob os insultos da multidão. O cansaço extremo da humanidade de Cristo renova o Seu doloroso sacrifício de expiação.
+            </div>
+            <div class="station-prayer">
+                "Senhor, livrai-me da recaída nos mesmos pecados e concedei-me a perseverança final até o último dia da minha vida."
+            </div>
+            <div class="station-footer">Pai Nosso, Ave Maria, Glória ao Pai. <em>Tende piedade de nós, Senhor, tende piedade de nós.</em></div>
+        </div>
+
+        <!-- VIII -->
+        <div class="station-card">
+            <div class="station-header">
+                <span class="station-num">VIII ESTAÇÃO</span>
+                <h3 class="station-title">Jesus consola as filhas de Jerusalém</h3>
+            </div>
+            <div class="station-invocation">
+                <strong class="v">V.</strong> Nós Vos adoramos, Senhor Jesus Cristo, e Vos bendizemos.<br>
+                <strong class="v">R.</strong> Porque pela Vossa Santa Cruz remistes o mundo.
+            </div>
+            <div class="station-text">
+                Mulheres choram ao ver o sofrimento de Jesus. O Salvador volta-Se para elas e diz: <em>"Filhas de Jerusalém, não choreis por mim; chorai antes por vós mesmas e por vossos filhos"</em>.
+            </div>
+            <div class="station-prayer">
+                "Dai-me, Jesus, lágrimas de verdadeira contrição pelos meus pecados, para que chore aquilo que em mim causou a Vossa Paixão."
+            </div>
+            <div class="station-footer">Pai Nosso, Ave Maria, Glória ao Pai. <em>Tende piedade de nós, Senhor, tende piedade de nós.</em></div>
+        </div>
+
+        <!-- IX -->
+        <div class="station-card">
+            <div class="station-header">
+                <span class="station-num">IX ESTAÇÃO</span>
+                <h3 class="station-title">Jesus cai pela terceira vez</h3>
+            </div>
+            <div class="station-invocation">
+                <strong class="v">V.</strong> Nós Vos adoramos, Senhor Jesus Cristo, e Vos bendizemos.<br>
+                <strong class="v">R.</strong> Porque pela Vossa Santa Cruz remistes o mundo.
+            </div>
+            <div class="station-text">
+                Já nas encostas do Monte Calvário, sem mais forças físicas, Cristo cai prostrado por terra pela terceira vez. Ele reúne Suas últimas energias de amor para subir ao cume da imolação.
+            </div>
+            <div class="station-prayer">
+                "Por esta Vossa dolorosíssima queda, amparai os que estão à beira do desespero e dai-lhes a graça do arrependimento e da conversão."
+            </div>
+            <div class="station-footer">Pai Nosso, Ave Maria, Glória ao Pai. <em>Tende piedade de nós, Senhor, tende piedade de nós.</em></div>
+        </div>
+
+        <!-- X -->
+        <div class="station-card">
+            <div class="station-header">
+                <span class="station-num">X ESTAÇÃO</span>
+                <h3 class="station-title">Jesus é despojado de Suas vestes</h3>
+            </div>
+            <div class="station-invocation">
+                <strong class="v">V.</strong> Nós Vos adoramos, Senhor Jesus Cristo, e Vos bendizemos.<br>
+                <strong class="v">R.</strong> Porque pela Vossa Santa Cruz remistes o mundo.
+            </div>
+            <div class="station-text">
+                Chegando ao alto do Gólgota, os carrascos arrancam com violência as túnicas de Jesus coladas às Suas feridas abertas, expondo o Salvador ao escárnio e ao frio da vergonha humana.
+            </div>
+            <div class="station-prayer">
+                "Despojai-me, Senhor, do homem velho com seus vícios e orgulhos, e revesti-me com as vestes puras da Vossa graça e santidade."
+            </div>
+            <div class="station-footer">Pai Nosso, Ave Maria, Glória ao Pai. <em>Tende piedade de nós, Senhor, tende piedade de nós.</em></div>
+        </div>
+
+        <!-- XI -->
+        <div class="station-card">
+            <div class="station-header">
+                <span class="station-num">XI ESTAÇÃO</span>
+                <h3 class="station-title">Jesus é pregado na Cruz</h3>
+            </div>
+            <div class="station-invocation">
+                <strong class="v">V.</strong> Nós Vos adoramos, Senhor Jesus Cristo, e Vos bendizemos.<br>
+                <strong class="v">R.</strong> Porque pela Vossa Santa Cruz remistes o mundo.
+            </div>
+            <div class="station-text">
+                Estendido sobre o madeiro, cravos grossos transpassam as mãos e os pés do Redentor. Da cruz erguida no alto da colina ecoa a primeira palavra divina: <em>"Pai, perdoa-lhes, pois não sabem o que fazem"</em>.
+            </div>
+            <div class="station-prayer">
+                "Cravai, Jesus, o meu coração na Vossa Santa Cruz para que eu viva crucificado para as vaidades deste mundo e vivo para Deus."
+            </div>
+            <div class="station-footer">Pai Nosso, Ave Maria, Glória ao Pai. <em>Tende piedade de nós, Senhor, tende piedade de nós.</em></div>
+        </div>
+
+        <!-- XII -->
+        <div class="station-card">
+            <div class="station-header">
+                <span class="station-num">XII ESTAÇÃO</span>
+                <h3 class="station-title">Jesus morre na Cruz</h3>
+            </div>
+            <div class="station-invocation">
+                <strong class="v">V.</strong> Nós Vos adoramos, Senhor Jesus Cristo, e Vos bendizemos.<br>
+                <strong class="v">R.</strong> Porque pela Vossa Santa Cruz remistes o mundo.
+            </div>
+            <div class="station-text">
+                Após três horas de agonia indizível, o sol se escurece e a terra treme. Jesus exclama: <em>"Tudo está consumado!"</em> e, inclinando a cabeça, entrega o Seu Espírito nas mãos do Pai.
+                <br><em>(Ajoelhar-se por alguns instantes em reverência e silêncio).</em>
+            </div>
+            <div class="station-prayer">
+                "Ó meu Salvador, pela Vossa santíssima morte na Cruz, concedei-me uma santa morte assistida pelos sacramentos da Igreja."
+            </div>
+            <div class="station-footer">Pai Nosso, Ave Maria, Glória ao Pai. <em>Tende piedade de nós, Senhor, tende piedade de nós.</em></div>
+        </div>
+
+        <!-- XIII -->
+        <div class="station-card">
+            <div class="station-header">
+                <span class="station-num">XIII ESTAÇÃO</span>
+                <h3 class="station-title">Jesus é descido da Cruz e entregue à Sua Mãe</h3>
+            </div>
+            <div class="station-invocation">
+                <strong class="v">V.</strong> Nós Vos adoramos, Senhor Jesus Cristo, e Vos bendizemos.<br>
+                <strong class="v">R.</strong> Porque pela Vossa Santa Cruz remistes o mundo.
+            </div>
+            <div class="station-text">
+                José de Arimateia e Nicodemos descem piedosamente o corpo sagrado de Cristo e o depositam nos braços imaculados de Sua Mãe (a <em>Pietà</em>), que o acolhe banhada em santas lágrimas.
+            </div>
+            <div class="station-prayer">
+                "Ó Mãe das Dores, acolhei a minha alma em vossos braços maternos quando chegar a minha última hora neste mundo."
+            </div>
+            <div class="station-footer">Pai Nosso, Ave Maria, Glória ao Pai. <em>Tende piedade de nós, Senhor, tende piedade de nós.</em></div>
+        </div>
+
+        <!-- XIV -->
+        <div class="station-card">
+            <div class="station-header">
+                <span class="station-num">XIV ESTAÇÃO</span>
+                <h3 class="station-title">Jesus é sepultado no sepulcro novo</h3>
+            </div>
+            <div class="station-invocation">
+                <strong class="v">V.</strong> Nós Vos adoramos, Senhor Jesus Cristo, e Vos bendizemos.<br>
+                <strong class="v">R.</strong> Porque pela Vossa Santa Cruz remistes o mundo.
+            </div>
+            <div class="station-text">
+                O corpo sagrado é envolvido num lençol alvo e sepultado na rocha lavrada, fechando-se a entrada com uma grande pedra. Ali Ele repousa no silêncio do Sábado Santo, na certeza da gloriosa Ressurreição.
+            </div>
+            <div class="station-prayer">
+                "Sepultai em Vosso túmulo, Senhor, todos os meus maus desejos e fazei-me ressuscitar para uma vida santa e imortal no Céu."
+            </div>
+            <div class="station-footer">Pai Nosso, Ave Maria, Glória ao Pai. <em>Tende piedade de nós, Senhor, tende piedade de nós.</em></div>
+        </div>
+
+        <!-- Oração Conclusiva -->
+        <h2 class="section-title">Oração Final</h2>
+        <div class="prayer-box">
+            "Senhor Jesus Cristo, que pela Vossa Paixão e Morte na Cruz nos resgatastes da morte eterna e pelo Vosso triunfo glorioso abristes as portas do Paraíso, olhai com bondade para esta Vossa família pela qual não hesitastes em entregar-Vos às mãos dos pecadores. Fazei que, venerando devotamente os mistérios da Vossa Santa Cruz na terra, mereçamos contemplar a glória da Vossa Ressurreição no Céu. Vós que viveis e reinais com Deus Pai na unidade do Espírito Santo. Amém."
+        </div>
+        <p>Rezar 1 Pai Nosso, 1 Ave Maria e 1 Glória ao Pai pelas intenções do Santo Padre o Papa para o ganho das indulgências.</p>
+    </div>
+</body>
+
+</html>
+

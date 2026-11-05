@@ -4,7 +4,9 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Estudos sobre a Liturgia Católica</title>
+    <meta name="description" content="Guia de estudos sobre a liturgia católica, doutrina da Eucaristia, ano litúrgico, sacramentos, devoções marianas e orações tradicionais da Igreja.">
+    <link rel="icon" type="image/svg+xml" href="favicon.svg">
+    <title>Estudos sobre a Liturgia e Doutrina Católica</title>
     <style>
         :root {
             --primary-color: #4a154b;
@@ -26,7 +28,7 @@
         }
 
         .container {
-            max-width: 800px;
+            max-width: 900px;
             margin: 40px auto;
             background: var(--card-bg);
             padding: 40px;
@@ -37,13 +39,19 @@
 
         header {
             text-align: center;
-            margin-bottom: 40px;
+            margin-bottom: 30px;
+        }
+
+        .header-logo {
+            width: 52px;
+            height: 52px;
+            margin-bottom: 12px;
         }
 
         h1 {
             color: var(--primary-color);
-            font-size: 2rem;
-            margin-bottom: 10px;
+            font-size: 2.1rem;
+            margin-bottom: 8px;
         }
 
         p.subtitle {
@@ -52,10 +60,58 @@
             margin: 0;
         }
 
+        /* Barra de pesquisa rápida */
+        .search-box {
+            margin: 25px 0 35px 0;
+        }
+
+        .search-input {
+            width: 100%;
+            padding: 12px 18px;
+            font-size: 1rem;
+            border: 2px solid var(--border-color);
+            border-radius: 8px;
+            box-sizing: border-box;
+            outline: none;
+            transition: all 0.2s ease;
+            background-color: #ffffff;
+        }
+
+        .search-input:focus {
+            border-color: var(--secondary-color);
+            box-shadow: 0 0 0 3px rgba(107, 33, 168, 0.1);
+        }
+
+        /* Seções e Categorias */
+        .section-header {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            border-bottom: 2px solid var(--secondary-color);
+            padding-bottom: 8px;
+            margin-top: 35px;
+            margin-bottom: 18px;
+        }
+
+        .section-header h2 {
+            color: var(--primary-color);
+            font-size: 1.35rem;
+            margin: 0;
+        }
+
+        .section-count {
+            font-size: 0.8rem;
+            color: #64748b;
+            background-color: #f1f5f9;
+            padding: 3px 8px;
+            border-radius: 12px;
+            font-weight: 600;
+        }
+
         .menu-grid {
             display: grid;
             gap: 16px;
-            grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+            grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
         }
 
         .menu-card {
@@ -65,7 +121,7 @@
             background: #ffffff;
             border: 2px solid var(--border-color);
             border-radius: 8px;
-            padding: 16px;
+            padding: 18px;
             transition: all 0.2s ease;
             box-shadow: 0 1px 3px rgba(0, 0, 0, 0.02);
         }
@@ -73,7 +129,7 @@
         .menu-card:hover {
             border-color: var(--secondary-color);
             transform: translateY(-2px);
-            box-shadow: 0 6px 12px -3px rgba(107, 33, 168, 0.08);
+            box-shadow: 0 6px 12px -3px rgba(107, 33, 168, 0.1);
             background-color: var(--hover-bg);
         }
 
@@ -85,17 +141,17 @@
             margin-bottom: 8px;
         }
 
-        .menu-card h2 {
+        .menu-card h3 {
             color: var(--secondary-color);
-            font-size: 1.1rem;
+            font-size: 1.15rem;
             margin: 0;
         }
 
         .menu-card p {
             color: #4a5568;
-            font-size: 0.85rem;
+            font-size: 0.88rem;
             margin: 0;
-            line-height: 1.4;
+            line-height: 1.45;
         }
 
         .badge {
@@ -111,14 +167,35 @@
             white-space: nowrap;
         }
 
+        .no-results {
+            display: none;
+            text-align: center;
+            padding: 30px;
+            color: #64748b;
+            font-style: italic;
+        }
+
+        footer {
+            margin-top: 50px;
+            padding-top: 20px;
+            border-top: 1px solid var(--border-color);
+            text-align: center;
+            font-size: 0.85rem;
+            color: #94a3b8;
+        }
+
         @media (max-width: 600px) {
             .container {
-                padding: 24px;
+                padding: 20px;
                 margin: 10px auto;
             }
 
             h1 {
                 font-size: 1.6rem;
+            }
+
+            .section-header h2 {
+                font-size: 1.2rem;
             }
         }
     </style>
@@ -128,95 +205,178 @@
 
     <div class="container">
         <header>
+            <svg class="header-logo" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64">
+                <circle cx="32" cy="32" r="30" fill="#4a154b"/>
+                <circle cx="32" cy="32" r="28" fill="none" stroke="#d97706" stroke-width="2"/>
+                <path d="M28 14 h8 v12 h12 v8 h-12 v18 h-8 v-18 h-12 v-8 h12 z" fill="#fbbf24"/>
+            </svg>
             <h1>Guia de Estudo da Liturgia Católica</h1>
             <p class="subtitle">Selecione um tópico abaixo para visualizar o conteúdo detalhado</p>
         </header>
 
-        <nav class="menu-grid">
+        <!-- Barra de Busca Rápida -->
+        <div class="search-box">
+            <input type="text" id="menuSearch" class="search-input" placeholder="Buscar temas, sacramentos, orações ou devoções..." onkeyup="filterMenu()">
+        </div>
 
-            <!-- Link 1: Santa Missa -->
-            <a href="SantaMissa.html" class="menu-card">
-                <div class="menu-card-header">
-                    <h2>A Santa Missa</h2>
-                    <span class="badge">Rito Romano</span>
-                </div>
-                <p>Explicação detalhada da estrutura da Missa dividida em seus 4 momentos principais.</p>
-            </a>
+        <div id="noResults" class="no-results">Nenhum tópico encontrado com esse termo.</div>
 
-            <!-- Link 2: Teologia da Consagração -->
-            <a href="TeologiaConsagracao.html" class="menu-card">
-                <div class="menu-card-header">
-                    <h2>Teologia da Consagração</h2>
-                    <span class="badge">Eucaristia</span>
-                </div>
-                <p>Análise do momento central da Eucaristia, Epiclese, Transubstanciação e Presença Real.</p>
-            </a>
+        <!-- Categoria 1: Liturgia, Sacramentos & Doutrina -->
+        <section class="category-section">
+            <div class="section-header">
+                <h2>Liturgia, Sacramentos &amp; Doutrina</h2>
+                <span class="section-count">5 tópicos</span>
+            </div>
+            <div class="menu-grid">
+                <!-- Santa Missa -->
+                <a href="SantaMissa.html" class="menu-card">
+                    <div class="menu-card-header">
+                        <h3>A Santa Missa</h3>
+                        <span class="badge">Rito Romano</span>
+                    </div>
+                    <p>Explicação detalhada da estrutura da Missa dividida em seus 4 momentos principais.</p>
+                </a>
 
-            <!-- Link 3: Ano Litúrgico -->
-            <a href="AnoLiturgico.html" class="menu-card">
-                <div class="menu-card-header">
-                    <h2>O Ano Litúrgico</h2>
-                    <span class="badge">Calendário</span>
-                </div>
-                <p>Organização do tempo na Igreja, Ciclos do Natal e Páscoa, Tempo Comum e Cores Litúrgicas.</p>
-            </a>
+                <!-- Teologia da Consagração -->
+                <a href="TeologiaConsagracao.html" class="menu-card">
+                    <div class="menu-card-header">
+                        <h3>Teologia da Consagração</h3>
+                        <span class="badge">Eucaristia</span>
+                    </div>
+                    <p>Análise do momento central da Eucaristia, Epiclese, Transubstanciação e Presença Real.</p>
+                </a>
 
-            <!-- Link 4: As Indulgências -->
-            <a href="Indulgencias.html" class="menu-card">
-                <div class="menu-card-header">
-                    <h2>As Indulgências</h2>
-                    <span class="badge">Doutrina</span>
-                </div>
-                <p>O que são, a diferença entre culpa e pena temporal, tipos de indulgências e condições para obtê-las.</p>
-            </a>
+                <!-- Guia de Confissão -->
+                <a href="Confissao.html" class="menu-card">
+                    <div class="menu-card-header">
+                        <h3>Guia de Confissão</h3>
+                        <span class="badge">Sacramento</span>
+                    </div>
+                    <p>Os 5 passos para se confessar bem, exame de consciência pelos 10 Mandamentos e roteiro prático.</p>
+                </a>
 
-            <!-- Link 5: Terço Mariano -->
-            <a href="TercoMariano.html" class="menu-card">
-                <div class="menu-card-header">
-                    <h2>Terço Mariano</h2>
-                    <span class="badge">Devoção</span>
-                </div>
-                <p>Roteiro completo para a oração do Terço: sinal da cruz, oferecimento, mistérios contemplados e encerramento.</p>
-            </a>
+                <!-- Ano Litúrgico -->
+                <a href="AnoLiturgico.html" class="menu-card">
+                    <div class="menu-card-header">
+                        <h3>O Ano Litúrgico</h3>
+                        <span class="badge">Calendário</span>
+                    </div>
+                    <p>Organização do tempo na Igreja, Ciclos do Natal e Páscoa, Tempo Comum e Cores Litúrgicas.</p>
+                </a>
 
-            <!-- Link 6: Terço da Misericórdia -->
-            <a href="TercoMisericordia.html" class="menu-card">
-                <div class="menu-card-header">
-                    <h2>Terço da Misericórdia</h2>
-                    <span class="badge">Devoção</span>
-                </div>
-                <p>Roteiro completo do Terço da Divina Misericórdia revelado a Santa Faustina, orações e promessas.</p>
-            </a>
+                <!-- As Indulgências -->
+                <a href="Indulgencias.html" class="menu-card">
+                    <div class="menu-card-header">
+                        <h3>As Indulgências</h3>
+                        <span class="badge">Doutrina</span>
+                    </div>
+                    <p>O que são, a diferença entre culpa e pena temporal, tipos de indulgências e condições para obtê-las.</p>
+                </a>
+            </div>
+        </section>
 
-            <!-- Link 7: Quaresma de São Miguel -->
-            <a href="SaoMiguel.html" class="menu-card">
-                <div class="menu-card-header">
-                    <h2>Quaresma de São Miguel</h2>
-                    <span class="badge">Devoção</span>
-                </div>
-                <p>Roteiro completo de oração e preparação diária para os 40 dias de devoção a São Miguel Arcanjo.</p>
-            </a>
+        <!-- Categoria 2: Devoções & Piedade Popular -->
+        <section class="category-section">
+            <div class="section-header">
+                <h2>Devoções &amp; Piedade Popular</h2>
+                <span class="section-count">4 tópicos</span>
+            </div>
+            <div class="menu-grid">
+                <!-- Terço Mariano -->
+                <a href="TercoMariano.html" class="menu-card">
+                    <div class="menu-card-header">
+                        <h3>Terço Mariano</h3>
+                        <span class="badge">Devoção</span>
+                    </div>
+                    <p>Roteiro completo para a oração do Terço: sinal da cruz, oferecimento, mistérios contemplados e encerramento.</p>
+                </a>
 
-            <!-- Link 8: Oração pelo Papa -->
-            <a href="OracaoPeloPapa.html" class="menu-card">
-                <div class="menu-card-header">
-                    <h2>Oração pelo Papa</h2>
-                    <span class="badge">Oração</span>
-                </div>
-                <p>Orações tradicionais da Igreja Católica, em português e latim, pelo Sumo Pontífice.</p>
-            </a>
+                <!-- Terço da Misericórdia -->
+                <a href="TercoMisericordia.html" class="menu-card">
+                    <div class="menu-card-header">
+                        <h3>Terço da Misericórdia</h3>
+                        <span class="badge">Devoção</span>
+                    </div>
+                    <p>Roteiro completo do Terço da Divina Misericórdia revelado a Santa Faustina, orações e promessas.</p>
+                </a>
 
-            <!-- Link 9: Principais Orações Católicas -->
-            <a href="OracoesCatolicas.html" class="menu-card">
-                <div class="menu-card-header">
-                    <h2>Orações Católicas</h2>
-                    <span class="badge">Devocionário</span>
-                </div>
-                <p>Coleção interativa em acordeão das principais preces da Igreja, incluindo a oração da Medalha de São Bento.</p>
-            </a>
+                <!-- A Sagrada Via-Sacra -->
+                <a href="ViaSacra.html" class="menu-card">
+                    <div class="menu-card-header">
+                        <h3>A Sagrada Via-Sacra</h3>
+                        <span class="badge">Paixão</span>
+                    </div>
+                    <p>As 14 estações da Paixão e Morte de Nosso Senhor Jesus Cristo, meditações e orações indulgenciadas.</p>
+                </a>
 
-        </nav>
+                <!-- Quaresma de São Miguel -->
+                <a href="SaoMiguel.html" class="menu-card">
+                    <div class="menu-card-header">
+                        <h3>Quaresma de São Miguel</h3>
+                        <span class="badge">Devoção</span>
+                    </div>
+                    <p>Roteiro completo de oração e preparação diária para os 40 dias de devoção a São Miguel Arcanjo.</p>
+                </a>
+            </div>
+        </section>
+
+        <!-- Categoria 3: Devocionário & Orações -->
+        <section class="category-section">
+            <div class="section-header">
+                <h2>Devocionário &amp; Orações</h2>
+                <span class="section-count">2 tópicos</span>
+            </div>
+            <div class="menu-grid">
+                <!-- Principais Orações Católicas -->
+                <a href="OracoesCatolicas.html" class="menu-card">
+                    <div class="menu-card-header">
+                        <h3>Orações Católicas</h3>
+                        <span class="badge">Devocionário</span>
+                    </div>
+                    <p>Coleção interativa em acordeão das principais preces da Igreja, incluindo a oração da Medalha de São Bento.</p>
+                </a>
+
+                <!-- Oração pelo Papa -->
+                <a href="OracaoPeloPapa.html" class="menu-card">
+                    <div class="menu-card-header">
+                        <h3>Oração pelo Papa</h3>
+                        <span class="badge">Oração</span>
+                    </div>
+                    <p>Orações tradicionais da Igreja Católica, em português e latim, pelo Sumo Pontífice.</p>
+                </a>
+            </div>
+        </section>
+
+        <footer>
+            Ad Majorem Dei Gloriam (AMDG) &bull; Liturgia &bull; Doutrina &bull; Oração
+        </footer>
     </div>
+
+    <script>
+        function filterMenu() {
+            const query = document.getElementById('menuSearch').value.toLowerCase().trim();
+            const cards = document.querySelectorAll('.menu-card');
+            const sections = document.querySelectorAll('.category-section');
+            let totalVisible = 0;
+
+            cards.forEach(card => {
+                const text = card.textContent.toLowerCase();
+                if (text.includes(query)) {
+                    card.style.display = 'block';
+                    totalVisible++;
+                } else {
+                    card.style.display = 'none';
+                }
+            });
+
+            sections.forEach(sec => {
+                const visibleInSec = sec.querySelectorAll('.menu-card:not([style*="display: none"])');
+                sec.style.display = visibleInSec.length === 0 ? 'none' : 'block';
+            });
+
+            document.getElementById('noResults').style.display = totalVisible === 0 ? 'block' : 'none';
+        }
+    </script>
 
 </body>
 

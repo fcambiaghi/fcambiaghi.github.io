@@ -1,0 +1,466 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Guia prático para uma boa confissão católica: os cinco passos, exame de consciência detalhado pelos Dez Mandamentos e orações do sacramento da reconciliação.">
+    <link rel="icon" type="image/svg+xml" href="favicon.svg">
+    <title>Guia para uma Boa Confissão</title>
+    <style>
+        :root {
+            --primary-color: #4a154b;
+            --secondary-color: #6b21a8;
+            --bg-color: #fcfbf9;
+            --card-bg: #ffffff;
+            --text-color: #2d3748;
+            --accent-color: #d97706;
+            --border-color: #e2e8f0;
+            --hover-bg: #f8fafc;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+            line-height: 1.6;
+            color: var(--text-color);
+            background-color: var(--bg-color);
+            margin: 0;
+            padding: 20px;
+        }
+
+        .container {
+            max-width: 800px;
+            margin: 0 auto;
+            background: var(--card-bg);
+            padding: 40px;
+            border-radius: 12px;
+            box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
+            border: 1px solid var(--border-color);
+        }
+
+        .back-link {
+            display: inline-block;
+            margin-bottom: 20px;
+            color: var(--secondary-color);
+            text-decoration: none;
+            font-weight: bold;
+            font-size: 0.95rem;
+            transition: color 0.2s ease;
+        }
+
+        .back-link:hover {
+            color: var(--primary-color);
+            text-decoration: underline;
+        }
+
+        header {
+            margin-bottom: 30px;
+            text-align: center;
+        }
+
+        h1 {
+            color: var(--primary-color);
+            font-size: 2rem;
+            margin-bottom: 5px;
+        }
+
+        p.subtitle {
+            color: #64748b;
+            margin: 0;
+        }
+
+        .section {
+            margin-bottom: 35px;
+        }
+
+        .section-title {
+            color: var(--primary-color);
+            font-size: 1.5rem;
+            border-bottom: 2px solid var(--secondary-color);
+            padding-bottom: 8px;
+            margin-top: 0;
+            margin-bottom: 15px;
+        }
+
+        .subsection-title {
+            color: var(--secondary-color);
+            font-size: 1.2rem;
+            margin-top: 20px;
+            margin-bottom: 10px;
+        }
+
+        .objective {
+            background-color: #f3e8ff;
+            border-left: 4px solid var(--secondary-color);
+            padding: 14px 18px;
+            margin-bottom: 25px;
+            border-radius: 0 6px 6px 0;
+            font-size: 0.95rem;
+        }
+
+        .steps-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+            gap: 15px;
+            margin-top: 15px;
+        }
+
+        .step-card {
+            border: 1px solid var(--border-color);
+            border-radius: 8px;
+            padding: 16px;
+            background: #ffffff;
+            transition: transform 0.2s ease;
+        }
+
+        .step-card:hover {
+            transform: translateY(-2px);
+            border-color: var(--secondary-color);
+        }
+
+        .step-num {
+            display: inline-block;
+            background-color: var(--secondary-color);
+            color: #ffffff;
+            width: 26px;
+            height: 26px;
+            border-radius: 50%;
+            text-align: center;
+            line-height: 26px;
+            font-weight: bold;
+            font-size: 0.85rem;
+            margin-bottom: 8px;
+        }
+
+        .step-card h3 {
+            margin: 0 0 6px 0;
+            font-size: 1.05rem;
+            color: var(--primary-color);
+        }
+
+        .step-card p {
+            margin: 0;
+            font-size: 0.85rem;
+            color: #4a5568;
+        }
+
+        .prayer-box {
+            background-color: #fcfbf9;
+            border: 1px solid var(--border-color);
+            padding: 16px;
+            border-radius: 6px;
+            font-style: italic;
+            margin: 12px 0;
+            font-size: 0.95rem;
+            line-height: 1.6;
+        }
+
+        /* Accordion para o exame de consciência */
+        .accordion {
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+            margin-top: 15px;
+        }
+
+        details.accordion-item {
+            border: 1px solid var(--border-color);
+            border-radius: 8px;
+            background: #ffffff;
+            overflow: hidden;
+        }
+
+        details.accordion-item[open] {
+            border-color: var(--secondary-color);
+        }
+
+        summary.accordion-header {
+            padding: 12px 16px;
+            font-weight: 600;
+            color: #1a202c;
+            cursor: pointer;
+            list-style: none;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            background-color: #ffffff;
+        }
+
+        summary.accordion-header::-webkit-details-marker {
+            display: none;
+        }
+
+        summary.accordion-header:hover {
+            background-color: var(--hover-bg);
+            color: var(--secondary-color);
+        }
+
+        summary.accordion-header::after {
+            content: "+";
+            font-size: 1.25rem;
+            font-weight: bold;
+            color: var(--secondary-color);
+        }
+
+        details.accordion-item[open] summary.accordion-header::after {
+            content: "−";
+        }
+
+        details.accordion-item[open] summary.accordion-header {
+            background-color: #faf5ff;
+            border-bottom: 1px solid var(--border-color);
+        }
+
+        .accordion-content {
+            padding: 15px 18px;
+            background-color: #fcfbf9;
+            font-size: 0.92rem;
+        }
+
+        .accordion-content ul {
+            margin: 0;
+            padding-left: 20px;
+        }
+
+        .accordion-content li {
+            margin-bottom: 8px;
+        }
+
+        .dialogue-box {
+            background-color: #f8fafc;
+            border-left: 4px solid var(--accent-color);
+            padding: 14px 18px;
+            border-radius: 0 6px 6px 0;
+            margin: 15px 0;
+            font-size: 0.95rem;
+        }
+
+        .dialogue-box p {
+            margin: 6px 0;
+        }
+
+        .dialogue-box strong.speaker {
+            color: var(--primary-color);
+        }
+
+        @media (max-width: 600px) {
+            .container {
+                padding: 20px;
+            }
+
+            h1 {
+                font-size: 1.6rem;
+            }
+
+            .section-title {
+                font-size: 1.3rem;
+            }
+
+            .steps-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container">
+        <a href="index.html" class="back-link">&larr; Voltar ao Menu</a>
+
+        <header>
+            <h1>Guia para uma Boa Confissão</h1>
+            <p class="subtitle">O Sacramento da Reconciliação e Penitência na Igreja Católica</p>
+        </header>
+
+        <div class="objective">
+            <strong>O Sacramento da Misericórdia:</strong> Instituído por Jesus Cristo na noite da Ressurreição (<em>"Àqueles a quem perdoardes os pecados, ser-lhes-ão perdoados"</em> — Jo 20, 23), o Sacramento da Confissão restaura a comunhão com Deus e com a Igreja, devolvendo à alma a graça santificante perdida pelo pecado grave.
+        </div>
+
+        <!-- 1. Os 5 Passos da Confissão -->
+        <div class="section">
+            <h2 class="section-title">1. Os Cinco Passos para uma Boa Confissão</h2>
+            <p>A tradição perene da Igreja ensina cinco condições essenciais para receber validamente o sacramento:</p>
+
+            <div class="steps-grid">
+                <div class="step-card">
+                    <span class="step-num">1</span>
+                    <h3>Exame de Consciência</h3>
+                    <p>Recordar com sinceridade e oração os pecados cometidos desde a última confissão bem feita.</p>
+                </div>
+
+                <div class="step-card">
+                    <span class="step-num">2</span>
+                    <h3>Contrição ou Arrependimento</h3>
+                    <p>Dor sincera da alma e aversão ao pecado por ter ofendido a Deus, Sumo Bem e Pai de amor.</p>
+                </div>
+
+                <div class="step-card">
+                    <span class="step-num">3</span>
+                    <h3>Propósito de Emenda</h3>
+                    <p>Firme resolução de não mais voltar a pecar e de evitar todas as ocasiões próximas de pecado.</p>
+                </div>
+
+                <div class="step-card">
+                    <span class="step-num">4</span>
+                    <h3>Confissão Vocal</h3>
+                    <p>Acusação humilde e íntegra de todos os pecados mortais diante do sacerdote ordenado.</p>
+                </div>
+
+                <div class="step-card">
+                    <span class="step-num">5</span>
+                    <h3>Satisfação ou Penitência</h3>
+                    <p>Cumprimento fiel da penitência imposta pelo confessor em reparação às penas devidas.</p>
+                </div>
+            </div>
+        </div>
+
+        <!-- 2. Oração antes do Exame -->
+        <div class="section">
+            <h2 class="section-title">2. Oração antes do Exame de Consciência</h2>
+            <p>Antes de iniciar a recordação das faltas, peça a luz do Espírito Santo:</p>
+            <div class="prayer-box">
+                "Vinde, Espírito Santo, fonte de toda luz e sabedoria. Iluminai o meu entendimento para que eu conheça os meus pecados; tocai o meu coração para que deles me arrependa sinceramente; e concedei-me a coragem e a humildade necessárias para confessá-los inteiramente ao Vosso ministro, obtendo o perdão e a graça de uma vida nova. Amém."
+            </div>
+        </div>
+
+        <!-- 3. Exame de Consciência (pelos Dez Mandamentos) -->
+        <div class="section">
+            <h2 class="section-title">3. Exame de Consciência pelos Dez Mandamentos</h2>
+            <p>Consulte cada mandamento clicando no título para examinar sua vida à luz da palavra de Deus:</p>
+
+            <div class="accordion">
+                <details class="accordion-item">
+                    <summary class="accordion-header">1º Mandamento: Amar a Deus sobre todas as coisas</summary>
+                    <div class="accordion-content">
+                        <ul>
+                            <li>Duvidei voluntariamente de algum artigo de fé católica ou me envergonhei de professá-la?</li>
+                            <li>Deixei de rezar habitualmente ou rezei com desleixo consciente?</li>
+                            <li>Consultei cartomantes, tarô, horóscopos, médiuns, feitiçarias ou participei de ritos supersticiosos e espíritas?</li>
+                            <li>Pratiquei sacrilégio recebendo a Sagrada Comunhão ou a Confissão em estado de pecado mortal sem arrependimento?</li>
+                            <li>Coloquei o dinheiro, a fama, o prazer ou o trabalho acima do amor a Deus?</li>
+                        </ul>
+                    </div>
+                </details>
+
+                <details class="accordion-item">
+                    <summary class="accordion-header">2º Mandamento: Não tomar Seu santo Nome em vão</summary>
+                    <div class="accordion-content">
+                        <ul>
+                            <li>Pronunciei o Santo Nome de Deus, de Jesus, da Virgem Maria ou dos Santos com raiva, leviandade ou zombaria?</li>
+                            <li>Blasfemei contra Deus ou contra a Santa Igreja?</li>
+                            <li>Jurei falso ou jurei sem necessidade?</li>
+                            <li>Deixei de cumprir promessas ou votos feitos livremente a Deus?</li>
+                        </ul>
+                    </div>
+                </details>
+
+                <details class="accordion-item">
+                    <summary class="accordion-header">3º Mandamento: Guardar domingos e festas de guarda</summary>
+                    <div class="accordion-content">
+                        <ul>
+                            <li>Faltei à Santa Missa aos domingos ou dias de preceito por preguiça ou descuido, sem motivo grave de saúde ou força maior?</li>
+                            <li>Cheguei habitualmente tarde à Missa por descuido culposo?</li>
+                            <li>Realizei trabalhos servis ou comerciais desnecessários no domingo, impedindo o descanso sagrado e o culto devido a Deus?</li>
+                        </ul>
+                    </div>
+                </details>
+
+                <details class="accordion-item">
+                    <summary class="accordion-header">4º Mandamento: Honrar pai e mãe</summary>
+                    <div class="accordion-content">
+                        <ul>
+                            <li>Fui desrespeitoso, desobediente ou ingrato com meus pais?</li>
+                            <li>Deixei de socorrê-los em suas necessidades materiais, de saúde ou espirituais?</li>
+                            <li>Como pai/mãe: negligenciei a educação religiosa, moral e material de meus filhos? Dei mau exemplo?</li>
+                            <li>Fui grosseiro ou infiel nos deveres familiares para com cônjuge e parentes?</li>
+                        </ul>
+                    </div>
+                </details>
+
+                <details class="accordion-item">
+                    <summary class="accordion-header">5º Mandamento: Não matarás</summary>
+                    <div class="accordion-content">
+                        <ul>
+                            <li>Causei dano físico, agredi, ameacei ou insultei o próximo?</li>
+                            <li>Nutri ódio, rancor, desejo de vingança ou me recusei a perdoar de coração?</li>
+                            <li>Cometi ou colaborei direta e voluntariamente com aborto, eutanásia ou mutilação?</li>
+                            <li>Prejudiquei minha saúde com embriaguez, uso de drogas ou direção perigosa de veículos?</li>
+                            <li>Escandalizei o próximo com más palavras, conselhos ou atitudes que o levaram ao pecado?</li>
+                        </ul>
+                    </div>
+                </details>
+
+                <details class="accordion-item">
+                    <summary class="accordion-header">6º e 9º Mandamentos: Pureza e Castidade (atos e pensamentos)</summary>
+                    <div class="accordion-content">
+                        <ul>
+                            <li>Consenti deliberadamente em pensamentos ou desejos impuros e lascivos?</li>
+                            <li>Consumi pornografia, acessei conteúdos obscenos na internet ou em outras mídias?</li>
+                            <li>Pratiquei atos impuros sozinho (masturbação) ou com outras pessoas fora do legítimo matrimônio?</li>
+                            <li>Fui infiel ao cônjuge em atos, conversas ou relacionamentos virtuais?</li>
+                            <li>Conversei de maneira torpe ou contei piadas imorais que induzem à quebra da modéstia?</li>
+                        </ul>
+                    </div>
+                </details>
+
+                <details class="accordion-item">
+                    <summary class="accordion-header">7º e 10º Mandamentos: Justiça e Desapego (atos e cobiça de bens)</summary>
+                    <div class="accordion-content">
+                        <ul>
+                            <li>Roubei, furtei ou retive indevidamente bens de outrem, de empresas ou do Estado?</li>
+                            <li>Causei prejuízo intencional ao patrimônio alheio e deixei de restituí-lo?</li>
+                            <li>Enganei alguém em negócios, contratos, compras ou vendas?</li>
+                            <li>Fui negligente no trabalho remunerado, recebendo sem cumprir o dever profissional?</li>
+                            <li>Cobiço desmedidamente os bens dos outros, nutrindo inveja ou avareza insaciável?</li>
+                        </ul>
+                    </div>
+                </details>
+
+                <details class="accordion-item">
+                    <summary class="accordion-header">8º Mandamento: Não levantar falso testemunho</summary>
+                    <div class="accordion-content">
+                        <ul>
+                            <li>Disse mentiras voluntárias?</li>
+                            <li>Difamei, caluniei ou fiz fofocas destruindo a honra e boa fama de alguém?</li>
+                            <li>Cometi juízos temerários (suspeitas maldosas sem fundamento objetivo)?</li>
+                            <li>Revelei segredos confiados sem justa causa?</li>
+                        </ul>
+                    </div>
+                </details>
+            </div>
+        </div>
+
+        <!-- 4. Como se Confessar (Rito Prático) -->
+        <div class="section">
+            <h2 class="section-title">4. Como se Confessar: O Roteiro Prático</h2>
+            <p>Ao se ajoelhar ou sentar diante do padre no confessionário, proceda assim:</p>
+
+            <div class="dialogue-box">
+                <p><strong class="speaker">Penitente:</strong> "Abençoai-me, padre, porque pequei. A minha última confissão foi há [diga quanto tempo: semanas, meses ou anos]."</p>
+                <p><strong class="speaker">Sacerdote:</strong> "O Senhor esteja em teu coração e em teus lábios..."</p>
+                <p><strong class="speaker">Penitente:</strong> Acusa com clareza, sinceridade e humildade os pecados mortais (tipo e frequência aproximada) e veniais.</p>
+                <p><strong class="speaker">Sacerdote:</strong> Dá conselhos espirituais, impõe a <em>penitência</em> e pede o <em>Ato de Contrição</em>.</p>
+                <p><strong class="speaker">Penitente:</strong> Reza o <em>Ato de Contrição</em> em voz audível.</p>
+                <p><strong class="speaker">Sacerdote:</strong> Pronuncia as palavras sagradas da <em>Absolvição</em>: <em>"...Eu te absolvo dos teus pecados em nome do Pai, e do Filho, e do Espírito Santo."</em></p>
+                <p><strong class="speaker">Penitente:</strong> Responde: <strong>"Amém."</strong> Agradece (<em>"Demos graças a Deus"</em>) e cumpre a penitência indicada.</p>
+            </div>
+
+            <h3 class="subsection-title">Ato de Contrição (Oração)</h3>
+            <div class="prayer-box">
+                "Meu Deus, eu me arrependo de todo o coração de Vos ter ofendido, porque sois tão bom e amável. Prometo firmemente, com a ajuda da Vossa graça, nunca mais pecar e fugir das ocasiões de pecado. Meu Jesus, misericórdia! Amém."
+            </div>
+        </div>
+
+        <!-- 5. Oração de Ação de Graças após a Confissão -->
+        <div class="section">
+            <h2 class="section-title">5. Ação de Graças após a Confissão</h2>
+            <p>Ajoelhe-se diante do sacrário ou em um banco calmo para cumprir sua penitência e render graças:</p>
+            <div class="prayer-box">
+                "Bendito sejais, Senhor, meu Pai de infinita misericórdia, que não olhastes para a multidão das minhas iniquidades, mas me acolhestes novamente com o Vosso amor redentor. Lava-me de todas as culpas e dai-me a força para permanecer fiel ao Vosso Evangelho até o fim dos meus dias. Virgem Imaculada e meu Santo Anjo da Guarda, sustentai-me na fidelidade a Cristo. Amém."
+            </div>
+        </div>
+    </div>
+</body>
+
+</html>
+
