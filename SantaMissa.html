@@ -111,6 +111,12 @@
             }
         }
     </style>
+    <meta name="theme-color" content="#4a154b">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+    <meta name="apple-mobile-web-app-title" content="Liturgia Católica">
+    <link rel="apple-touch-icon" href="icons/icon-192.png">
+    <link rel="manifest" href="manifest.json">
 </head>
 <body>
 
@@ -193,6 +199,15 @@
 
     </div>
 
+    <script>
+        if ('serviceWorker' in navigator) {
+            window.addEventListener('load', () => {
+                navigator.serviceWorker.register('./sw.js')
+                    .then(reg => console.log('Service Worker registrado:', reg.scope))
+                    .catch(err => console.warn('Falha ao registrar Service Worker:', err));
+            });
+        }
+    </script>
 </body>
 </html>
 
@@ -325,6 +340,12 @@
             }
         }
     </style>
+    <meta name="theme-color" content="#4a154b">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+    <meta name="apple-mobile-web-app-title" content="Liturgia Católica">
+    <link rel="apple-touch-icon" href="icons/icon-192.png">
+    <link rel="manifest" href="manifest.json">
 </head>
 <body>
 
@@ -415,6 +436,15 @@
 
     </div>
 
+    <script>
+        if ('serviceWorker' in navigator) {
+            window.addEventListener('load', () => {
+                navigator.serviceWorker.register('./sw.js')
+                    .then(reg => console.log('Service Worker registrado:', reg.scope))
+                    .catch(err => console.warn('Falha ao registrar Service Worker:', err));
+            });
+        }
+    </script>
 </body>
 </html>-->
 <!--<!DOCTYPE html>
@@ -424,6 +454,12 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="icon" type="image/svg+xml" href="favicon.svg">
     <title>Estrutura da Santa Missa</title>
+    <meta name="theme-color" content="#4a154b">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+    <meta name="apple-mobile-web-app-title" content="Liturgia Católica">
+    <link rel="apple-touch-icon" href="icons/icon-192.png">
+    <link rel="manifest" href="manifest.json">
 </head>
 <body>
 
@@ -492,8 +528,18 @@
         <li><strong>Despedida:</strong> A famosa fórmula <em>"Ide em paz e o Senhor vos acompanhe"</em> recorda que a Missa (que vem do latim <em>missio</em>, "missão") continua na vida de cada dia.</li>
     </ul>
 
+    <script>
+        if ('serviceWorker' in navigator) {
+            window.addEventListener('load', () => {
+                navigator.serviceWorker.register('./sw.js')
+                    .then(reg => console.log('Service Worker registrado:', reg.scope))
+                    .catch(err => console.warn('Falha ao registrar Service Worker:', err));
+            });
+        }
+    </script>
 </body>
 </html>-->
+
 
 
 
