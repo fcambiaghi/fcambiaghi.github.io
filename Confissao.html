@@ -1,4 +1,4 @@
-﻿<!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="pt-BR">
 
 <head>
@@ -17,6 +17,10 @@
             --accent-color: #d97706;
             --border-color: #e2e8f0;
             --hover-bg: #f8fafc;
+        }
+
+        html {
+            scroll-behavior: smooth;
         }
 
         body {
@@ -243,6 +247,439 @@
             color: var(--primary-color);
         }
 
+        /* Lista de pecados selecionáveis no Exame de Consciência */
+        .exam-toolbar {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            flex-wrap: wrap;
+            gap: 12px;
+            background-color: #faf5ff;
+            border: 1px solid #e9d5ff;
+            padding: 10px 16px;
+            border-radius: 8px;
+            margin-bottom: 16px;
+        }
+
+        .exam-toolbar-info {
+            font-size: 0.95rem;
+            color: var(--primary-color);
+            font-weight: 600;
+        }
+
+        .exam-toolbar-actions {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .btn-link-action {
+            display: inline-flex;
+            align-items: center;
+            gap: 6px;
+            background-color: var(--secondary-color);
+            color: #ffffff;
+            padding: 6px 14px;
+            border-radius: 6px;
+            font-size: 0.88rem;
+            font-weight: 600;
+            text-decoration: none;
+            transition: background-color 0.2s ease;
+        }
+
+        .btn-link-action:hover {
+            background-color: var(--primary-color);
+            color: #ffffff;
+            text-decoration: none;
+        }
+
+        .btn-inline-clear {
+            background: none;
+            border: 1px solid #fca5a5;
+            color: #dc2626;
+            padding: 5px 12px;
+            border-radius: 6px;
+            font-size: 0.85rem;
+            font-weight: 500;
+            cursor: pointer;
+            transition: all 0.2s ease;
+        }
+
+        .btn-inline-clear:hover {
+            background-color: #fef2f2;
+            border-color: #dc2626;
+        }
+
+        .accordion-title-wrapper {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            flex: 1;
+            padding-right: 12px;
+        }
+
+        .mandamento-badge {
+            background-color: var(--secondary-color);
+            color: #ffffff;
+            font-size: 0.75rem;
+            font-weight: 600;
+            padding: 2px 8px;
+            border-radius: 12px;
+            display: inline-block;
+        }
+
+        .sin-list {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+            display: flex;
+            flex-direction: column;
+            gap: 8px;
+        }
+
+        .sin-item {
+            margin: 0;
+        }
+
+        .sin-label {
+            display: flex;
+            align-items: flex-start;
+            gap: 12px;
+            padding: 10px 14px;
+            border-radius: 8px;
+            background-color: #ffffff;
+            border: 1px solid var(--border-color);
+            cursor: pointer;
+            transition: all 0.2s ease;
+            user-select: none;
+        }
+
+        .sin-label:hover {
+            background-color: #faf5ff;
+            border-color: #c084fc;
+        }
+
+        .sin-label.selected {
+            background-color: #f5f3ff;
+            border-color: var(--secondary-color);
+            box-shadow: 0 1px 3px rgba(107, 33, 168, 0.1);
+        }
+
+        .sin-checkbox {
+            margin-top: 3px;
+            width: 18px;
+            height: 18px;
+            accent-color: var(--secondary-color);
+            cursor: pointer;
+            flex-shrink: 0;
+        }
+
+        .sin-text {
+            color: var(--text-color);
+            font-size: 0.95rem;
+            line-height: 1.5;
+        }
+
+        .sin-label.selected .sin-text {
+            color: #3b0764;
+            font-weight: 500;
+        }
+
+        /* Seção 6: Resumo da Confissão */
+        .resumo-box {
+            background-color: #ffffff;
+            border: 2px solid #e9d5ff;
+            border-radius: 10px;
+            padding: 24px;
+            box-shadow: 0 2px 8px rgba(107, 33, 168, 0.08);
+        }
+
+        .resumo-desc {
+            margin-top: 0;
+            margin-bottom: 12px;
+            font-size: 0.95rem;
+            color: #4a5568;
+        }
+
+        .resumo-privacy-alert {
+            display: flex;
+            align-items: flex-start;
+            gap: 10px;
+            background-color: #f0fdf4;
+            border: 1px solid #bbf7d0;
+            color: #166534;
+            padding: 10px 14px;
+            border-radius: 6px;
+            font-size: 0.88rem;
+            margin-bottom: 20px;
+            line-height: 1.5;
+        }
+
+        .resumo-empty {
+            text-align: center;
+            padding: 30px 20px;
+            background-color: #f8fafc;
+            border: 1px dashed var(--border-color);
+            border-radius: 8px;
+            color: #64748b;
+        }
+
+        .resumo-empty p {
+            margin: 6px 0;
+        }
+
+        .resumo-empty-hint {
+            font-size: 0.88rem;
+            color: #94a3b8;
+        }
+
+        .resumo-empty-hint a {
+            color: var(--secondary-color);
+            text-decoration: underline;
+        }
+
+        .resumo-mandamento-block {
+            margin-bottom: 18px;
+            background-color: #faf5ff;
+            border-left: 4px solid var(--secondary-color);
+            border-radius: 0 8px 8px 0;
+            padding: 14px 18px;
+        }
+
+        .resumo-mandamento-block:last-child {
+            margin-bottom: 0;
+        }
+
+        .resumo-mandamento-title {
+            margin: 0 0 10px 0;
+            color: var(--primary-color);
+            font-size: 1.05rem;
+            font-weight: 700;
+        }
+
+        .resumo-sin-list {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+            display: flex;
+            flex-direction: column;
+            gap: 8px;
+        }
+
+        .resumo-sin-item {
+            display: flex;
+            align-items: flex-start;
+            justify-content: space-between;
+            gap: 12px;
+            background: #ffffff;
+            padding: 8px 12px;
+            border-radius: 6px;
+            border: 1px solid #e2e8f0;
+            font-size: 0.92rem;
+            line-height: 1.5;
+        }
+
+        .btn-remove-sin {
+            background: none;
+            border: none;
+            color: #94a3b8;
+            cursor: pointer;
+            font-size: 1.2rem;
+            line-height: 1;
+            padding: 0 4px;
+            transition: color 0.2s ease;
+        }
+
+        .btn-remove-sin:hover {
+            color: #dc2626;
+        }
+
+        .resumo-notes-section {
+            margin-top: 24px;
+            padding-top: 18px;
+            border-top: 1px solid var(--border-color);
+        }
+
+        .notes-label {
+            display: block;
+            margin-bottom: 8px;
+            font-size: 0.95rem;
+            font-weight: 600;
+            color: var(--primary-color);
+        }
+
+        .resumo-textarea {
+            width: 100%;
+            padding: 12px;
+            border: 1px solid var(--border-color);
+            border-radius: 8px;
+            font-family: inherit;
+            font-size: 0.92rem;
+            box-sizing: border-box;
+            outline: none;
+            resize: vertical;
+            transition: border-color 0.2s ease;
+        }
+
+        .resumo-textarea:focus {
+            border-color: var(--secondary-color);
+            box-shadow: 0 0 0 3px rgba(107, 33, 168, 0.1);
+        }
+
+        .resumo-contrition-section {
+            margin-top: 20px;
+            padding-top: 18px;
+            border-top: 1px solid var(--border-color);
+        }
+
+        .resumo-actions-bar {
+            display: flex;
+            flex-wrap: wrap;
+            align-items: center;
+            gap: 10px;
+            margin-top: 20px;
+            padding-top: 18px;
+            border-top: 1px solid var(--border-color);
+        }
+
+        .btn-action {
+            display: inline-flex;
+            align-items: center;
+            gap: 6px;
+            padding: 9px 16px;
+            border-radius: 6px;
+            font-size: 0.9rem;
+            font-weight: 600;
+            cursor: pointer;
+            border: 1px solid transparent;
+            transition: all 0.2s ease;
+        }
+
+        .btn-action-primary {
+            background-color: var(--secondary-color);
+            color: #ffffff;
+        }
+
+        .btn-action-primary:hover {
+            background-color: var(--primary-color);
+        }
+
+        .btn-action-outline {
+            background-color: #ffffff;
+            color: var(--secondary-color);
+            border-color: var(--secondary-color);
+        }
+
+        .btn-action-outline:hover {
+            background-color: #faf5ff;
+        }
+
+        .btn-action-danger {
+            background-color: #ffffff;
+            color: #dc2626;
+            border-color: #fca5a5;
+            margin-left: auto;
+        }
+
+        .btn-action-danger:hover {
+            background-color: #fef2f2;
+            border-color: #dc2626;
+        }
+
+        .feedback-toast {
+            background-color: #15803d;
+            color: #ffffff;
+            padding: 8px 16px;
+            border-radius: 6px;
+            font-size: 0.88rem;
+            font-weight: 500;
+            display: inline-block;
+            margin-top: 10px;
+            animation: fadeIn 0.3s ease;
+        }
+
+        /* Botão Flutuante */
+        .floating-resumo-btn {
+            position: fixed;
+            bottom: 24px;
+            right: 24px;
+            background-color: var(--secondary-color);
+            color: #ffffff;
+            padding: 12px 18px;
+            border-radius: 50px;
+            box-shadow: 0 4px 12px rgba(107, 33, 168, 0.35);
+            text-decoration: none;
+            display: inline-flex;
+            align-items: center;
+            gap: 10px;
+            font-weight: 600;
+            font-size: 0.95rem;
+            z-index: 1000;
+            transition: all 0.2s ease;
+        }
+
+        .floating-resumo-btn:hover {
+            background-color: var(--primary-color);
+            transform: translateY(-2px);
+            box-shadow: 0 6px 16px rgba(107, 33, 168, 0.45);
+            color: #ffffff;
+            text-decoration: none;
+        }
+
+        .floating-badge {
+            background-color: #ffffff;
+            color: var(--secondary-color);
+            padding: 2px 8px;
+            border-radius: 12px;
+            font-size: 0.8rem;
+            font-weight: 700;
+        }
+
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+                transform: translateY(4px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        @media print {
+            .back-link,
+            .exam-toolbar,
+            .floating-resumo-btn,
+            .resumo-actions-bar,
+            .btn-remove-sin,
+            .resumo-privacy-alert {
+                display: none !important;
+            }
+
+            body {
+                background: #ffffff;
+                color: #000000;
+                padding: 0;
+            }
+
+            .container {
+                box-shadow: none;
+                border: none;
+                padding: 0;
+                max-width: 100%;
+            }
+
+            .resumo-box {
+                border: 1px solid #000;
+                box-shadow: none;
+            }
+
+            .resumo-mandamento-block {
+                border-left-color: #000;
+                background-color: #f9f9f9;
+            }
+        }
+
         @media (max-width: 600px) {
             .container {
                 padding: 20px;
@@ -258,6 +695,20 @@
 
             .steps-grid {
                 grid-template-columns: 1fr;
+            }
+
+            .btn-action-danger {
+                margin-left: 0;
+                width: 100%;
+            }
+
+            .resumo-actions-bar {
+                flex-direction: column;
+                align-items: stretch;
+            }
+
+            .btn-action {
+                justify-content: center;
             }
         }
     </style>
@@ -324,106 +775,331 @@
         </div>
 
         <!-- 3. Exame de Consciência (pelos Dez Mandamentos) -->
-        <div class="section">
+        <div class="section" id="secao-exame">
             <h2 class="section-title">3. Exame de Consciência pelos Dez Mandamentos</h2>
-            <p>Consulte cada mandamento clicando no título para examinar sua vida à luz da palavra de Deus:</p>
+            <p>Consulte cada mandamento clicando no título para examinar sua vida à luz da palavra de Deus. Você pode <strong>assinalar as faltas cometidas</strong> para compor o seu resumo pessoal ao final da página:</p>
+
+            <div class="exam-toolbar">
+                <div class="exam-toolbar-info">
+                    <span id="exam-counter">0 pontos assinalados</span>
+                </div>
+                <div class="exam-toolbar-actions">
+                    <a href="#resumo-confissao" class="btn-link-action">Ver Resumo &darr;</a>
+                    <button type="button" class="btn-inline-clear" id="btn-limpar-topo" style="display: none;">Limpar Seleção</button>
+                </div>
+            </div>
 
             <div class="accordion">
-                <details class="accordion-item">
-                    <summary class="accordion-header">1º Mandamento: Amar a Deus sobre todas as coisas</summary>
+                <details class="accordion-item" id="details-mand-1">
+                    <summary class="accordion-header">
+                        <div class="accordion-title-wrapper">
+                            <span>1º Mandamento: Amar a Deus sobre todas as coisas</span>
+                            <span class="mandamento-badge" id="badge-mand-1" style="display: none;">0</span>
+                        </div>
+                    </summary>
                     <div class="accordion-content">
-                        <ul>
-                            <li>Duvidei voluntariamente de algum artigo de fé católica ou me envergonhei de professá-la?</li>
-                            <li>Deixei de rezar habitualmente ou rezei com desleixo consciente?</li>
-                            <li>Consultei cartomantes, tarô, horóscopos, médiuns, feitiçarias ou participei de ritos supersticiosos e espíritas?</li>
-                            <li>Pratiquei sacrilégio recebendo a Sagrada Comunhão ou a Confissão em estado de pecado mortal sem arrependimento?</li>
-                            <li>Coloquei o dinheiro, a fama, o prazer ou o trabalho acima do amor a Deus?</li>
+                        <ul class="sin-list">
+                            <li class="sin-item">
+                                <label class="sin-label" for="sin-1-1">
+                                    <input type="checkbox" id="sin-1-1" class="sin-checkbox" data-mandamento-id="mand-1" data-mandamento="1º Mandamento: Amar a Deus sobre todas as coisas" value="Duvidei voluntariamente de algum artigo de fé católica ou me envergonhei de professá-la?">
+                                    <span class="sin-text">Duvidei voluntariamente de algum artigo de fé católica ou me envergonhei de professá-la?</span>
+                                </label>
+                            </li>
+                            <li class="sin-item">
+                                <label class="sin-label" for="sin-1-2">
+                                    <input type="checkbox" id="sin-1-2" class="sin-checkbox" data-mandamento-id="mand-1" data-mandamento="1º Mandamento: Amar a Deus sobre todas as coisas" value="Deixei de rezar habitualmente ou rezei com desleixo consciente?">
+                                    <span class="sin-text">Deixei de rezar habitualmente ou rezei com desleixo consciente?</span>
+                                </label>
+                            </li>
+                            <li class="sin-item">
+                                <label class="sin-label" for="sin-1-3">
+                                    <input type="checkbox" id="sin-1-3" class="sin-checkbox" data-mandamento-id="mand-1" data-mandamento="1º Mandamento: Amar a Deus sobre todas as coisas" value="Consultei cartomantes, tarô, horóscopos, médiuns, feitiçarias ou participei de ritos supersticiosos e espíritas?">
+                                    <span class="sin-text">Consultei cartomantes, tarô, horóscopos, médiuns, feitiçarias ou participei de ritos supersticiosos e espíritas?</span>
+                                </label>
+                            </li>
+                            <li class="sin-item">
+                                <label class="sin-label" for="sin-1-4">
+                                    <input type="checkbox" id="sin-1-4" class="sin-checkbox" data-mandamento-id="mand-1" data-mandamento="1º Mandamento: Amar a Deus sobre todas as coisas" value="Pratiquei sacrilégio recebendo a Sagrada Comunhão ou a Confissão em estado de pecado mortal sem arrependimento?">
+                                    <span class="sin-text">Pratiquei sacrilégio recebendo a Sagrada Comunhão ou a Confissão em estado de pecado mortal sem arrependimento?</span>
+                                </label>
+                            </li>
+                            <li class="sin-item">
+                                <label class="sin-label" for="sin-1-5">
+                                    <input type="checkbox" id="sin-1-5" class="sin-checkbox" data-mandamento-id="mand-1" data-mandamento="1º Mandamento: Amar a Deus sobre todas as coisas" value="Coloquei o dinheiro, a fama, o prazer ou o trabalho acima do amor a Deus?">
+                                    <span class="sin-text">Coloquei o dinheiro, a fama, o prazer ou o trabalho acima do amor a Deus?</span>
+                                </label>
+                            </li>
                         </ul>
                     </div>
                 </details>
 
-                <details class="accordion-item">
-                    <summary class="accordion-header">2º Mandamento: Não tomar Seu santo Nome em vão</summary>
+                <details class="accordion-item" id="details-mand-2">
+                    <summary class="accordion-header">
+                        <div class="accordion-title-wrapper">
+                            <span>2º Mandamento: Não tomar Seu santo Nome em vão</span>
+                            <span class="mandamento-badge" id="badge-mand-2" style="display: none;">0</span>
+                        </div>
+                    </summary>
                     <div class="accordion-content">
-                        <ul>
-                            <li>Pronunciei o Santo Nome de Deus, de Jesus, da Virgem Maria ou dos Santos com raiva, leviandade ou zombaria?</li>
-                            <li>Blasfemei contra Deus ou contra a Santa Igreja?</li>
-                            <li>Jurei falso ou jurei sem necessidade?</li>
-                            <li>Deixei de cumprir promessas ou votos feitos livremente a Deus?</li>
+                        <ul class="sin-list">
+                            <li class="sin-item">
+                                <label class="sin-label" for="sin-2-1">
+                                    <input type="checkbox" id="sin-2-1" class="sin-checkbox" data-mandamento-id="mand-2" data-mandamento="2º Mandamento: Não tomar Seu santo Nome em vão" value="Pronunciei o Santo Nome de Deus, de Jesus, da Virgem Maria ou dos Santos com raiva, leviandade ou zombaria?">
+                                    <span class="sin-text">Pronunciei o Santo Nome de Deus, de Jesus, da Virgem Maria ou dos Santos com raiva, leviandade ou zombaria?</span>
+                                </label>
+                            </li>
+                            <li class="sin-item">
+                                <label class="sin-label" for="sin-2-2">
+                                    <input type="checkbox" id="sin-2-2" class="sin-checkbox" data-mandamento-id="mand-2" data-mandamento="2º Mandamento: Não tomar Seu santo Nome em vão" value="Blasfemei contra Deus ou contra a Santa Igreja?">
+                                    <span class="sin-text">Blasfemei contra Deus ou contra a Santa Igreja?</span>
+                                </label>
+                            </li>
+                            <li class="sin-item">
+                                <label class="sin-label" for="sin-2-3">
+                                    <input type="checkbox" id="sin-2-3" class="sin-checkbox" data-mandamento-id="mand-2" data-mandamento="2º Mandamento: Não tomar Seu santo Nome em vão" value="Jurei falso ou jurei sem necessidade?">
+                                    <span class="sin-text">Jurei falso ou jurei sem necessidade?</span>
+                                </label>
+                            </li>
+                            <li class="sin-item">
+                                <label class="sin-label" for="sin-2-4">
+                                    <input type="checkbox" id="sin-2-4" class="sin-checkbox" data-mandamento-id="mand-2" data-mandamento="2º Mandamento: Não tomar Seu santo Nome em vão" value="Deixei de cumprir promessas ou votos feitos livremente a Deus?">
+                                    <span class="sin-text">Deixei de cumprir promessas ou votos feitos livremente a Deus?</span>
+                                </label>
+                            </li>
                         </ul>
                     </div>
                 </details>
 
-                <details class="accordion-item">
-                    <summary class="accordion-header">3º Mandamento: Guardar domingos e festas de guarda</summary>
+                <details class="accordion-item" id="details-mand-3">
+                    <summary class="accordion-header">
+                        <div class="accordion-title-wrapper">
+                            <span>3º Mandamento: Guardar domingos e festas de guarda</span>
+                            <span class="mandamento-badge" id="badge-mand-3" style="display: none;">0</span>
+                        </div>
+                    </summary>
                     <div class="accordion-content">
-                        <ul>
-                            <li>Faltei à Santa Missa aos domingos ou dias de preceito por preguiça ou descuido, sem motivo grave de saúde ou força maior?</li>
-                            <li>Cheguei habitualmente tarde à Missa por descuido culposo?</li>
-                            <li>Realizei trabalhos servis ou comerciais desnecessários no domingo, impedindo o descanso sagrado e o culto devido a Deus?</li>
+                        <ul class="sin-list">
+                            <li class="sin-item">
+                                <label class="sin-label" for="sin-3-1">
+                                    <input type="checkbox" id="sin-3-1" class="sin-checkbox" data-mandamento-id="mand-3" data-mandamento="3º Mandamento: Guardar domingos e festas de guarda" value="Faltei à Santa Missa aos domingos ou dias de preceito por preguiça ou descuido, sem motivo grave de saúde ou força maior?">
+                                    <span class="sin-text">Faltei à Santa Missa aos domingos ou dias de preceito por preguiça ou descuido, sem motivo grave de saúde ou força maior?</span>
+                                </label>
+                            </li>
+                            <li class="sin-item">
+                                <label class="sin-label" for="sin-3-2">
+                                    <input type="checkbox" id="sin-3-2" class="sin-checkbox" data-mandamento-id="mand-3" data-mandamento="3º Mandamento: Guardar domingos e festas de guarda" value="Cheguei habitualmente tarde à Missa por descuido culposo?">
+                                    <span class="sin-text">Cheguei habitualmente tarde à Missa por descuido culposo?</span>
+                                </label>
+                            </li>
+                            <li class="sin-item">
+                                <label class="sin-label" for="sin-3-3">
+                                    <input type="checkbox" id="sin-3-3" class="sin-checkbox" data-mandamento-id="mand-3" data-mandamento="3º Mandamento: Guardar domingos e festas de guarda" value="Realizei trabalhos servis ou comerciais desnecessários no domingo, impedindo o descanso sagrado e o culto devido a Deus?">
+                                    <span class="sin-text">Realizei trabalhos servis ou comerciais desnecessários no domingo, impedindo o descanso sagrado e o culto devido a Deus?</span>
+                                </label>
+                            </li>
                         </ul>
                     </div>
                 </details>
 
-                <details class="accordion-item">
-                    <summary class="accordion-header">4º Mandamento: Honrar pai e mãe</summary>
+                <details class="accordion-item" id="details-mand-4">
+                    <summary class="accordion-header">
+                        <div class="accordion-title-wrapper">
+                            <span>4º Mandamento: Honrar pai e mãe</span>
+                            <span class="mandamento-badge" id="badge-mand-4" style="display: none;">0</span>
+                        </div>
+                    </summary>
                     <div class="accordion-content">
-                        <ul>
-                            <li>Fui desrespeitoso, desobediente ou ingrato com meus pais?</li>
-                            <li>Deixei de socorrê-los em suas necessidades materiais, de saúde ou espirituais?</li>
-                            <li>Como pai/mãe: negligenciei a educação religiosa, moral e material de meus filhos? Dei mau exemplo?</li>
-                            <li>Fui grosseiro ou infiel nos deveres familiares para com cônjuge e parentes?</li>
+                        <ul class="sin-list">
+                            <li class="sin-item">
+                                <label class="sin-label" for="sin-4-1">
+                                    <input type="checkbox" id="sin-4-1" class="sin-checkbox" data-mandamento-id="mand-4" data-mandamento="4º Mandamento: Honrar pai e mãe" value="Fui desrespeitoso, desobediente ou ingrato com meus pais?">
+                                    <span class="sin-text">Fui desrespeitoso, desobediente ou ingrato com meus pais?</span>
+                                </label>
+                            </li>
+                            <li class="sin-item">
+                                <label class="sin-label" for="sin-4-2">
+                                    <input type="checkbox" id="sin-4-2" class="sin-checkbox" data-mandamento-id="mand-4" data-mandamento="4º Mandamento: Honrar pai e mãe" value="Deixei de socorrê-los em suas necessidades materiais, de saúde ou espirituais?">
+                                    <span class="sin-text">Deixei de socorrê-los em suas necessidades materiais, de saúde ou espirituais?</span>
+                                </label>
+                            </li>
+                            <li class="sin-item">
+                                <label class="sin-label" for="sin-4-3">
+                                    <input type="checkbox" id="sin-4-3" class="sin-checkbox" data-mandamento-id="mand-4" data-mandamento="4º Mandamento: Honrar pai e mãe" value="Como pai/mãe: negligenciei a educação religiosa, moral e material de meus filhos? Dei mau exemplo?">
+                                    <span class="sin-text">Como pai/mãe: negligenciei a educação religiosa, moral e material de meus filhos? Dei mau exemplo?</span>
+                                </label>
+                            </li>
+                            <li class="sin-item">
+                                <label class="sin-label" for="sin-4-4">
+                                    <input type="checkbox" id="sin-4-4" class="sin-checkbox" data-mandamento-id="mand-4" data-mandamento="4º Mandamento: Honrar pai e mãe" value="Fui grosseiro ou infiel nos deveres familiares para com cônjuge e parentes?">
+                                    <span class="sin-text">Fui grosseiro ou infiel nos deveres familiares para com cônjuge e parentes?</span>
+                                </label>
+                            </li>
                         </ul>
                     </div>
                 </details>
 
-                <details class="accordion-item">
-                    <summary class="accordion-header">5º Mandamento: Não matarás</summary>
+                <details class="accordion-item" id="details-mand-5">
+                    <summary class="accordion-header">
+                        <div class="accordion-title-wrapper">
+                            <span>5º Mandamento: Não matarás</span>
+                            <span class="mandamento-badge" id="badge-mand-5" style="display: none;">0</span>
+                        </div>
+                    </summary>
                     <div class="accordion-content">
-                        <ul>
-                            <li>Causei dano físico, agredi, ameacei ou insultei o próximo?</li>
-                            <li>Nutri ódio, rancor, desejo de vingança ou me recusei a perdoar de coração?</li>
-                            <li>Cometi ou colaborei direta e voluntariamente com aborto, eutanásia ou mutilação?</li>
-                            <li>Prejudiquei minha saúde com embriaguez, uso de drogas ou direção perigosa de veículos?</li>
-                            <li>Escandalizei o próximo com más palavras, conselhos ou atitudes que o levaram ao pecado?</li>
+                        <ul class="sin-list">
+                            <li class="sin-item">
+                                <label class="sin-label" for="sin-5-1">
+                                    <input type="checkbox" id="sin-5-1" class="sin-checkbox" data-mandamento-id="mand-5" data-mandamento="5º Mandamento: Não matarás" value="Causei dano físico, agredi, ameacei ou insultei o próximo?">
+                                    <span class="sin-text">Causei dano físico, agredi, ameacei ou insultei o próximo?</span>
+                                </label>
+                            </li>
+                            <li class="sin-item">
+                                <label class="sin-label" for="sin-5-2">
+                                    <input type="checkbox" id="sin-5-2" class="sin-checkbox" data-mandamento-id="mand-5" data-mandamento="5º Mandamento: Não matarás" value="Nutri ódio, rancor, desejo de vingança ou me recusei a perdoar de coração?">
+                                    <span class="sin-text">Nutri ódio, rancor, desejo de vingança ou me recusei a perdoar de coração?</span>
+                                </label>
+                            </li>
+                            <li class="sin-item">
+                                <label class="sin-label" for="sin-5-3">
+                                    <input type="checkbox" id="sin-5-3" class="sin-checkbox" data-mandamento-id="mand-5" data-mandamento="5º Mandamento: Não matarás" value="Cometi ou colaborei direta e voluntariamente com aborto, eutanásia ou mutilação?">
+                                    <span class="sin-text">Cometi ou colaborei direta e voluntariamente com aborto, eutanásia ou mutilação?</span>
+                                </label>
+                            </li>
+                            <li class="sin-item">
+                                <label class="sin-label" for="sin-5-4">
+                                    <input type="checkbox" id="sin-5-4" class="sin-checkbox" data-mandamento-id="mand-5" data-mandamento="5º Mandamento: Não matarás" value="Prejudiquei minha saúde com embriaguez, uso de drogas ou direção perigosa de veículos?">
+                                    <span class="sin-text">Prejudiquei minha saúde com embriaguez, uso de drogas ou direção perigosa de veículos?</span>
+                                </label>
+                            </li>
+                            <li class="sin-item">
+                                <label class="sin-label" for="sin-5-5">
+                                    <input type="checkbox" id="sin-5-5" class="sin-checkbox" data-mandamento-id="mand-5" data-mandamento="5º Mandamento: Não matarás" value="Escandalizei o próximo com más palavras, conselhos ou atitudes que o levaram ao pecado?">
+                                    <span class="sin-text">Escandalizei o próximo com más palavras, conselhos ou atitudes que o levaram ao pecado?</span>
+                                </label>
+                            </li>
                         </ul>
                     </div>
                 </details>
 
-                <details class="accordion-item">
-                    <summary class="accordion-header">6º e 9º Mandamentos: Pureza e Castidade (atos e pensamentos)</summary>
+                <details class="accordion-item" id="details-mand-6-9">
+                    <summary class="accordion-header">
+                        <div class="accordion-title-wrapper">
+                            <span>6º e 9º Mandamentos: Pureza e Castidade (atos e pensamentos)</span>
+                            <span class="mandamento-badge" id="badge-mand-6-9" style="display: none;">0</span>
+                        </div>
+                    </summary>
                     <div class="accordion-content">
-                        <ul>
-                            <li>Consenti deliberadamente em pensamentos ou desejos impuros e lascivos?</li>
-                            <li>Consumi pornografia, acessei conteúdos obscenos na internet ou em outras mídias?</li>
-                            <li>Pratiquei atos impuros sozinho (masturbação) ou com outras pessoas fora do legítimo matrimônio?</li>
-                            <li>Fui infiel ao cônjuge em atos, conversas ou relacionamentos virtuais?</li>
-                            <li>Conversei de maneira torpe ou contei piadas imorais que induzem à quebra da modéstia?</li>
+                        <ul class="sin-list">
+                            <li class="sin-item">
+                                <label class="sin-label" for="sin-6-1">
+                                    <input type="checkbox" id="sin-6-1" class="sin-checkbox" data-mandamento-id="mand-6-9" data-mandamento="6º e 9º Mandamentos: Pureza e Castidade (atos e pensamentos)" value="Consenti deliberadamente em pensamentos ou desejos impuros e lascivos?">
+                                    <span class="sin-text">Consenti deliberadamente em pensamentos ou desejos impuros e lascivos?</span>
+                                </label>
+                            </li>
+                            <li class="sin-item">
+                                <label class="sin-label" for="sin-6-2">
+                                    <input type="checkbox" id="sin-6-2" class="sin-checkbox" data-mandamento-id="mand-6-9" data-mandamento="6º e 9º Mandamentos: Pureza e Castidade (atos e pensamentos)" value="Consumi pornografia, acessei conteúdos obscenos na internet ou em outras mídias?">
+                                    <span class="sin-text">Consumi pornografia, acessei conteúdos obscenos na internet ou em outras mídias?</span>
+                                </label>
+                            </li>
+                            <li class="sin-item">
+                                <label class="sin-label" for="sin-6-3">
+                                    <input type="checkbox" id="sin-6-3" class="sin-checkbox" data-mandamento-id="mand-6-9" data-mandamento="6º e 9º Mandamentos: Pureza e Castidade (atos e pensamentos)" value="Pratiquei atos impuros sozinho (masturbação) ou com outras pessoas fora do legítimo matrimônio?">
+                                    <span class="sin-text">Pratiquei atos impuros sozinho (masturbação) ou com outras pessoas fora do legítimo matrimônio?</span>
+                                </label>
+                            </li>
+                            <li class="sin-item">
+                                <label class="sin-label" for="sin-6-4">
+                                    <input type="checkbox" id="sin-6-4" class="sin-checkbox" data-mandamento-id="mand-6-9" data-mandamento="6º e 9º Mandamentos: Pureza e Castidade (atos e pensamentos)" value="Fui infiel ao cônjuge em atos, conversas ou relacionamentos virtuais?">
+                                    <span class="sin-text">Fui infiel ao cônjuge em atos, conversas ou relacionamentos virtuais?</span>
+                                </label>
+                            </li>
+                            <li class="sin-item">
+                                <label class="sin-label" for="sin-6-5">
+                                    <input type="checkbox" id="sin-6-5" class="sin-checkbox" data-mandamento-id="mand-6-9" data-mandamento="6º e 9º Mandamentos: Pureza e Castidade (atos e pensamentos)" value="Conversei de maneira torpe ou contei piadas imorais que induzem à quebra da modéstia?">
+                                    <span class="sin-text">Conversei de maneira torpe ou contei piadas imorais que induzem à quebra da modéstia?</span>
+                                </label>
+                            </li>
                         </ul>
                     </div>
                 </details>
 
-                <details class="accordion-item">
-                    <summary class="accordion-header">7º e 10º Mandamentos: Justiça e Desapego (atos e cobiça de bens)</summary>
+                <details class="accordion-item" id="details-mand-7-10">
+                    <summary class="accordion-header">
+                        <div class="accordion-title-wrapper">
+                            <span>7º e 10º Mandamentos: Justiça e Desapego (atos e cobiça de bens)</span>
+                            <span class="mandamento-badge" id="badge-mand-7-10" style="display: none;">0</span>
+                        </div>
+                    </summary>
                     <div class="accordion-content">
-                        <ul>
-                            <li>Roubei, furtei ou retive indevidamente bens de outrem, de empresas ou do Estado?</li>
-                            <li>Causei prejuízo intencional ao patrimônio alheio e deixei de restituí-lo?</li>
-                            <li>Enganei alguém em negócios, contratos, compras ou vendas?</li>
-                            <li>Fui negligente no trabalho remunerado, recebendo sem cumprir o dever profissional?</li>
-                            <li>Cobiço desmedidamente os bens dos outros, nutrindo inveja ou avareza insaciável?</li>
+                        <ul class="sin-list">
+                            <li class="sin-item">
+                                <label class="sin-label" for="sin-7-1">
+                                    <input type="checkbox" id="sin-7-1" class="sin-checkbox" data-mandamento-id="mand-7-10" data-mandamento="7º e 10º Mandamentos: Justiça e Desapego (atos e cobiça de bens)" value="Roubei, furtei ou retive indevidamente bens de outrem, de empresas ou do Estado?">
+                                    <span class="sin-text">Roubei, furtei ou retive indevidamente bens de outrem, de empresas ou do Estado?</span>
+                                </label>
+                            </li>
+                            <li class="sin-item">
+                                <label class="sin-label" for="sin-7-2">
+                                    <input type="checkbox" id="sin-7-2" class="sin-checkbox" data-mandamento-id="mand-7-10" data-mandamento="7º e 10º Mandamentos: Justiça e Desapego (atos e cobiça de bens)" value="Causei prejuízo intencional ao patrimônio alheio e deixei de restituí-lo?">
+                                    <span class="sin-text">Causei prejuízo intencional ao patrimônio alheio e deixei de restituí-lo?</span>
+                                </label>
+                            </li>
+                            <li class="sin-item">
+                                <label class="sin-label" for="sin-7-3">
+                                    <input type="checkbox" id="sin-7-3" class="sin-checkbox" data-mandamento-id="mand-7-10" data-mandamento="7º e 10º Mandamentos: Justiça e Desapego (atos e cobiça de bens)" value="Enganei alguém em negócios, contratos, compras ou vendas?">
+                                    <span class="sin-text">Enganei alguém em negócios, contratos, compras ou vendas?</span>
+                                </label>
+                            </li>
+                            <li class="sin-item">
+                                <label class="sin-label" for="sin-7-4">
+                                    <input type="checkbox" id="sin-7-4" class="sin-checkbox" data-mandamento-id="mand-7-10" data-mandamento="7º e 10º Mandamentos: Justiça e Desapego (atos e cobiça de bens)" value="Fui negligente no trabalho remunerado, recebendo sem cumprir o dever profissional?">
+                                    <span class="sin-text">Fui negligente no trabalho remunerado, recebendo sem cumprir o dever profissional?</span>
+                                </label>
+                            </li>
+                            <li class="sin-item">
+                                <label class="sin-label" for="sin-7-5">
+                                    <input type="checkbox" id="sin-7-5" class="sin-checkbox" data-mandamento-id="mand-7-10" data-mandamento="7º e 10º Mandamentos: Justiça e Desapego (atos e cobiça de bens)" value="Cobiço desmedidamente os bens dos outros, nutrindo inveja ou avareza insaciável?">
+                                    <span class="sin-text">Cobiço desmedidamente os bens dos outros, nutrindo inveja ou avareza insaciável?</span>
+                                </label>
+                            </li>
                         </ul>
                     </div>
                 </details>
 
-                <details class="accordion-item">
-                    <summary class="accordion-header">8º Mandamento: Não levantar falso testemunho</summary>
+                <details class="accordion-item" id="details-mand-8">
+                    <summary class="accordion-header">
+                        <div class="accordion-title-wrapper">
+                            <span>8º Mandamento: Não levantar falso testemunho</span>
+                            <span class="mandamento-badge" id="badge-mand-8" style="display: none;">0</span>
+                        </div>
+                    </summary>
                     <div class="accordion-content">
-                        <ul>
-                            <li>Disse mentiras voluntárias?</li>
-                            <li>Difamei, caluniei ou fiz fofocas destruindo a honra e boa fama de alguém?</li>
-                            <li>Cometi juízos temerários (suspeitas maldosas sem fundamento objetivo)?</li>
-                            <li>Revelei segredos confiados sem justa causa?</li>
+                        <ul class="sin-list">
+                            <li class="sin-item">
+                                <label class="sin-label" for="sin-8-1">
+                                    <input type="checkbox" id="sin-8-1" class="sin-checkbox" data-mandamento-id="mand-8" data-mandamento="8º Mandamento: Não levantar falso testemunho" value="Disse mentiras voluntárias?">
+                                    <span class="sin-text">Disse mentiras voluntárias?</span>
+                                </label>
+                            </li>
+                            <li class="sin-item">
+                                <label class="sin-label" for="sin-8-2">
+                                    <input type="checkbox" id="sin-8-2" class="sin-checkbox" data-mandamento-id="mand-8" data-mandamento="8º Mandamento: Não levantar falso testemunho" value="Difamei, caluniei ou fiz fofocas destruindo a honra e boa fama de alguém?">
+                                    <span class="sin-text">Difamei, caluniei ou fiz fofocas destruindo a honra e boa fama de alguém?</span>
+                                </label>
+                            </li>
+                            <li class="sin-item">
+                                <label class="sin-label" for="sin-8-3">
+                                    <input type="checkbox" id="sin-8-3" class="sin-checkbox" data-mandamento-id="mand-8" data-mandamento="8º Mandamento: Não levantar falso testemunho" value="Cometi juízos temerários (suspeitas maldosas sem fundamento objetivo)?">
+                                    <span class="sin-text">Cometi juízos temerários (suspeitas maldosas sem fundamento objetivo)?</span>
+                                </label>
+                            </li>
+                            <li class="sin-item">
+                                <label class="sin-label" for="sin-8-4">
+                                    <input type="checkbox" id="sin-8-4" class="sin-checkbox" data-mandamento-id="mand-8" data-mandamento="8º Mandamento: Não levantar falso testemunho" value="Revelei segredos confiados sem justa causa?">
+                                    <span class="sin-text">Revelei segredos confiados sem justa causa?</span>
+                                </label>
+                            </li>
                         </ul>
                     </div>
                 </details>
@@ -459,7 +1135,344 @@
                 "Bendito sejais, Senhor, meu Pai de infinita misericórdia, que não olhastes para a multidão das minhas iniquidades, mas me acolhestes novamente com o Vosso amor redentor. Lava-me de todas as culpas e dai-me a força para permanecer fiel ao Vosso Evangelho até o fim dos meus dias. Virgem Imaculada e meu Santo Anjo da Guarda, sustentai-me na fidelidade a Cristo. Amém."
             </div>
         </div>
+
+        <!-- 6. Resumo da Confissão -->
+        <div class="section" id="resumo-confissao">
+            <h2 class="section-title">6. Resumo da Confissão</h2>
+            <div class="resumo-box">
+                <p class="resumo-desc">
+                    Abaixo estão reunidos os pontos que você assinalou durante o exame de consciência pelos Dez Mandamentos. Use este resumo como um guia pessoal diante do sacerdote:
+                </p>
+
+                <div class="resumo-privacy-alert">
+                    <span>🔒 <strong>Privacidade do Penitente:</strong> Suas respostas não são enviadas a nenhum servidor. Tudo permanece seguro e restrito apenas ao seu navegador nesta sessão.</span>
+                </div>
+
+                <div id="resumo-conteudo">
+                    <!-- Gerado dinamicamente via JavaScript -->
+                </div>
+
+                <div class="resumo-notes-section">
+                    <label for="confissao-anotacoes" class="notes-label">Anotações pessoais ou outros pecados para recordar (opcional):</label>
+                    <textarea id="confissao-anotacoes" class="resumo-textarea" rows="3" placeholder="Exemplo: Tempo desde a última confissão, faltas específicas, circunstâncias ou orações..."></textarea>
+                </div>
+
+                <div class="resumo-contrition-section">
+                    <span class="notes-label">Ato de Contrição (Oração para rezar diante do confessor):</span>
+                    <div class="prayer-box" style="margin-top: 8px; margin-bottom: 0; background-color: #faf5ff; border-color: #e9d5ff;">
+                        "Meu Deus, eu me arrependo de todo o coração de Vos ter ofendido, porque sois tão bom e amável. Prometo firmemente, com a ajuda da Vossa graça, nunca mais pecar e fugir das ocasiões de pecado. Meu Jesus, misericórdia! Amém."
+                    </div>
+                </div>
+
+                <div class="resumo-actions-bar">
+                    <button type="button" class="btn-action btn-action-primary" id="btn-copiar-resumo">📋 Copiar Resumo</button>
+                    <button type="button" class="btn-action btn-action-outline" id="btn-imprimir-resumo">🖨️ Imprimir / Salvar PDF</button>
+                    <button type="button" class="btn-action btn-action-danger" id="btn-limpar-resumo">🗑️ Limpar Seleção</button>
+                </div>
+                <div id="feedback-copia" class="feedback-toast" style="display: none;">✓ Resumo copiado para a área de transferência!</div>
+            </div>
+        </div>
     </div>
+
+    <!-- Botão Flutuante de Atalho ao Resumo -->
+    <a href="#resumo-confissao" id="floating-resumo-btn" class="floating-resumo-btn" style="display: none;" title="Ver Resumo da Confissão">
+        <span>📋 Ver Resumo</span>
+        <span class="floating-badge" id="floating-count">0</span>
+    </a>
+
+    <script>
+        (function () {
+            const STORAGE_KEY_SINS = 'confissao_selected_sins_v1';
+            const STORAGE_KEY_NOTES = 'confissao_notes_v1';
+
+            const checkboxes = document.querySelectorAll('.sin-checkbox');
+            const examCounter = document.getElementById('exam-counter');
+            const btnLimparTopo = document.getElementById('btn-limpar-topo');
+            const resumoConteudo = document.getElementById('resumo-conteudo');
+            const confissaoAnotacoes = document.getElementById('confissao-anotacoes');
+            const btnCopiar = document.getElementById('btn-copiar-resumo');
+            const btnImprimir = document.getElementById('btn-imprimir-resumo');
+            const btnLimparResumo = document.getElementById('btn-limpar-resumo');
+            const feedbackCopia = document.getElementById('feedback-copia');
+            const floatingBtn = document.getElementById('floating-resumo-btn');
+            const floatingCount = document.getElementById('floating-count');
+
+            function carregarEstado() {
+                try {
+                    const savedIds = JSON.parse(sessionStorage.getItem(STORAGE_KEY_SINS) || '[]');
+                    if (Array.isArray(savedIds)) {
+                        checkboxes.forEach(cb => {
+                            if (savedIds.includes(cb.id)) {
+                                cb.checked = true;
+                                cb.closest('.sin-label')?.classList.add('selected');
+                            }
+                        });
+                    }
+                    const savedNotes = sessionStorage.getItem(STORAGE_KEY_NOTES);
+                    if (savedNotes && confissaoAnotacoes) {
+                        confissaoAnotacoes.value = savedNotes;
+                    }
+                } catch (e) {
+                    console.error('Erro ao ler sessionStorage:', e);
+                }
+                atualizarTudo();
+            }
+
+            function salvarEstado() {
+                try {
+                    const selectedIds = Array.from(checkboxes)
+                        .filter(cb => cb.checked)
+                        .map(cb => cb.id);
+                    sessionStorage.setItem(STORAGE_KEY_SINS, JSON.stringify(selectedIds));
+                    if (confissaoAnotacoes) {
+                        sessionStorage.setItem(STORAGE_KEY_NOTES, confissaoAnotacoes.value);
+                    }
+                } catch (e) {
+                    console.error('Erro ao gravar sessionStorage:', e);
+                }
+            }
+
+            function atualizarTudo() {
+                const mandamentoCounts = {};
+                let totalSelected = 0;
+                const groupedSins = {};
+
+                checkboxes.forEach(cb => {
+                    const mandId = cb.dataset.mandamentoId;
+                    const mandTitle = cb.dataset.mandamento;
+                    const label = cb.closest('.sin-label');
+
+                    if (cb.checked) {
+                        totalSelected++;
+                        label?.classList.add('selected');
+
+                        mandamentoCounts[mandId] = (mandamentoCounts[mandId] || 0) + 1;
+
+                        if (!groupedSins[mandTitle]) {
+                            groupedSins[mandTitle] = [];
+                        }
+                        groupedSins[mandTitle].push({
+                            id: cb.id,
+                            text: cb.value
+                        });
+                    } else {
+                        label?.classList.remove('selected');
+                    }
+                });
+
+                const allMandIds = ['mand-1', 'mand-2', 'mand-3', 'mand-4', 'mand-5', 'mand-6-9', 'mand-7-10', 'mand-8'];
+                allMandIds.forEach(id => {
+                    const badge = document.getElementById('badge-' + id);
+                    if (badge) {
+                        const count = mandamentoCounts[id] || 0;
+                        if (count > 0) {
+                            badge.textContent = count + (count === 1 ? ' marcado' : ' marcados');
+                            badge.style.display = 'inline-block';
+                        } else {
+                            badge.style.display = 'none';
+                        }
+                    }
+                });
+
+                if (examCounter) {
+                    if (totalSelected === 0) {
+                        examCounter.textContent = '0 pontos assinalados';
+                    } else if (totalSelected === 1) {
+                        examCounter.textContent = '1 ponto assinalado';
+                    } else {
+                        examCounter.textContent = totalSelected + ' pontos assinalados';
+                    }
+                }
+
+                if (btnLimparTopo) {
+                    btnLimparTopo.style.display = totalSelected > 0 ? 'inline-block' : 'none';
+                }
+
+                if (floatingBtn && floatingCount) {
+                    if (totalSelected > 0) {
+                        floatingCount.textContent = totalSelected;
+                        floatingBtn.style.display = 'inline-flex';
+                    } else {
+                        floatingBtn.style.display = 'none';
+                    }
+                }
+
+                renderizarResumo(groupedSins, totalSelected);
+                salvarEstado();
+            }
+
+            function renderizarResumo(groupedSins, totalSelected) {
+                if (!resumoConteudo) return;
+
+                if (totalSelected === 0) {
+                    resumoConteudo.innerHTML = `
+                        <div class="resumo-empty">
+                            <p><strong>Nenhum ponto ou pecado assinalado até o momento.</strong></p>
+                            <p class="resumo-empty-hint">Suba até a seção <strong><a href="#secao-exame">3. Exame de Consciência</a></strong> e marque os pontos que deseja levar à confissão para vê-los organizados aqui.</p>
+                        </div>
+                    `;
+                    return;
+                }
+
+                let html = '';
+                for (const mandTitle in groupedSins) {
+                    const sins = groupedSins[mandTitle];
+                    html += `
+                        <div class="resumo-mandamento-block">
+                            <h4 class="resumo-mandamento-title">${escapeHtml(mandTitle)}</h4>
+                            <ul class="resumo-sin-list">
+                    `;
+                    sins.forEach(sin => {
+                        html += `
+                            <li class="resumo-sin-item">
+                                <span>${escapeHtml(sin.text)}</span>
+                                <button type="button" class="btn-remove-sin" data-sin-id="${sin.id}" title="Desmarcar este item" aria-label="Desmarcar este item">&times;</button>
+                            </li>
+                        `;
+                    });
+                    html += `
+                            </ul>
+                        </div>
+                    `;
+                }
+                resumoConteudo.innerHTML = html;
+
+                resumoConteudo.querySelectorAll('.btn-remove-sin').forEach(btn => {
+                    btn.addEventListener('click', function () {
+                        const sinId = this.dataset.sinId;
+                        const cb = document.getElementById(sinId);
+                        if (cb) {
+                            cb.checked = false;
+                            atualizarTudo();
+                        }
+                    });
+                });
+            }
+
+            function limparTudo() {
+                const confirmMsg = "Deseja realmente limpar todos os pontos assinalados e suas anotações da confissão?";
+                if (confirm(confirmMsg)) {
+                    checkboxes.forEach(cb => {
+                        cb.checked = false;
+                        cb.closest('.sin-label')?.classList.remove('selected');
+                    });
+                    if (confissaoAnotacoes) {
+                        confissaoAnotacoes.value = '';
+                    }
+                    sessionStorage.removeItem(STORAGE_KEY_SINS);
+                    sessionStorage.removeItem(STORAGE_KEY_NOTES);
+                    atualizarTudo();
+                }
+            }
+
+            function gerarTextoResumo() {
+                const dataHoje = new Date().toLocaleDateString('pt-BR');
+                let texto = `=== RESUMO PARA A CONFISSÃO ===\nData: ${dataHoje}\n\n`;
+
+                const groupedSins = {};
+                let total = 0;
+                checkboxes.forEach(cb => {
+                    if (cb.checked) {
+                        total++;
+                        const mandTitle = cb.dataset.mandamento;
+                        if (!groupedSins[mandTitle]) groupedSins[mandTitle] = [];
+                        groupedSins[mandTitle].push(cb.value);
+                    }
+                });
+
+                if (total === 0) {
+                    texto += "Nenhum pecado específico foi assinalado no exame.\n\n";
+                } else {
+                    for (const mandTitle in groupedSins) {
+                        texto += `[${mandTitle}]\n`;
+                        groupedSins[mandTitle].forEach(s => {
+                            texto += ` • ${s}\n`;
+                        });
+                        texto += "\n";
+                    }
+                }
+
+                const notas = confissaoAnotacoes ? confissaoAnotacoes.value.trim() : '';
+                if (notas) {
+                    texto += `[Anotações Pessoais]:\n${notas}\n\n`;
+                }
+
+                texto += "Ato de Contrição:\n\"Meu Deus, eu me arrependo de todo o coração de Vos ter ofendido, porque sois tão bom e amável. Prometo firmemente, com a ajuda da Vossa graça, nunca mais pecar e fugir das ocasiões de pecado. Meu Jesus, misericórdia! Amém.\"\n";
+
+                return texto;
+            }
+
+            function copiarResumo() {
+                const texto = gerarTextoResumo();
+
+                if (navigator.clipboard && navigator.clipboard.writeText) {
+                    navigator.clipboard.writeText(texto).then(mostrarFeedback).catch(() => fallbackCopiar(texto));
+                } else {
+                    fallbackCopiar(texto);
+                }
+            }
+
+            function fallbackCopiar(texto) {
+                const ta = document.createElement('textarea');
+                ta.value = texto;
+                ta.style.position = 'fixed';
+                ta.style.opacity = '0';
+                document.body.appendChild(ta);
+                ta.focus();
+                ta.select();
+                try {
+                    document.execCommand('copy');
+                    mostrarFeedback();
+                } catch (err) {
+                    alert('Não foi possível copiar automaticamente. Selecione e copie manualmente.');
+                }
+                document.body.removeChild(ta);
+            }
+
+            function mostrarFeedback() {
+                if (!feedbackCopia) return;
+                feedbackCopia.style.display = 'inline-block';
+                setTimeout(() => {
+                    feedbackCopia.style.display = 'none';
+                }, 3000);
+            }
+
+            function escapeHtml(str) {
+                return str
+                    .replace(/&/g, "&amp;")
+                    .replace(/</g, "&lt;")
+                    .replace(/>/g, "&gt;")
+                    .replace(/"/g, "&quot;")
+                    .replace(/'/g, "&#039;");
+            }
+
+            checkboxes.forEach(cb => {
+                cb.addEventListener('change', atualizarTudo);
+            });
+
+            if (confissaoAnotacoes) {
+                confissaoAnotacoes.addEventListener('input', salvarEstado);
+            }
+
+            if (btnCopiar) {
+                btnCopiar.addEventListener('click', copiarResumo);
+            }
+
+            if (btnImprimir) {
+                btnImprimir.addEventListener('click', () => window.print());
+            }
+
+            if (btnLimparResumo) {
+                btnLimparResumo.addEventListener('click', limparTudo);
+            }
+
+            if (btnLimparTopo) {
+                btnLimparTopo.addEventListener('click', limparTudo);
+            }
+
+            carregarEstado();
+        })();
+    </script>
 </body>
 
 </html>
